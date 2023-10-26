@@ -1,9 +1,7 @@
 import React from 'react';
 
-const Phones = () => {
+export const Phones = () => {
   return (
     <div>Phones</div>
   );
 };
-
-export default Phones;
