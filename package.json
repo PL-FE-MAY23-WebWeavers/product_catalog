@@ -58,7 +58,7 @@
   },
 
   "lint-staged": {
-    "*.js, *.ts, *.tsx, *.jsx": "npm run format-lint"
+    "*.{js,ts,tsx,jsx}": "npm run format-lint"
   }
   
 }
