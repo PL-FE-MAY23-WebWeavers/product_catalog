@@ -1,16 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Outlet} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>Hello WebWeavers!</p>
-      </header>
+export const App = () => (
+  <>
+    <div className="section">
+      <div className="container">
+        <Outlet />
+      </div>
     </div>
-  );
-}
-
-export default App;
+  </>
+);
