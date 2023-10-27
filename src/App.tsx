@@ -6,7 +6,6 @@ export const App = () => (
   <>
     <div className="section">
       <div className="container">
-        <p>hello</p>
         <Outlet />
       </div>
     </div>
