@@ -1,0 +1,59 @@
+@import '../../styles/main.scss';
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 96px;
+  box-shadow: 0 -1px 0 0 $color-elements-lm;
+
+  &__content {
+  margin: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 96px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav-link {
+    margin-right: 64px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 11px;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    color: $color-primary-lm;
+    transition: all 200ms;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  &__back-to-top {
+    display: flex;
+    gap: $gap;
+    align-items: center;
+  }
+  
+  &__back-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-secondary-lm;
+    cursor: pointer;
+  }
+  
+  &__back-button {
+    @include squareButton(32px);
+  }
+
+  &__back-arrow {
+    @include square(16px);
+  }
+}
