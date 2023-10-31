@@ -1,9 +1,20 @@
 $gap: 16px;
 
+// == COLORS ==
+// = light mode =
+
 $color-primary-lm: #313237;
 $color-secondary-lm: #89939A;
 
+$color-icons-lm: #B4BDC3;
 $color-elements-lm: #E2E6E9;
+$color-hover-and-bg-lm: #FAFBFC;
+
+$color-white-lm: #FFF;
+$color-green-lm: #27AE60;
+$color-red-lm: #EB5757;
+
+// == ICONS ==
 
 $iconFont: "icomoon";
 
@@ -32,3 +43,8 @@ $icon-whatsapp: "\ea93";
 $icon-github: "\eab0";
 $icon-linkedin: "\eac9";
 $icon-linkedin2: "\eaca";
+
+// == CARD ==
+
+$card-padding: 32px;
+$card-gap: 8px;
