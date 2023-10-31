@@ -11,6 +11,7 @@ export default function useWindowDimensions(): WindowDimensions {
   function getWindowDimensions(): WindowDimensions {
     const width: number | null = hasWindow ? window.innerWidth : null;
     const height: number | null = hasWindow ? window.innerHeight : null;
+
     return {
       width,
       height,

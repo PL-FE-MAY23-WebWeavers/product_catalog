@@ -5,7 +5,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions';
 import cn from 'classnames';
 import './header.scss';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { width } = useWindowDimensions();
 
@@ -36,6 +36,7 @@ export const Header = () => {
           </div>
         </button>
       </div>
+
       <nav className='header__nav'>
         <NavLink
           to='/'
@@ -74,6 +75,7 @@ export const Header = () => {
             Accessories
         </NavLink>
       </nav>
+
       <div className='header__sub-nav'>
         <NavLink
           to='/favourites'
