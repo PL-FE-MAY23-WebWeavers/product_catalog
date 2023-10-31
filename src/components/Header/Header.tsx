@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import cn from 'classnames';
 import './header.scss';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { width } = useWindowDimensions();
+
+  useEffect(() => {
+    if (width && width >= 640) {
+      setIsMenuOpen(false);
+    }
+  }, [width]);
 
   return (
     <header
