@@ -15,3 +15,15 @@
   src: url("../../../public/fonts/Mont-Bold.otf");
   font-weight: 700;
 }
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../../../public/fonts/icomoon.eot?kj0kgl');
+  src:  url('../../../public/fonts/icomoon.eot?kj0kgl#iefix') format('embedded-opentype'),
+    url('../../../public/fonts/icomoon.ttf?kj0kgl') format('truetype'),
+    url('../../../public/fonts/icomoon.woff?kj0kgl') format('woff'),
+    url('../../../public/fonts/icomoon.svg?kj0kgl#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
