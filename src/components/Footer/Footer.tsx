@@ -17,7 +17,9 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <Logo />
+        <div className='footer__logo'>
+          <Logo />
+        </div>
 
         <div className="footer__nav">
           <Link

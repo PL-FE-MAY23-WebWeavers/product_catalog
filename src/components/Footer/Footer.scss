@@ -23,9 +23,13 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      height: 96px;
       gap: 0;
     }
+  }
+
+  &__logo {
+    flex: 1;
+    height: 32px;
   }
 
   &__nav {
@@ -36,6 +40,7 @@
 
     @include on-tablet {
       display: flex;
+      flex: 1;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -60,6 +65,11 @@
     align-items: center;
     justify-content: center;
     align-self: stretch;
+
+    @include on-tablet {
+      flex: 1;
+      justify-content: flex-end;
+    }
   }
   
   &__back-label {
