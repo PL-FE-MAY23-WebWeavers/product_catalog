@@ -4,6 +4,7 @@
 .header {
   width: 100vw;
   border-bottom: 1px solid $color-elements-lm;
+  background-color: #fff;
 
   @include on-tablet {
     display: flex;
@@ -111,7 +112,74 @@
     }
   }
 
-  .is-active {
+  &__menu {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0 none;
+    background-color: unset;
+    border-left: 1px solid $color-elements-lm;
+    margin-left: auto;
+    position: relative;
+    cursor: pointer;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &-icon {
+      height: 16px;
+      width: 16px;
+      position: relative;
+      transition: transform .6s;
+    }
+
+    &-bar {
+      width: 100%;
+      height: 1.8px;
+      background-color: $color-primary-lm;
+      border-radius: 5px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform .6s, opacity .8s, top .6s;
+     
+        &--top {
+          top: 25%;
+        }
+        
+        &--bottom {
+          top: 75%;
+        }
+    }      
+    
+    &:hover {
+      .header__menu-icon {
+        transform: scale(1.2);
+      }
+    }
+
+    &.header__menu--active {
+      .header__menu-bar--top {
+        transform: translate(-50%, -50%) rotate(-315deg);
+        top: 50%;
+      }
+
+      .header__menu-bar--mid {
+        opacity: 0;
+      }
+
+      .header__menu-bar--bottom {
+        transform: translate(-50%, -50%) rotate(-225deg);
+        top: 50%;
+      }
+    }
+  }
+
+  .header__link--active {
     color: $color-primary-lm;
     position: relative;
 
@@ -128,6 +196,50 @@
       position: absolute;
       left: 0;
       bottom: 0;
+    }
+  }
+
+  &.header--menu-open {
+    border-bottom-width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      &__top {
+        border-bottom: 1px solid $color-elements-lm;
+        height: 49px;
+      }
+
+      &__nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding-top: 24px;
+      }
+  
+      &__sub-nav {
+        display: block;
+        height: 64px;
+        margin: auto 0 0;
+        border-top: 1px solid $color-elements-lm;
+      }
+
+      &__link {
+        line-height: 28px;
+      }
+
+      &__ico-link {
+        width: 50vw;
+
+        &--favs {
+          border-left-width: 0;
+        }
+      }
     }
   }
 }
