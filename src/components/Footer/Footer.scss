@@ -81,6 +81,17 @@
   
   &__back-button {
     @include squareButton(32px);
+
+    &::before {
+      content: '';
+      font-family: $iconFont;
+      font-size: 16px;
+      color: $color-primary-lm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      content: $icon-arrow-up;
+    }
   }
 
   &__back-arrow {

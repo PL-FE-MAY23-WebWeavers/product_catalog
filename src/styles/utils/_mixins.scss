@@ -35,10 +35,6 @@
   justify-content: center;
   align-items: center;
 
-  & svg {
-    fill: $color-primary-lm;
-  }
-
   &:hover {
     border-color: $color-primary-lm;
   }

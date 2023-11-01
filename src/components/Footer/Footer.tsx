@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
-import arrowUp from '../../images/ArrowUp.svg';
 import './Footer.scss';
 
 export const Footer: React.FC = () => {
@@ -60,11 +59,6 @@ export const Footer: React.FC = () => {
             className='footer__back-button'
             onClick={handleScroll}
           >
-            <img
-              src={arrowUp}
-              alt="arrow"
-              className="icon__arrow"
-            />
           </Link>
         </div>
       </div>

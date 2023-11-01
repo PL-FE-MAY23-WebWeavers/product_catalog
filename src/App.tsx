@@ -10,8 +10,8 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Outlet />
-        <Footer />
       </div>
     </div>
+    <Footer />
   </>
 );
