@@ -2,7 +2,7 @@
 
 .logo {
   width: 64px;
-  height: 22px;
+  height: 23px;
 
   &__link {
     display: block;
@@ -15,6 +15,6 @@
 
   @include on-desktop {
     width: 80px;
-    height: 28px;
+    height: 29px;
   }
 }
