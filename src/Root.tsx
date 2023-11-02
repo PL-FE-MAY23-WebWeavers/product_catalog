@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, HashRouter as Router } from 'react-router-dom';
+import { Routes, Route, HashRouter as Router, Navigate } from 'react-router-dom';
 import { App } from './App';
 import { PageNotFound } from './pages/PageNotFound';
 import { Home } from './pages/Home';
@@ -13,7 +13,7 @@ export const Root = () => (
         <Route path="phones">
           <Route index element={<Phones />} />
         </Route>
-        <Route path="*" element={<PageNotFound />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   </Router>
