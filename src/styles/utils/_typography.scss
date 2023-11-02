@@ -5,6 +5,11 @@ body {
   font-family: Mont;
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Mont,
+    monospace;
+}
+
 h1 {
   color: $color-primary-lm;
   font-family: 'Mont';
