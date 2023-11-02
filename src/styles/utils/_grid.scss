@@ -42,15 +42,15 @@
     }
     
     &__section {
-        margin-top: $hp-margin-top-section;
+        margin: $hp-margin-section;
         
         @include on-tablet() {
-            margin-top: $hp-margin-top-section-tablet;
+            margin: $hp-margin-section-tablet;
             
         }
         
         @include on-desktop() {
-            margin-top: $hp-margin-top-section-desktop;
+            margin: $hp-margin-section-desktop;
             
         }
 
