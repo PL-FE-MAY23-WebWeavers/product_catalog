@@ -22,3 +22,28 @@
     @content;
   }
 }
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin squareButton($size) {
+  @include square($size);
+  border: 1px solid $color-icons-lm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    border-color: $color-primary-lm;
+  }
+
+  &:disabled {
+    border-color: $color-icons-lm;
+
+    &:hover {
+      border-color: $color-icons-lm;
+    }
+  }
+}

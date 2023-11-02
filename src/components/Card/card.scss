@@ -27,7 +27,6 @@
       width: 272px;
       height: 506px;
     }
-
   }
 
   &__link {
@@ -75,15 +74,12 @@
     }
   }
 
-
-
   &__divider {
     width: 95%;
     height: 1px;
     background-color: $color-elements-lm;
   }
 
-  
   &__info {
     display: flex;
     justify-content: space-between;
@@ -99,6 +95,5 @@
     display: flex;
     justify-content: space-between;
     gap: 8px;
-
   }
 }

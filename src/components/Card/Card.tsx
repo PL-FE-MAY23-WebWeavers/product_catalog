@@ -1,12 +1,12 @@
 import React from 'react';
-import { Item } from '../../types/Item';
 import { Link } from 'react-router-dom';
 import './card.scss';
 import { ButtonFavs } from '../utils/ButtonFavs/ButtonFavs';
 import { ButtonDefault } from '../utils/ButtonDefault/ButtonDefault';
+import { Phone } from '../../types/phone';
 
 type CardProps = {
-item: Item,
+item: Phone,
 }
 
 export const Card = ({item}: CardProps ) => {
@@ -65,7 +65,6 @@ export const Card = ({item}: CardProps ) => {
         <ButtonDefault />
         <ButtonFavs />
       </div>
-
     </div>
   );
 };
