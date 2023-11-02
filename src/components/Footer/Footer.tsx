@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
           <Logo />
         </div>
 
-        <div className="footer__nav">
+        <ul className="footer__nav">
           <Link
             to="https://PL-FE-MAY23-WebWeavers.github.io/react_phone-catalog/"
             target="_blank"
@@ -42,8 +42,7 @@ export const Footer: React.FC = () => {
           >
             Rights
           </Link>
-
-        </div>
+        </ul>
 
         <div className="footer__back-to-top">
           <Link

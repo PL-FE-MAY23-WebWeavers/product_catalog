@@ -1,4 +1,5 @@
-@import '../../styles/main.scss';
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
 
 .footer {
   position: absolute;
@@ -11,7 +12,7 @@
 }
 
   &__content {
-    margin: 32px 16px;
+    padding: 32px 16px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -19,7 +20,9 @@
     gap: 32px;
     
     @include on-tablet {
-      margin: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -45,6 +48,13 @@
       justify-content: space-between;
       align-items: center;
       margin: auto;
+
+      &:nth-child(2) {
+        justify-content:center;
+      }
+      &:last-child {
+        justify-content: flex-end;
+      }
     }
   }
 
