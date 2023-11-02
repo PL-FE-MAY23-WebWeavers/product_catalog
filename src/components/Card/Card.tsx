@@ -1,10 +1,10 @@
 import React from 'react';
-import { Item } from '../../types/Item';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
+import { Phone } from '../../types/phone';
 
 type CardProps = {
-item: Item,
+item: Phone,
 }
 
 export const Card = ({item}: CardProps ) => {
