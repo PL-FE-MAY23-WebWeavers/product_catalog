@@ -1,0 +1,49 @@
+@import '../../../styles/utils/variables';
+
+
+.button {
+  &__fav {
+    border: 1px solid $color-icons-lm;
+
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: $iconFont;
+
+    &:hover{
+    border-color: $color-primary-lm;
+    }
+
+    &::before {
+    content: $icon-favs;        
+    }
+
+    &-filled {
+      border: 1px solid $color-icons-lm;
+  
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      font-family: $iconFont;
+  
+      &:hover{
+        border-color: $color-primary-lm;
+      }
+  
+      &::before {
+        content: $icon-favs-full;
+        color: $color-red-lm; 
+      }
+    }
+  }
+  
+  
+}

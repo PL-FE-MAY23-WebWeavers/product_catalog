@@ -2,121 +2,121 @@
 @import "./mixins";
 
 h1 {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 128.125%;
-    letter-spacing: -0.32px;
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 128.125%;
+  letter-spacing: -0.32px;
 
-    @include on-tablet {
-        font-size: 48px;
-        line-height: 116.667%;
-        letter-spacing: -0.48px;
-    }
-    
-    @include on-desktop {
-        font-size: 48px;
-        line-height: 116.667%;
-        letter-spacing: -0.48px;
-    }
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 116.667%;
+    letter-spacing: -0.48px;
+  }
+  
+  @include on-desktop {
+    font-size: 48px;
+    line-height: 116.667%;
+    letter-spacing: -0.48px;
+  }
 
 }
 
 h2 {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 140%;
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 140%;
 
-    @include on-tablet {
-        font-size: 32px;
-        line-height: 128.125%;
-        letter-spacing: -0.32px;   
-    }
-    
-    @include on-desktop {
-        font-size: 32px;
-        line-height: 128.125%;
-        letter-spacing: -0.32px;  
-    }
+  @include on-tablet {
+    font-size: 32px;
+    line-height: 128.125%;
+    letter-spacing: -0.32px;   
+  }
+  
+  @include on-desktop {
+    font-size: 32px;
+    line-height: 128.125%;
+    letter-spacing: -0.32px;  
+  }
 }
 
 h3 {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    
-    @include on-tablet {
-        font-size: 22px;
-        font-weight: 800;
-        line-height: 140%;
-    }
-    
-    @include on-desktop {
-        font-size: 22px;
-        font-weight: 800;
-        line-height: 140%;  
-    }
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  
+  @include on-tablet {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 140%;
+  }
+  
+  @include on-desktop {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 140%;  
+  }
 }
 
 h4 {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    
-    @include on-tablet {
-        font-size: 20px;
-    }
-    
-    @include on-desktop {
-        font-size: 20px;
-    }
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  
+  @include on-tablet {
+    font-size: 20px;
+  }
+  
+  @include on-desktop {
+    font-size: 20px;
+  }
 }
 
 .uppercase {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 91.667%;
-    letter-spacing: 0.48px;
-    text-transform: uppercase;
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 91.667%;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
 }
 
 button {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%;
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
 }
 
 p {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
 }
 
 .small-text {
-    color: $color-primary-lm;
-    font-family: "Mont";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: $color-primary-lm;
+  font-family: "Mont";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Item } from '../../types/Item';
 import { Link } from 'react-router-dom';
-import cn from 'classnames';
+import './card.scss';
+import { ButtonFavs } from '../utils/ButtonFavs/ButtonFavs';
+import { ButtonDefault } from '../utils/ButtonDefault/ButtonDefault';
 
 type CardProps = {
 item: Item,
@@ -60,17 +62,8 @@ export const Card = ({item}: CardProps ) => {
       </div>
 
       <div className='card card__buttons'>
-        <button className={cn('card', {
-          'card__button': true,
-          'card__button-added': false,
-        })}>
-            Add to cart
-        </button>
-        <button className={cn('card', {
-          'card__fav': true,
-          'card__fav-filled': false,
-        })}>
-        </button>
+        <ButtonDefault />
+        <ButtonFavs />
       </div>
 
     </div>
