@@ -5,3 +5,13 @@
 @import "./utils/typography";
 @import "./utils/grid";
 @import "../components/Card/card.scss";
+
+
+// to be removed soon
+.section {
+  min-height: calc(100vh - 298px);
+
+  @include on-tablet {
+    min-height: calc(100vh - 162px);
+  }
+}
