@@ -3,11 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import './breadcrumbs.scss';
 import { PhoneDetails } from '../../types/phoneDetail';
 
-type Props = {
+type BreadCrumbsProps = {
   product?: PhoneDetails | null,
 };
 
-export const BreadCrumbs: React.FC<Props> = ({ product }) => {
+export const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ product }) => {
   const { pathname } = useLocation();
   const caregoryName = pathname.slice(1).split('/')[0];
 

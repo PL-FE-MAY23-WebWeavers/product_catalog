@@ -25,30 +25,26 @@
   }
 
   &__home-icon {
-
     &::before {
-      content: '';
+      content: $icon-home;
       font-family: $iconFont;
       font-size: 16px;
       color: $color-primary-lm;
       display: flex;
       align-items: center;
       justify-content: center;
-      content: $icon-home;
     }
   }
 
   &__arrow-icon {
-
     &::before {
-      content: '';
+      content: $icon-arrow-right;
       font-family: $iconFont;
       font-size: 16px;
       color: $color-primary-lm;
       display: flex;
       align-items: center;
       justify-content: center;
-      content: $icon-arrow-right;
     }
   }
 
