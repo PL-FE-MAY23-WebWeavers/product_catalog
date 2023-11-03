@@ -1,21 +1,70 @@
 @import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
 
 .bread-crumbs {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-transform: capitalize;
+  font-size: 12px;
+  max-width: 1200px;
 
-  &__current {
-    padding-top: 3px;
-    color: color-secondary-lm;
+  @include on-tablet {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  &__link {
-    padding-top: 3px;
-    transition-duration: $animation-duration;
-    &:hover {
-      transform: scale(1.1);
+  @include on-desktop {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  &__home-icon {
+
+    &::before {
+      content: '';
+      font-family: $iconFont;
+      font-size: 16px;
+      color: $color-primary-lm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      content: $icon-home;
     }
   }
+
+  &__arrow-icon {
+
+    &::before {
+      content: '';
+      font-family: $iconFont;
+      font-size: 16px;
+      color: $color-primary-lm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      content: $icon-arrow-right;
+    }
+  }
+
+  &__link{
+    padding-top: 2px;
+    color: $color-primary-lm;
+  }
+
+  &__current {
+    padding-top: 2px;
+    color: $color-secondary-lm;
+  }
+}
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
