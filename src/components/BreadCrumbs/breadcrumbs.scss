@@ -1,0 +1,66 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.bread-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-transform: capitalize;
+  font-size: 12px;
+  max-width: 1200px;
+
+  @include on-tablet {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @include on-desktop {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  &__home-icon {
+    &::before {
+      content: $icon-home;
+      font-family: $iconFont;
+      font-size: 16px;
+      color: $color-primary-lm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__arrow-icon {
+    &::before {
+      content: $icon-arrow-right;
+      font-family: $iconFont;
+      font-size: 16px;
+      color: $color-primary-lm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__link{
+    padding-top: 2px;
+    color: $color-primary-lm;
+  }
+
+  &__current {
+    padding-top: 2px;
+    color: $color-secondary-lm;
+  }
+}
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
