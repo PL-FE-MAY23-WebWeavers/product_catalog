@@ -1,0 +1,35 @@
+@import "../styles/utils/variables";
+@import "../styles/utils/mixins";
+
+.homepage-catalog {
+    grid-column: 1 / -1;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // justify-content: center;
+    // align-items: center;
+        &__layout {
+        //    grid-column: 1 / -1;
+            display: flex;
+            justify-items: stretch;
+            // grid-template-columns: repeat(auto-fit, minmax(230px, 260px));
+            // column-gap: 16px;
+            // row-gap: 40px;
+            @include on-tablet() {
+                display: grid;
+                justify-items: center;
+                grid-template-columns: repeat(auto-fit, 237px);
+                column-gap: 16px;
+                row-gap: 40px;
+              }
+              
+              @include on-desktop() {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, 272px);
+                justify-content: center;
+                align-items: center;
+                column-gap: 16px;
+                row-gap: 40px;
+              }
+        }
+       
+}   

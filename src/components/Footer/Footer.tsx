@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
 
         <div className="footer__back-to-top">
           <Link
-            to={{pathname}}
+            to={{ pathname }}
             className='footer__back-label'
             onClick={handleScroll}
           >
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
           </Link>
 
           <Link
-            to={{pathname}}
+            to={{ pathname }}
             className='footer__back-button'
             onClick={handleScroll}
           >

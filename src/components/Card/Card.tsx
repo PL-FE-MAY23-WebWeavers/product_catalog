@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import { Phone } from '../../types/phone';
+import { Phone } from '../../types/Phone';
 
 type CardProps = {
 item: Phone,
 }
+const  BASE_URL = 'https://webweavers.onrender.com/';
 
-export const Card = ({item}: CardProps ) => {
+export const Card = ({ item }: CardProps ) => {
   return (
     <div className='card card__background card-item'>
       <Link to={`/:${item.itemId}`} className='card card__link'>
-        <img src={item.image} className='card card__img'></img>
+        <img src={BASE_URL + item.image} className='card card__img'></img>
       </Link>
 
       <p className='card card__title'>
