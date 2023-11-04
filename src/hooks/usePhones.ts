@@ -12,8 +12,18 @@ export const usePhones = () => {
 
   useEffect(() => {
     getProducts(page, perPage, orderBy, sort)
-      .then(setPhones).finally(() => setIsLoading(false));
+      .then(setPhones)
+      .finally(() => setIsLoading(false));
   }, [page, perPage, orderBy, sort]);
 
-  return { phones, page, setPage, perPage, setPerPage, setOrderBy, setSort, isLoading };
+  return {
+    phones,
+    page,
+    setPage,
+    perPage,
+    setPerPage,
+    setOrderBy,
+    setSort,
+    isLoading,
+  };
 };

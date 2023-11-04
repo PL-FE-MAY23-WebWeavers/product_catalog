@@ -46,8 +46,8 @@
     }
 
     @include on-desktop() {
-      margin: $hp-margin-h1-desktop 0;
       grid-column: span 24;
+      margin: $hp-margin-h1-desktop 0;
     }
   }
 
@@ -74,3 +74,17 @@
     }
   }
 }
+
+// == CARD ==
+
+// .card-item {
+//   grid-column: span 3;
+
+//   @include on-tablet() {
+//     grid-column: span 4;
+//   }
+
+//   @include on-desktop() {
+//     grid-column: span 6;
+//   }
+// }

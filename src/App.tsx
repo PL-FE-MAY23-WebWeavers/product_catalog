@@ -10,7 +10,7 @@ export const App = () => (
   <ProductCatalogProvider>
     <PhonesProvider>
       <Header />
-      <main className="main">
+      <main className='main'>
         <Outlet />
       </main>
       <Footer />

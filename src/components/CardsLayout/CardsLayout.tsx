@@ -7,8 +7,8 @@ export const CardsLayout: React.FC = () => {
 
   return (
     <div className='cards-layout'>
-      {phones.rows.map(phone => (
-        <Card key={phone.id} item={phone}/>
+      {phones.rows.map((phone) => (
+        <Card key={phone.id} item={phone} />
       ))}
     </div>
   );
