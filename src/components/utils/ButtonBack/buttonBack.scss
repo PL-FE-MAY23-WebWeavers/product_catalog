@@ -1,0 +1,56 @@
+@import '../../../styles/utils/mixins';
+@import '../../../styles/utils/variables';
+
+.back-button {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  padding-left: 0;
+  padding-right: 15px;
+  align-items: center;
+  background-color: $color-white-lm;
+  border: none;
+  cursor: pointer;
+
+  &__left-icon {
+    &::before {
+      content: $icon-arrow-left;
+      font-family: $iconFont;
+      font-size: 16px;
+      color: $color-primary-lm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $color-secondary-lm;
+  }
+}
+
+.back-button-container {
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1200px;
+
+  @include on-tablet {
+    margin-top: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @include on-desktop {
+    margin-top: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
