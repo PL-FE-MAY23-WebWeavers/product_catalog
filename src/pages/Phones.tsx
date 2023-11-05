@@ -12,12 +12,12 @@ export const Phones: React.FC = () => {
   const { isLoading } = usePhonesContext();
 
   return (
-    <section className='phones'>
+    <section className="phones">
       <Wrapper>
         <BreadCrumbs />
-        <h1 className='phones__h1'>Mobile Phones</h1>
+        <h1 className="phones__h1">Mobile Phones</h1>
         {isLoading && <Loader />}
-        <div className='phones__grid grid-global'>
+        <div className="phones__grid grid-global">
           <CardsLayout />
           {!isLoading && <Pagination />}
         </div>

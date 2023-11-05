@@ -6,7 +6,7 @@ export const CardsLayout: React.FC = () => {
   const { phones } = usePhonesContext();
 
   return (
-    <div className='cards-layout'>
+    <div className="cards-layout">
       {phones.rows.map((phone) => (
         <Card key={phone.id} item={phone} />
       ))}

@@ -6,13 +6,12 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, Mont,
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Mont, monospace;
 }
 
 h1 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -34,7 +33,7 @@ h1 {
 
 h2 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 22px;
   font-style: normal;
   font-weight: 800;
@@ -55,7 +54,7 @@ h2 {
 
 h3 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -76,7 +75,7 @@ h3 {
 
 h4 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -93,7 +92,7 @@ h4 {
 
 .uppercase {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -104,7 +103,7 @@ h4 {
 
 button {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -113,7 +112,7 @@ button {
 
 p {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -122,7 +121,7 @@ p {
 
 .small-text {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
