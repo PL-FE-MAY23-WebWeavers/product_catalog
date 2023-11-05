@@ -19,7 +19,8 @@
         height: 439px;
         
         @include on-tablet {
-            width: 237px;
+            min-width: 237px;
+            // max-width: 272px;
             height: 512px;
         }
         

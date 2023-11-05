@@ -15,21 +15,27 @@
 }
 
 .grid-global {
-    margin: 0 16px;
+  margin: 0 16px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
   row-gap: 40px;
-  grid-auto-flow: row;
+  justify-content: center;
+  justify-items: stretch;
+
+  // grid-auto-flow: row;
   
   @include on-tablet() {
     margin: 0 24px;
     grid-template-columns: repeat(12, 1fr);
+    // justify-content: center;
+
   }
   
   @include on-desktop() {
     margin: 0 auto;
     grid-template-columns: repeat(24, 32px);
+    // justify-content: center;
   }
 }
 
@@ -82,7 +88,7 @@
 
 // .card-item {
 //   grid-column: span 3;
-//   justify-content: center;
+//   // justify-content: center;
 
 //   @include on-tablet() {
 //     grid-column: span 6;
