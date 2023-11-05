@@ -15,6 +15,7 @@
 }
 
 .grid-global {
+  margin: 0 16px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
@@ -26,6 +27,7 @@
 
   @include on-tablet() {
     grid-template-columns: repeat(12, 1fr);
+    // justify-content: center;
   }
 
   @include on-desktop() {
