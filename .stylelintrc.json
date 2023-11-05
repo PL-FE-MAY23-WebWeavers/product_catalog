@@ -3,7 +3,7 @@
     "extends": [
       "stylelint-config-standard",
       "stylelint-config-recommended-scss",
-      "stylelint-config-prettier"
+      "./stylelint-prettier-config.json"
     ],
     "plugins": [
       "stylelint-scss"

@@ -14,6 +14,7 @@
 
     grid-template-columns: repeat(auto-fit, minmax(230px, 260px));
     gap: 40px 16px;
+
     @include on-tablet() {
       display: grid;
       justify-content: center;
