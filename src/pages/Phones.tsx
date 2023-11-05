@@ -6,13 +6,12 @@ import { CardsLayout } from '../components/CardsLayout/CardsLayout';
 import './phones.scss';
 
 export const Phones = () => {
-
   const { isLoading } = usePhonesContext();
   return (
-    <div className='grid-global'>
-      <h1 className='homepage-item__h1'>Mobile Phones</h1>
+    <div className="grid-global">
+      <h1 className="homepage-item__h1">Mobile Phones</h1>
       {isLoading && <Loader />}
-      <div className='homepage-catalog'>
+      <div className="homepage-catalog">
         <CardsLayout />
       </div>
       {!isLoading && <Pagination />}

@@ -1,185 +1,169 @@
-@import "../../styles/utils/variables";
-@import "../../styles/utils/mixins";
-@import "../../styles/utils/fonts";
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/fonts';
 
 .card {
-    &__background {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: space-between;
+  &__background {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 1px solid $color-elements-lm;
+    background: $color-white-lm;
+    padding: $card-padding;
+    gap: $card-gap;
+    min-width: 212px;
+    height: 439px;
 
-        border: 1px solid $color-elements-lm;
-        background: $color-white-lm;
-    
-        padding: $card-padding;
-        gap: $card-gap;
-        
-        min-width: 212px;
-        height: 439px;
-        
-        @include on-tablet {
-            min-width: 237px;
-            // max-width: 272px;
-            height: 512px;
-        }
-        
-        @include on-desktop {
-            width: 272px;
-            height: 506px;
-        }
+    @include on-tablet {
+      min-width: 237px;
+      // max-width: 272px;
 
+      height: 512px;
     }
 
-    &__link {
-        display: flex;
-        justify-content: center;
+    @include on-desktop {
+      width: 272px;
+      height: 506px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img {
+    max-width: 148px;
+    max-block-size: 129px;
+
+    @include on-tablet {
+      max-width: 224px;
+      max-height: 196px;
     }
 
-    &__img {
-        max-width: 148px;
-        max-block-size: 129px;
+    @include on-desktop {
+      max-width: 208px;
+      max-height: 196px;
+    }
+  }
 
-        @include on-tablet {
-            max-width: 224px;
-            max-height: 196px;
-        }
-        
-        @include on-desktop {
-            max-width: 208px;
-            max-height: 196px;
-        }
+  &__title {
+    color: $color-primary-lm;
+  }
+
+  &__prices {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__price {
+    &::before {
+      content: '$';
+    }
+  }
+
+  &__fullprice {
+    color: $color-secondary-lm;
+    text-decoration-line: line-through;
+    font-weight: 600;
+
+    &::before {
+      content: '$';
+    }
+  }
+
+  &__divider {
+    width: 95%;
+    height: 1px;
+    background-color: $color-elements-lm;
+  }
+
+  &__info {
+    display: flex;
+    place-content: space-between space-between;
+    flex-direction: row;
+
+    &-name {
+      color: $color-secondary-lm;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  &__button {
+    background-color: $color-primary-lm;
+    color: $color-white-lm;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1 0 0;
+    box-shadow: 0 0 0 0 $color-primary-lm;
+    transition: box-shadow $animation-duration;
+
+    &:hover {
+      box-shadow: 0 3px 13px 0 $color-primary-lm;
     }
 
-    &__title {
-        color: $color-primary-lm;
+    &-added {
+      border: 1px solid $color-elements-lm;
+      background-color: $color-white-lm;
+      color: $color-green-lm;
+    }
+  }
+
+  &__button-added {
+    border: 1px solid $color-elements-lm;
+    background-color: $color-white-lm;
+    color: $color-green-lm;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1 0 0;
+  }
+
+  &__fav {
+    border: 1px solid $color-icons-lm;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $iconFont;
+
+    &:hover {
+      border-color: $color-primary-lm;
     }
 
-    &__prices {
-        display: flex;
-        gap: 8px;
+    &::before {
+      content: $icon-favs;
     }
-    
-    &__price {
-        &::before {
-            content: '$';
-        }
-    }
-    
-    &__fullprice {
-        color: $color-secondary-lm;
-        text-decoration-line: line-through;
-        font-weight: 600;
+  }
 
-        &::before {
-            content: '$';
-        }
+  &__fav-filled {
+    border: 1px solid $color-icons-lm;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $iconFont;
+
+    &:hover {
+      border-color: $color-primary-lm;
     }
 
-
-
-    &__divider {
-        width: 95%;
-        height: 1px;
-        background-color: $color-elements-lm;
+    &::before {
+      content: $icon-favs-full;
+      color: $color-red-lm;
     }
-
-    
-    &__info {
-        display: flex;
-        justify-content: space-between;
-        align-content: space-between;
-        flex-direction: row;
-
-        &-name {
-            color: $color-secondary-lm;
-        }
-    }
-
-    &__buttons {
-        display: flex;
-        justify-content: space-between;
-        gap: 8px;
-
-    }
-
-    &__button {
-        background-color: $color-primary-lm;
-        color: $color-white-lm;
-        
-        height: 40px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex: 1 0 0;
-        box-shadow: 0 0 0 0 $color-primary-lm;
-        
-        transition: box-shadow $animation-duration;
-        
-        &:hover {
-            box-shadow: 0px 3px 13px 0px $color-primary-lm;
-            
-        }
-        
-        &-added {
-            border: 1px solid $color-elements-lm;
-            background-color: $color-white-lm;
-            color: $color-green-lm;
-        }
-    }
-
-    &__button-added {
-        border: 1px solid $color-elements-lm;
-        background-color: $color-white-lm;
-        color: $color-green-lm;
-        
-        height: 40px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex: 1 0 0;
-    }
-
-    &__fav {
-        border: 1px solid $color-icons-lm;
-
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-family: $iconFont;
-
-        &:hover{
-            border-color: $color-primary-lm;
-        }
-
-        &::before {
-            content: $icon-favs;        
-        }
-    }
-
-    &__fav-filled {
-        border: 1px solid $color-icons-lm;
-
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-family: $iconFont;
-
-        &:hover{
-            border-color: $color-primary-lm;
-        }
-
-        &::before {
-            content: $icon-favs-full;
-            color: $color-red-lm; 
-        }
-    }
+  }
 }

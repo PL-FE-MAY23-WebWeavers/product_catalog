@@ -1,11 +1,10 @@
-@import "./utils/reset";
-@import "./utils/fonts";
-@import "./utils/variables";
-@import "./utils/mixins";
-@import "./utils/typography";
-@import "./utils/grid";
-@import "../components/Card/card.scss";
-
+@import './utils/reset';
+@import './utils/fonts';
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/typography';
+@import './utils/grid';
+@import '../components/Card/card';
 
 // to be removed soon
 .section {

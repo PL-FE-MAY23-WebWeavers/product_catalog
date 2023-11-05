@@ -1,5 +1,5 @@
-@import "../../styles/utils/variables";
-@import "../../styles/utils/mixins";
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 .header {
   width: 100%;
@@ -133,7 +133,7 @@
       height: 16px;
       width: 16px;
       position: relative;
-      transition: transform .6s;
+      transition: transform 0.6s;
     }
 
     &-bar {
@@ -145,17 +145,20 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition: transform .6s, opacity .8s, top .6s;
-     
-        &--top {
-          top: 25%;
-        }
-        
-        &--bottom {
-          top: 75%;
-        }
-    }      
-    
+      transition:
+        transform 0.6s,
+        opacity 0.8s,
+        top 0.6s;
+
+      &--top {
+        top: 25%;
+      }
+
+      &--bottom {
+        top: 75%;
+      }
+    }
+
     &:hover {
       .header__menu-icon {
         transform: scale(1.2);
@@ -221,7 +224,7 @@
         gap: $gap;
         padding-top: 24px;
       }
-  
+
       &__sub-nav {
         display: block;
         height: 64px;

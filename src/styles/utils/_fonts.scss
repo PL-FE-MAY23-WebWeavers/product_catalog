@@ -1,25 +1,27 @@
 @font-face {
   font-family: Mont;
-  src: url("../../../public/fonts/Mont-Regular.otf");
+  src: url('../../../public/fonts/Mont-Regular.otf');
   font-weight: 500;
 }
 
 @font-face {
   font-family: Mont;
-  src: url("../../../public/fonts/Mont-SemiBold.otf");
+  src: url('../../../public/fonts/Mont-SemiBold.otf');
   font-weight: 600;
 }
 
 @font-face {
   font-family: Mont;
-  src: url("../../../public/fonts/Mont-Bold.otf");
+  src: url('../../../public/fonts/Mont-Bold.otf');
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('../../../public/fonts/icomoon.eot?kj0kgl');
-  src:  url('../../../public/fonts/icomoon.eot?kj0kgl#iefix') format('embedded-opentype'),
+  font-family: icomoon;
+  src: url('../../../public/fonts/icomoon.eot?kj0kgl');
+  src:
+    url('../../../public/fonts/icomoon.eot?kj0kgl#iefix')
+      format('embedded-opentype'),
     url('../../../public/fonts/icomoon.ttf?kj0kgl') format('truetype'),
     url('../../../public/fonts/icomoon.woff?kj0kgl') format('woff'),
     url('../../../public/fonts/icomoon.svg?kj0kgl#icomoon') format('svg');
