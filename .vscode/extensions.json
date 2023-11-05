@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "stylelint.vscode-stylelint"
+        "stylelint.vscode-stylelint",
+        "esbenp.prettier-vscode"
     ]
 }
