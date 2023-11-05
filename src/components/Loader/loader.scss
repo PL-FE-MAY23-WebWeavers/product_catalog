@@ -1,11 +1,9 @@
 @import "../../styles/utils/variables";
 
 .lds-roller {
-    // display: inline-block;
-    // position: relative;
+    display: inline-block;
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 80px;
     height: 80px;
 

@@ -11,11 +11,11 @@ export const Phones = () => {
   return (
     <div className='grid-global'>
       <h1 className='homepage-item__h1'>Mobile Phones</h1>
+      {isLoading && <Loader />}
       <div className='homepage-catalog'>
-        {isLoading && <Loader />}
         <CardsLayout />
       </div>
-      {/* {!isLoading && <Pagination />} */}
+      {!isLoading && <Pagination />}
     </div>
   );
 };
