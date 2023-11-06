@@ -9,17 +9,17 @@ export const Home = () => {
       Welcome to Nice Gadgets store!
         </h1>
 
-        <div className='homepage-item__slider'>
+        <section className='homepage-item__slider'>
           <Slider />
-        </div>
+        </section>
 
-        <div className='homepage-item__section'>
+        <section className='homepage-item__section'>
 
-        </div>
+        </section>
 
-        <div className='homepage-item__section'>
+        <section className='homepage-item__section'>
 
-        </div>
+        </section>
 
       </div>
     </div>
