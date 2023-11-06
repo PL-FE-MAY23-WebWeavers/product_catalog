@@ -15,6 +15,7 @@
 }
 
 .grid-global {
+
   margin: 0 16px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -23,19 +24,19 @@
   justify-content: center;
   justify-items: stretch;
 
-  // grid-auto-flow: row;
+
+
   
   @include on-tablet() {
     margin: 0 24px;
     grid-template-columns: repeat(12, 1fr);
-    // justify-content: center;
 
   }
   
   @include on-desktop() {
     margin: 0 auto;
     grid-template-columns: repeat(24, 32px);
-    // justify-content: center;
+
   }
 }
 
@@ -59,6 +60,7 @@
   }
   
   &__section {
+
     margin: $hp-margin-section 0;
     
     @include on-tablet() {
@@ -81,7 +83,8 @@
       grid-column: span 24;   
     }
   }
-}
+
+
 
 
 // == CARD ==
