@@ -4,7 +4,7 @@ import { App } from './App';
 import { PageNotFound } from './pages/PageNotFound';
 import { Home } from './pages/Home';
 import { Phones } from './pages/Phones';
-import { Cart } from './pages/Cart';
+import { Cart } from './pages/Cart/Cart';
 
 export const Root = () => (
   <Router>
