@@ -11,15 +11,18 @@
 }
 
 .grid-global {
+  margin: 0 16px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
-  grid-auto-flow: row;
-  
+  row-gap: 40px;
+  justify-content: center;
+  justify-items: stretch;
+
   @include on-tablet() {
     grid-template-columns: repeat(12, 1fr);
   }
-  
+
   @include on-desktop() {
     grid-template-columns: repeat(24, 32px);
   }
@@ -31,39 +34,38 @@
   &__h1 {
     grid-column: span 4;
     margin: $hp-margin-h1 0;
-    
+
     @include on-tablet() {
       grid-column: span 12;
       margin: $hp-margin-h1-tablet 0;
     }
-    
+
     @include on-desktop() {
       margin: $hp-margin-h1-desktop 0;
       grid-column: span 24;
     }
   }
-  
+
   &__section {
     margin: $hp-margin-section 0;
-    
     @include on-tablet() {
       margin: $hp-margin-section-tablet 0;
     }
-    
+
     @include on-desktop() {
       margin: $hp-margin-section-desktop 0;
     }
   }
-  
+
   &__slider {
     grid-column: span 4;
-    
-    @include on-tablet() {
-      grid-column: span 12;   
+
+    @include on-tablet {
+      grid-column: span 12;
     }
-    
-    @include on-desktop() {      
-      grid-column: span 24;   
+
+    @include on-desktop {
+      grid-column: span 24;
     }
   }
 }
