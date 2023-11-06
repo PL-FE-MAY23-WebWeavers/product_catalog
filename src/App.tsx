@@ -8,11 +8,9 @@ import { ProductCatalogProvider } from './context/ProductCatalogContext';
 export const App = () => (
   <ProductCatalogProvider>
     <Header />
-    <div className="section">
-      <div className="container">
-        <Outlet />
-      </div>
-    </div>
+    <main className="main">
+      <Outlet />
+    </main>
     <Footer />
   </ProductCatalogProvider>
 );
