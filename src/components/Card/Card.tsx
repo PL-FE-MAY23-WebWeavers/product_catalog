@@ -11,7 +11,7 @@ item: Phone,
 
 export const Card = ({item}: CardProps ) => {
   return (
-    <div className='card card__background card-item'>
+    <div className='card card__background'>
       <Link to={`/:${item.itemId}`} className='card card__link'>
         <img src={item.image} className='card card__img'></img>
       </Link>

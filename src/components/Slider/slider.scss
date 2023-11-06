@@ -2,13 +2,17 @@
 @import './../../styles/utils/mixins';
 
 .slider {
+  display: grid;
+  grid-template-columns: 1fr;
+  
+  
   @include on-tablet {
-    display: flex;
+    grid-template-columns: 36px 1fr 36px;
     gap: $hp-gap-slider-tablet;
   }
   
   @include on-desktop {
-    display: flex;
+    grid-template-columns: 36px 1fr 36px;
     gap: $hp-gap-slider-desktop;
   }
 }

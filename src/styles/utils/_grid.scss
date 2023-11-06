@@ -11,6 +11,7 @@
   @include on-desktop() {
     justify-content: center;
     align-items: center;
+    margin: 0;
   }
 }
 
@@ -21,12 +22,10 @@
   grid-auto-flow: row;
   
   @include on-tablet() {
-    margin: 0 24px;
     grid-template-columns: repeat(12, 1fr);
   }
   
   @include on-desktop() {
-    margin: 0 ;
     grid-template-columns: repeat(24, 32px);
   }
 }
