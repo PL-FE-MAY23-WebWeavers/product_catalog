@@ -18,12 +18,17 @@ export const DropdownMenu = ({
   return (
     <div className="dropdown homepage-dropdown">
       <div className="dropdown__title small-text">{menuName}</div>
-      <div className="dropdown__menu button">
+      <div className="dropdown__header button">
         <div>{sortBy}</div>
         <div
           className="arrow-down"
           onClick={() => setIsOpen((prev) => !prev)}
         />
+      </div>
+      <div className="dropdown__menu button">
+        {items.map((item) => (
+          <div key={item}>{item}</div>
+        ))}
       </div>
     </div>
   );
