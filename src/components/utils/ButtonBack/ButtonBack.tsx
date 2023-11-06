@@ -2,21 +2,20 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './buttonBack.scss';
 
-export const BackButton = () => {
+export const ButtonBack: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className='back-button-container'>
-      <button
-        type="button"
-        className="back-button"
-        onClick={() => navigate(-1)}
-      >
-        <div className="back-button__left-icon" />
-        <span className='back-button__label'>
-          Back
-        </span>
-      </button>
-    </div>
+    <button
+      onClick={handleGoBack}
+      className='button-back'
+      type='button'
+    >
+      Back
+    </button>
   );
 };

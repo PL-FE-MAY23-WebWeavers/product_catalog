@@ -1,56 +1,31 @@
-@import '../../../styles/utils/mixins';
-@import '../../../styles/utils/variables';
+@import "../../../styles/utils/variables";
+@import "../../../styles/utils/mixins";
 
-.back-button {
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-  padding-left: 0;
-  padding-right: 15px;
-  align-items: center;
-  background-color: $color-white-lm;
-  border: none;
+.button-back {
+  color: $color-secondary-lm;
+  font-size: 12px;
+  line-height: 1;
+  background-color: unset;
+  margin-left: 20px;
+  padding: 2px 0;
+  border: 0 none;
+  display: block;
+  position: relative;
   cursor: pointer;
 
-  &__left-icon {
-    &::before {
-      content: $icon-arrow-left;
-      font-family: $iconFont;
-      font-size: 16px;
-      color: $color-primary-lm;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+  @include hover(color, $color-primary-lm);
 
-  &__label {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 15px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: $color-secondary-lm;
-  }
-}
+  &::before {
+    content: $icon-arrow-left;
+    font-family: $iconFont;
+    color: $color-primary-lm;
+    font-size: 17px;
+    line-height: 16px;
+    text-align: center;
 
-.back-button-container {
-  margin-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 1200px;
-
-  @include on-tablet {
-    margin-top: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  @include on-desktop {
-    margin-top: 40px;
-    padding-left: 32px;
-    padding-right: 32px;
+    position: absolute;
+    width: 16px;
+    left: -20px;
+    top: 0;
   }
 }
