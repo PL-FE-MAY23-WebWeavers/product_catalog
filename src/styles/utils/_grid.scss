@@ -1,17 +1,15 @@
 @import './mixins';
 
 .grid-container {
-  display: flex;
-  margin: 0 16px;
-  
+  padding: 0 16px;
+  margin: 0 auto;
+  max-width: 1200px;
+
   @include on-tablet() {
-    margin: 0 24px;
+    padding: 0 24px;
   }
   
   @include on-desktop() {
-    justify-content: center;
-    align-items: center;
-    margin: 0;
   }
 }
 

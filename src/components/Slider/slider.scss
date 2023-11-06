@@ -54,20 +54,32 @@
   display: none;
 }
 
-.pagination-dots {
+// ==! module - className can't change !==
+.swiper-pagination {
+	position: unset !important;
+	top: 10px;
+	right: 10px;
+	width: auto !important;
+	left: auto !important;
+	margin: 0 4px;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-}
-
-.dot {
-  width: 14px;
-  height: 4px;
-  background-color: $color-elements-lm;
-  margin: 0 8px;
-  cursor: pointer;
+  margin-top: 10px !important;
+  flex-flow: row;
   
-  &__active {
-    background-color: $color-primary-lm;
+  &-bullet {
+    padding: 0 0 !important;
+    border-radius: 0 !important;
+    width: 14px !important;
+    height: 4px !important;
+    text-align: center;
+    line-height: 30px;
+    opacity: 1 !important;
+    background: $color-elements-lm !important;
+    margin: 0 8px !important;
+
+    &-active {
+      background: $color-primary-lm !important;
+    }
   }
 }

@@ -29,16 +29,19 @@
       content: $icon-arrow-up;
     }
   }
+
   &--down {
     &::before {
       content: $icon-arrow-down;
     }
   }
+
   &--left {
     &::before {
       content: $icon-arrow-left;
     }
   }
+  
   &--right {
     &::before {
       content: $icon-arrow-right;
