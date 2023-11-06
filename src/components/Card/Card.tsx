@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './card.scss';
-import { ButtonFavs } from '../utils/ButtonFavs/ButtonFavs';
-import { ButtonDefault } from '../utils/ButtonDefault/ButtonDefault';
+// import { ButtonFavs } from '../utils/ButtonFavs/ButtonFavs';
+// import { ButtonDefault } from '../utils/ButtonDefault/ButtonDefault';
 import { Phone } from '../../types/Phones';
+import cn from 'classnames';
 
 type CardProps = {
   item: Phone;

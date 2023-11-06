@@ -1,0 +1,39 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/typography';
+@import '../../styles/utils/fonts';
+
+.dropdown {
+  box-sizing: border-box;
+  height: 40px;
+  min-width: 120px;
+  margin-bottom: 50px;
+
+  &__title {
+    color: $color-secondary-lm;
+    margin-bottom: 4px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid $color-icons-lm;
+    background-color: $color-white-lm;
+    padding-top: 8px;
+    padding-bottom: 3px;
+    padding-left: 12px;
+
+    &:hover {
+      border: 1px solid $color-secondary-lm;
+    }
+  }
+}
+
+.arrow-down {
+  &::before {
+    font-family: $iconFont;
+    content: $icon-arrow-down;
+    color: $color-icons-lm;
+    padding-right: 12px;
+  }
+}

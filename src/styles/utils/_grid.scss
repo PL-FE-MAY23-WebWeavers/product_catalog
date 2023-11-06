@@ -40,16 +40,16 @@
 .homepage-item {
   &__h1 {
     grid-column: span 4;
-    margin: $hp-margin-h1 0;
+    margin-top: $hp-margin-h1;
 
     @include on-tablet() {
       grid-column: span 12;
-      margin: $hp-margin-h1-tablet 0;
+      margin-top: $hp-margin-h1-tablet;
     }
 
     @include on-desktop() {
       grid-column: span 24;
-      margin: $hp-margin-h1-desktop 0;
+      margin-top: $hp-margin-h1-desktop;
     }
   }
 
@@ -78,6 +78,19 @@
   }
 }
 
+//  == CATEGORY MENU ==
+
+.homepage-dropdown {
+  grid-column: span 2;
+
+  @include on-tablet() {
+    grid-column: span 4;
+  }
+
+  @include on-desktop() {
+    grid-column: span 8;
+  }
+}
 // == CARD ==
 
 // .card-item {
