@@ -3,11 +3,11 @@
 .grid-container {
   display: flex;
   margin: 0 16px;
-  
+
   @include on-tablet() {
     margin: 0 24px;
   }
-  
+
   @include on-desktop() {
     justify-content: center;
     align-items: center;
@@ -15,7 +15,6 @@
 }
 
 .grid-global {
-
   margin: 0 16px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -24,94 +23,56 @@
   justify-content: center;
   justify-items: stretch;
 
-
-
-  
   @include on-tablet() {
     margin: 0 24px;
     grid-template-columns: repeat(12, 1fr);
-
   }
-  
+
   @include on-desktop() {
     margin: 0 auto;
     grid-template-columns: repeat(24, 32px);
-
   }
 }
 
 // == HOME PAGE ==
 
 .homepage-item {
-    
   &__h1 {
     grid-column: span 4;
     margin: $hp-margin-h1 0;
-    
+
     @include on-tablet() {
       grid-column: span 12;
       margin: $hp-margin-h1-tablet 0;
     }
-    
+
     @include on-desktop() {
       margin: $hp-margin-h1-desktop 0;
       grid-column: span 24;
     }
   }
-  
-  &__section {
 
+  &__section {
     margin: $hp-margin-section 0;
-    
+
     @include on-tablet() {
       margin: $hp-margin-section-tablet 0;
     }
-    
+
     @include on-desktop() {
       margin: $hp-margin-section-desktop 0;
     }
   }
-  
+
   &__slider {
     grid-column: span 4;
-    
+
     @include on-tablet() {
-      grid-column: span 12;   
+      grid-column: span 12;
     }
-    
-    @include on-desktop() {      
-      grid-column: span 24;   
+
+    @include on-desktop() {
+      grid-column: span 24;
     }
   }
-
-
-
-
-// == CARD ==
-
-// .card-item {
-//   grid-column: span 3;
-//   // justify-content: center;
-
-//   @include on-tablet() {
-//     grid-column: span 6;
-//   }
-  
-//   @include on-desktop() {
-//     grid-column: span 6;
-//   }
-// }
-
-// == PAGINATION ==
-
-// .pagination {
-//     grid-column: span 4;
-  
-//     @include on-tablet() {
-//       grid-column: span 12;
-//     }
-    
-//     @include on-desktop() {
-//       grid-column: span 24;
-//     }
-// }
+}

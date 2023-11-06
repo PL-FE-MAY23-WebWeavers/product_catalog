@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './breadcrumbs.scss';
-import { PhoneDetails } from '../../types/phoneDetail';
+import { PhoneDetails } from '../../types/PhoneDetail';
 
 type BreadCrumbsProps = {
-  product?: PhoneDetails | null,
+  product?: PhoneDetails | null;
 };
 
 export const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ product }) => {
@@ -12,14 +12,12 @@ export const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ product }) => {
   const caregoryName = pathname.slice(1).split('/')[0];
 
   return (
-    <div className="bread-crumbs">
+    <div className='bread-crumbs'>
       <Link to='/' className='bread-crumbs__home-icon' />
       <div className='bread-crumbs__arrow-icon' />
 
       {!product ? (
-        <div className='bread-crumbs__current'>
-          {caregoryName}
-        </div>
+        <div className='bread-crumbs__current'>{caregoryName}</div>
       ) : (
         <>
           <Link to={`/${caregoryName}`} className='bread-crumbs__link'>
