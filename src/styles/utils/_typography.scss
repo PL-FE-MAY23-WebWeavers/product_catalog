@@ -23,7 +23,7 @@ h1 {
     line-height: 116.667%;
     letter-spacing: -0.48px;
   }
-  
+
   @include on-desktop {
     font-size: 48px;
     line-height: 116.667%;
@@ -42,13 +42,13 @@ h2 {
   @include on-tablet {
     font-size: 32px;
     line-height: 128.125%;
-    letter-spacing: -0.32px;   
+    letter-spacing: -0.32px;
   }
-  
+
   @include on-desktop {
     font-size: 32px;
     line-height: 128.125%;
-    letter-spacing: -0.32px;  
+    letter-spacing: -0.32px;
   }
 }
 
@@ -65,7 +65,7 @@ h3 {
     font-weight: 800;
     line-height: 140%;
   }
-  
+
   @include on-desktop {
     font-size: 22px;
     font-weight: 800;
@@ -80,11 +80,11 @@ h4 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  
+
   @include on-tablet {
     font-size: 20px;
   }
-  
+
   @include on-desktop {
     font-size: 20px;
   }
