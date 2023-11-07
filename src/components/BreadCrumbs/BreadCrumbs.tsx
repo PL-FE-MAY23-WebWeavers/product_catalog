@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './breadcrumbs.scss';
-import { PhoneDetails } from '../../types/PhoneDetail';
+import { PhoneDetails } from '../../types/PhoneDetails';
 
 type BreadCrumbsProps = {
   product?: PhoneDetails | null;

@@ -10,11 +10,9 @@ export const App = () => (
   <ProductCatalogProvider>
     <PhonesProvider>
       <Header />
-      <div className="section">
-        <div className="container">
-          <Outlet />
-        </div>
-      </div>
+      <main className="main">
+        <Outlet />
+      </main>
       <Footer />
     </PhonesProvider>
   </ProductCatalogProvider>

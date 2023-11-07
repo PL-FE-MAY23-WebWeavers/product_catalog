@@ -3,6 +3,8 @@
 .button-default {
   background-color: $color-primary-lm;
   color: $color-white-lm;
+  border: 0 none;
+  cursor: pointer;
   
   height: 40px;
   justify-content: center;
