@@ -1,1 +1,23 @@
 @import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.section__categories {
+  &-title {
+    margin-bottom: 24px;
+  }
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 16px;
+  
+  @include on-tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @include on-desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
