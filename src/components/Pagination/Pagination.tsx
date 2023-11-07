@@ -29,7 +29,7 @@ export const Pagination = () => {
   };
 
   return (
-    <div className='pagination'>
+    <div className='pagination pagination--offset'>
       <div className="pagination__set">
         <button type="button" className={cn('pagination__box', {
           'pagination__box--disabled': page === 1

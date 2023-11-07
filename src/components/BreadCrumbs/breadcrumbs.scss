@@ -5,24 +5,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
   text-transform: capitalize;
   font-size: 12px;
   max-width: 1200px;
-
-  @include on-tablet {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  @include on-desktop {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
 
   &__home-icon {
     &::before {
@@ -41,7 +26,7 @@
       content: $icon-arrow-right;
       font-family: $iconFont;
       font-size: 16px;
-      color: $color-primary-lm;
+      color: $color-icons-lm;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -49,12 +34,14 @@
   }
 
   &__link{
-    padding-top: 2px;
+    line-height: 14px;
+    padding: 6px 0 4px;
     color: $color-primary-lm;
   }
 
   &__current {
-    padding-top: 2px;
+    line-height: 14px;
+    padding: 6px 0 4px;
     color: $color-secondary-lm;
   }
 }

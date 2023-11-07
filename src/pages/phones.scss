@@ -1,36 +1,57 @@
 @import "../styles/utils/variables";
 @import "../styles/utils/mixins";
 
-.homepage-catalog {
+.phones {
+  margin: 25px 0 55px;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 80px;
+  }
+
+  &__h1 {
+    margin: 24px 0 8px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__catalog {
     grid-column: 1 / -1;
     // display: grid;
     // grid-template-columns: 1fr;
     // justify-content: center;
     // align-items: center;
-        &__layout {
-           grid-column: 1 / -1;
-            // display: flex;
-            // align-items: stretch;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 260px));
-            column-gap: 16px;
-            row-gap: 40px;
-            @include on-tablet() {
-                display: grid;
-                justify-content: center;
-                align-items: center;
-                grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
-                column-gap: 16px;
-                row-gap: 40px;
-              }
-              
-              @include on-desktop() {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
-                justify-content: center;
-                align-items: center;
-                column-gap: 16px;
-                row-gap: 40px;
-              }
-        }
-       
-}   
+  }
+}
+
+.cards-layout {
+  grid-column: 1 / -1;
+  // display: flex;
+  // align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 260px));
+  column-gap: 16px;
+  row-gap: 40px;
+
+  @include on-tablet {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
+    column-gap: 16px;
+    row-gap: 40px;
+  }
+    
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 40px;
+  }
+}
