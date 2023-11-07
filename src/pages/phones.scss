@@ -31,14 +31,12 @@
 
 .cards-layout {
   grid-column: 1 / -1;
-  // display: flex;
-  // align-items: stretch;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 260px));
+  display: grid;
+  grid-template-columns: auto;
   column-gap: 16px;
   row-gap: 40px;
 
   @include on-tablet {
-    display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
