@@ -39,7 +39,10 @@
     padding-left: 12px;
     z-index: 2;
 
-    &:hover {
+    &-item {
+      &:hover {
+        background-color: $color-hover-and-bg-lm;
+      }
     }
   }
 }

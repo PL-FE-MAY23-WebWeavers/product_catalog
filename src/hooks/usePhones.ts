@@ -23,6 +23,7 @@ export const usePhones = () => {
     perPage,
     setPerPage,
     setOrderBy,
+    orderBy,
     setSort,
     isLoading,
   };
