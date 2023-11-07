@@ -202,6 +202,7 @@
   &.header--menu-open {
     border-bottom-width: 0;
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     height: 100vh;
@@ -234,7 +235,7 @@
       }
 
       &__ico-link {
-        width: 50vw;
+        width: 50%;
 
         &--favs {
           border-left-width: 0;

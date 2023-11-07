@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getProducts } from '../api/products';
-import { Phones } from '../types/Phone';
+import { Phones } from '../types/Phones';
 
 export const usePhones = () => {
   const [phones, setPhones] = useState<Phones>({ count: 0, rows: [] });
