@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './slider.scss';
 import { ButtonSlide } from '../utils/ButtonSlide/ButtonSlide';
 import { ButtonSlideEnum } from '../../types/ButtonSlideEnum';
@@ -33,6 +33,14 @@ export const Slider = () => {
     'https://webweavers.onrender.com/img/banner-accessories.png'
   ];
   const { isMobileView } = useSliderHook({images});
+
+  useEffect(() => {
+    swiper.on('slideChange', () => {
+      console.log('hi');
+    });
+
+  }, [swiper]);
+
 
   return (
     <>
