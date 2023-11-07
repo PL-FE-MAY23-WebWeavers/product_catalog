@@ -7,7 +7,7 @@ category: string,
 index: number,
 }
 
-export const Category = ({categoryImg, category, index}: CategoryProps ) => {
+export const Category = ({ categoryImg, category, index }: CategoryProps ) => {
   return (
     <div className='category'>
       <img
