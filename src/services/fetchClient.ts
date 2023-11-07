@@ -14,6 +14,7 @@ function request<T>(
     options.body = JSON.stringify(data);
     options.headers = {
       'Content-Type': 'application/json; charset=UTF-8',
+      'Access-Control-Allow-Origin': '*',
     };
   }
 
