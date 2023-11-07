@@ -1,0 +1,11 @@
+@import '../../styles/utils/variables';
+
+.category {
+  &__img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 0;
+    mix-blend-mode: multiply;
+    background-color: $color-red-lm;
+  }
+}
