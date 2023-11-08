@@ -18,35 +18,21 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react"
-  ],
+  "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "indent": [
       "error",
-      2
+      2,
+      {
+        "ignoredNodes": ["ConditionalExpression"],
+        "SwitchCase": 1
+      }
     ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "eol-last": [
-      "error",
-      "always"
-    ],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "eol-last": ["error", "always"],
     "no-trailing-spaces": "error",
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ]
+    "object-curly-spacing": ["error", "always"]
   }
 }

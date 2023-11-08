@@ -83,8 +83,7 @@
 
   &__info {
     display: flex;
-    justify-content: space-between;
-    align-content: space-between;
+    place-content: space-between space-between;
     flex-direction: row;
 
     &-name {
@@ -112,7 +111,7 @@
     transition: box-shadow $animation-duration;
 
     &:hover {
-      box-shadow: 0px 3px 13px 0px $color-primary-lm;
+      box-shadow: 0 3px 13px 0 $color-primary-lm;
     }
 
     &-added {
@@ -120,18 +119,6 @@
       background-color: $color-white-lm;
       color: $color-green-lm;
     }
-  }
-
-  &__button-added {
-    border: 1px solid $color-elements-lm;
-    background-color: $color-white-lm;
-    color: $color-green-lm;
-
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex: 1 0 0;
   }
 
   &__fav {
