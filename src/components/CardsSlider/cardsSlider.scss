@@ -1,0 +1,9 @@
+
+.section {
+  &__title {
+    display: grid;
+    grid-template-columns: (1fr, 32px, 32px);
+    grid-template-rows: 32px;
+    column-gap: 16px  
+  }
+}
