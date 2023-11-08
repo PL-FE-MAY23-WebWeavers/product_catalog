@@ -6,7 +6,7 @@ type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 function request<T>(
   url: string,
   method: RequestMethod = 'GET',
-  data: any = null,
+  data: any = null
 ): Promise<T> {
   const options: RequestInit = { method };
 
@@ -18,14 +18,13 @@ function request<T>(
   }
 
   // we wait for testing purpose to see loaders
-  return fetch(BASE_URL + url, options)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error();
-      }
+  return fetch(BASE_URL + url, options).then((response) => {
+    if (!response.ok) {
+      throw new Error();
+    }
 
-      return response.json();
-    });
+    return response.json();
+  });
 }
 
 export const client = {

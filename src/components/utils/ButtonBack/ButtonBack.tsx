@@ -10,11 +10,7 @@ export const ButtonBack: React.FC = () => {
   };
 
   return (
-    <button
-      onClick={handleGoBack}
-      className='button-back'
-      type='button'
-    >
+    <button onClick={handleGoBack} className="button-back" type="button">
       Back
     </button>
   );

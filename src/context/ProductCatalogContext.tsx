@@ -1,11 +1,17 @@
-import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { CartItem } from '../types/CartItem';
 import { Phone } from '../types/Phones';
 
 type ProductCatalogProviderProps = {
   children: ReactNode;
-}
+};
 
 type ProductCatalogContextProps = {
   cartItems: CartItem[];
@@ -13,7 +19,7 @@ type ProductCatalogContextProps = {
   addToFavourites: (phone: Phone) => void;
   removeFromFavourites: (phone: Phone) => void;
   isFavourite: boolean;
-}
+};
 
 const ProductCatalogContext = createContext({} as ProductCatalogContextProps);
 
@@ -21,7 +27,9 @@ export function useProductCatalog() {
   return useContext(ProductCatalogContext);
 }
 
-export function ProductCatalogProvider({ children }: ProductCatalogProviderProps) {
+export function ProductCatalogProvider({
+  children,
+}: ProductCatalogProviderProps) {
   // [cartItems, setCartItems] will be used in the future
   // useLocalStorage can be used to store different values under different name eg.: 'shopping-cart'
   const [cartItems] = useLocalStorage<CartItem[]>('shopping-cart', []);
@@ -51,15 +59,21 @@ export function ProductCatalogProvider({ children }: ProductCatalogProviderProps
   const removeFromFavourites = (phone: Phone) => {
     setIsFavourite(false);
     setFavourites((prevFavourites) =>
-      prevFavourites.filter((item) => item.id !== phone.id),
+      prevFavourites.filter((item) => item.id !== phone.id)
     );
   };
 
   return (
-    <ProductCatalogContext.Provider value={{
-      cartItems, favourites, addToFavourites, removeFromFavourites, isFavourite,
-    }} >
-      { children }
+    <ProductCatalogContext.Provider
+      value={{
+        cartItems,
+        favourites,
+        addToFavourites,
+        removeFromFavourites,
+        isFavourite,
+      }}
+    >
+      {children}
     </ProductCatalogContext.Provider>
   );
 }

@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss",
+    "./stylelint-prettier-config.json"
+  ],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "declaration-empty-line-before": [
+      "never",
+      {
+        "ignore": ["after-comment", "after-declaration"]
+      }
+    ],
+    "import-notation": "string",
+    "selector-id-pattern": "_*[a-z]",
+    "selector-class-pattern": "_*[a-z]",
+    "media-feature-range-notation": "prefix",
+    "string-quotes": "single"
+  }
+}

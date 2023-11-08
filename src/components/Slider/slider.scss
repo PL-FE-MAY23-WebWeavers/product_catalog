@@ -4,13 +4,12 @@
 .slider {
   display: grid;
   grid-template-columns: 1fr;
-  
-  
+
   @include on-tablet {
     grid-template-columns: 36px 1fr 36px;
     gap: $hp-gap-slider-tablet;
   }
-  
+
   @include on-desktop {
     grid-template-columns: 36px 1fr 36px;
     gap: $hp-gap-slider-desktop;
@@ -30,7 +29,7 @@
   @include on-tablet {
     height: 189px;
   }
-  
+
   @include on-desktop {
     height: 400px;
   }
@@ -40,11 +39,11 @@
   flex: 0 0 100%;
   object-fit: cover;
   aspect-ratio: 1 / 1;
-  
+
   @include on-tablet {
     aspect-ratio: auto;
   }
-  
+
   @include on-desktop {
     aspect-ratio: auto;
   }
@@ -56,17 +55,17 @@
 
 // ==! module - className can't change !==
 .swiper-pagination {
-	position: unset !important;
-	top: 10px;
-	right: 10px;
-	width: auto !important;
-	left: auto !important;
-	margin: 0 4px;
+  position: unset !important;
+  top: 10px;
+  right: 10px;
+  width: auto !important;
+  left: auto !important;
+  margin: 0 4px;
   display: flex;
   justify-content: center;
   margin-top: 10px !important;
   flex-flow: row;
-  
+
   &-bullet {
     padding: 0 0 !important;
     border-radius: 0 !important;

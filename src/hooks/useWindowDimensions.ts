@@ -28,7 +28,6 @@ export default function useWindowDimensions(): WindowDimensions {
 
   useEffect(() => {
     if (hasWindow) {
-
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }

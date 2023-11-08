@@ -12,12 +12,12 @@ export const Favourites = () => {
   const { isLoading } = usePhonesContext();
 
   return (
-    <section className='phones'>
+    <section className="phones">
       <Wrapper>
         <BreadCrumbs />
-        <h1 className='phones__h1'>Favourites</h1>
+        <h1 className="phones__h1">Favourites</h1>
         {isLoading && <Loader />}
-        <div className='phones__grid grid-global'>
+        <div className="phones__grid grid-global">
           <CardsLayout />
           {!isLoading && <Pagination />}
         </div>
