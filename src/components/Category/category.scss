@@ -1,0 +1,20 @@
+@import '../../styles/utils/variables';
+
+.category {
+  &__img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+    background-color: $color-red-lm;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    margin-bottom: 4px;
+  }
+
+  &__models-numbers {
+    color: $color-secondary-lm;
+    margin-bottom: 32px;
+  }
+}
