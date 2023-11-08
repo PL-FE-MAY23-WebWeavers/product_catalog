@@ -53,6 +53,7 @@
 
   &__section {
     margin: $hp-margin-section 0;
+  
     @include on-tablet() {
       margin: $hp-margin-section-tablet 0;
     }
@@ -72,5 +73,17 @@
     @include on-desktop {
       grid-column: span 24;
     }
+  }
+}
+
+.section__category {
+  grid-column: span 4;
+  
+  @include on-tablet {
+    grid-column: span 12;
+  }
+
+  @include on-desktop {
+    grid-column: span 24;
   }
 }
