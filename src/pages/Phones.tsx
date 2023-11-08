@@ -8,35 +8,56 @@ import { Wrapper } from '../components/utils/Wrapper/Wrapper';
 import { BreadCrumbs } from '../components/BreadCrumbs/BreadCrumbs';
 import './phones.scss';
 import { DropdownMenu } from '../components/DropdownMenu/DropdownMenu';
-
-export const SortBy = [
-  'Category',
-  'Name',
-  'Price',
-  'Screen',
-  'Capacity',
-  'Color',
-  'RAM',
-  'Newest',
-];
-
-export const perPage = ['4', '8', '16', '32'];
-
+import {
+  categoryOptions,
+  perPage,
+} from '../components/DropdownMenu/dropdownmenuTypes';
+import { SingleValue, ActionMeta } from 'react-select';
+import { SearchField } from '../components/SearchField/SearchField';
 export const Phones: React.FC = () => {
-  const { phones, isLoading } = usePhonesContext();
-
+  const { phones, isLoading, setOrderBy, setPerPage } = usePhonesContext();
+  const handleSetOrderBy: (
+    newValue: SingleValue<{ label: string; value: string }>,
+    actionMeta: ActionMeta<{ label: string; value: string }>
+  ) => void = (option) => {
+    setOrderBy(option?.value as string);
+    console.log(option?.value);
+  };
+  const handlePerPage: (
+    newValue: SingleValue<{ label: string; value: string }>,
+    actionMeta: ActionMeta<{ label: string; value: string }>
+  ) => void = (option) => {
+    setPerPage(Number(option?.value) as number);
+    console.log(option?.value);
+  };
   return (
     <section className="phones">
       <Wrapper>
         <BreadCrumbs />
         <h1 className="phones__h1">Mobile Phones</h1>
-        <p className="homepage-models p">{phones.count} models</p>
-        <DropdownMenu items={SortBy} menuName="Sort By" defaultValue="Newest" />
-        <DropdownMenu
-          items={perPage}
-          menuName="Items on page"
-          defaultValue="16"
-        />
+        <p className="phones__count p">{phones.count} models</p>
+        <section className="phones__filters grid-global">
+          <div className="phones__filters-sortby">
+            <DropdownMenu
+              options={categoryOptions}
+              menuName="Sort By"
+              defaultValue={{ value: 'newest', label: 'Newest' }}
+              handleOption={handleSetOrderBy}
+            />
+          </div>
+          <div className="phones__filters-order">
+            <DropdownMenu
+              options={perPage}
+              menuName="Items on page"
+              defaultValue={{ label: '16', value: '16' }}
+              handleOption={handlePerPage}
+            />
+          </div>
+          <div className="phones__filters-search">
+            <SearchField />
+          </div>
+        </section>
+
         {isLoading && <Loader />}
         <div className="phones__grid grid-global">
           <CardsLayout />

@@ -1,0 +1,15 @@
+@import '../../styles/utils/variables';
+
+.searchfield {
+  &__header {
+    margin-bottom: 4px;
+    color: $color-secondary-lm;
+  }
+
+  &__box {
+    height: 40px;
+    min-width: 100px;
+    border: 1px solid $color-icons-lm;
+    color: $color-primary-lm;
+  }
+}
