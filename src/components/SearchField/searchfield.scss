@@ -7,9 +7,16 @@
   }
 
   &__box {
+    outline: none;
     height: 40px;
-    min-width: 100px;
+    width: 100%;
     border: 1px solid $color-icons-lm;
     color: $color-primary-lm;
+    // padding-top: 7px;
+    padding-left: 10px;
+
+    &::placeholder {
+      color: $color-primary-lm;
+    }
   }
 }

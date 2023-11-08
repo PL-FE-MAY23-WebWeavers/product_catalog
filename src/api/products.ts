@@ -6,10 +6,12 @@ export const getProducts = (
   page: number,
   perPage: number,
   orderBy: string,
-  order: string
+  order: string,
+  search: string
 ) => {
   let orderByString = '';
   let orderString = '';
+  let searchString = '';
   if (orderBy) {
     orderByString = `&orderBy=${orderBy}`;
   }
@@ -17,8 +19,12 @@ export const getProducts = (
   if (order) {
     orderString = `&order=${order}`;
   }
+
+  if (search) {
+    searchString = `&searchText=${search}`;
+  }
   return client.get<Phones>(
-    `?page=${page}&perPage=${perPage}${orderByString}${orderString}`
+    `?page=${page}&perPage=${perPage}${orderByString}${orderString}${searchString}`
   );
 };
 

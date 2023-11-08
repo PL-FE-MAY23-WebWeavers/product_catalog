@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import '../../styles/utils/_variables.scss';
 import Select, {
@@ -31,12 +32,17 @@ type DropdownMenuProps = {
 };
 
 const customStyles: StylesConfig<{ label: string; value: string }, false> = {
+  singleValue: (styles) => ({ ...styles, color: '#313237' }),
   option: (provided, state) => ({
     ...provided,
-    color: state.isSelected ? '#313237' : '#89939A',
-    '&:hover': {
-      color: state.isFocused ? '#313237' : '#89939A',
-    },
+    color: state.isSelected
+      ? '#313237'
+      : state.isFocused
+      ? '#89939A'
+      : '#89939A',
+    // '&:hover': {
+    //   color: state.isFocused ? '#313237' : '#89939A',
+    // },
 
     backgroundColor: state.isFocused ? '#FAFBFC' : '#fff',
   }),
@@ -49,7 +55,7 @@ const customStyles: StylesConfig<{ label: string; value: string }, false> = {
   }),
   valueContainer: (provided) => ({
     ...provided,
-    height: '40px',
+    height: '38px',
   }),
   indicatorSeparator: () => ({
     display: 'none',

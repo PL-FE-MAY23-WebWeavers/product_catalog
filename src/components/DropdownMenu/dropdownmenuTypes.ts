@@ -10,8 +10,8 @@ export const categoryOptions: readonly CategoryOption[] = [
   { value: 'screen', label: 'Screen' },
   { value: 'capacity', label: 'Capacity' },
   { value: 'color', label: 'Color' },
-  { value: 'RAM', label: 'RAM' },
-  { value: 'newest', label: 'Newest' },
+  { value: 'ram', label: 'RAM' },
+  { value: 'year', label: 'Newest' },
 ];
 
 export interface perPageOption {
