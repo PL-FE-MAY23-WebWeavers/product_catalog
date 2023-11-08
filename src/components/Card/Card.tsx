@@ -4,13 +4,28 @@ import './card.scss';
 import { ButtonFavs } from '../utils/ButtonFavs/ButtonFavs';
 import { ButtonDefault } from '../utils/ButtonDefault/ButtonDefault';
 import { Phone } from '../../types/Phone';
+import { useProductCatalog } from '../../context/ProductCatalogContext';
 
 type CardProps = {
   item: Phone;
 };
 const BASE_URL = 'https://webweavers.onrender.com/';
 
-export const Card = ({ item }: CardProps) => {
+export const Card = ({ item, }: CardProps) => {
+  const { favourites, addToFavourites, removeFromFavourites, } = useProductCatalog();
+
+  const isFavouritesSelected = favourites.some(
+    (phone) => phone.itemId === item.itemId,
+  );
+
+  const handleFavouritesToggle = () => {
+    if (isFavouritesSelected) {
+      removeFromFavourites(item);
+    } else {
+      addToFavourites(item);
+    }
+  };
+
   return (
     <div className='card card__background card-item'>
       <Link to={`/:${item.itemId}`} className='card card__link'>
@@ -46,7 +61,7 @@ export const Card = ({ item }: CardProps) => {
 
       <div className='card card__buttons'>
         <ButtonDefault />
-        <ButtonFavs />
+        <ButtonFavs handleFavouritesToggle={handleFavouritesToggle} isFavouritesSelected={isFavouritesSelected}/>
       </div>
     </div>
   );

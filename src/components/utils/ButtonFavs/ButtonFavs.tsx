@@ -1,13 +1,17 @@
 import React from 'react';
-import cn from 'classnames';
 import './buttonFavs.scss';
 
-export const ButtonFavs = () => {
+type ButtonFavsProps = {
+  handleFavouritesToggle: () => void;
+  isFavouritesSelected: boolean;
+};
+
+export const ButtonFavs = ({ handleFavouritesToggle, isFavouritesSelected }: ButtonFavsProps) => {
   return (
-    <button className={cn({
-      'button__fav': true,
-      'button__fav-filled': false,
-    })}>
+    <button className={`button__fav ${
+      isFavouritesSelected ? 'button__fav-filled' : ''
+    }`}
+    onClick={handleFavouritesToggle}>
     </button>
   );
 };
