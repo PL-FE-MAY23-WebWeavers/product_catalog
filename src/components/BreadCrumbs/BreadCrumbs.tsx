@@ -11,8 +11,6 @@ export const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ product }) => {
   const { pathname } = useLocation();
   const caregoryName = pathname.slice(1).split('/')[0];
 
-  console.log(product);
-
   return (
     <div className='bread-crumbs'>
       <Link to='/' className='bread-crumbs__home-icon' />

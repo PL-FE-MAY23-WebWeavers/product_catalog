@@ -82,7 +82,7 @@ export const ProductDetailsPage: React.FC = () => {
                       type="button"
                       onClick={() => setSelectedImageIndex(index)}
                       onKeyDown={(e) => handleImageKeyPress(e, index)}
-                      className="product__img-button"
+                      className="product__img"
                       tabIndex={0}
                     >
                       <img
