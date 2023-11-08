@@ -167,123 +167,118 @@ export const ProductDetailsPage: React.FC = () => {
                     <ButtonFavs />
                   </div>
 
-                  <div className="details__data">
-                    <p className="details__data-text">Screen</p>
-                    <p className="details__data-number">
-                      {product?.screen}
-                    </p>
-                  </div>
+                  <div className='product__data__container'>
+                    <div className="product__data">
+                      <p className="product__data-text small-text">Screen</p>
+                      <p className="product__data-number small-text">
+                        {product?.screen}
+                      </p>
+                    </div>
 
-                  <div className="details__data">
-                    <p className="details__data-text">Resolution</p>
-                    <p className="details__data-number">
-                      {product?.resolution}
-                    </p>
-                  </div>
+                    <div className="product__data">
+                      <p className="product__data-text small-text">Resolution</p>
+                      <p className="product__data-number small-text">
+                        {product?.resolution}
+                      </p>
+                    </div>
 
-                  <div className="details__data">
-                    <p className="details__data-text">Processor</p>
-                    <p className="details__data-number">
-                      {product?.processor}
-                    </p>
-                  </div>
+                    <div className="product__data">
+                      <p className="product__data-text small-text">Processor</p>
+                      <p className="product__data-number small-text">
+                        {product?.processor}
+                      </p>
+                    </div>
 
-                  <div className="details__data">
-                    <p className="details__data-text">RAM</p>
-                    <p className="details__data-number">
-                      {product?.ram}
-                    </p>
+                    <div className="product__data">
+                      <p className="product__data-text small-text">RAM</p>
+                      <p className="product__data-number small-text">
+                        {product?.ram}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div>
-                <h2>About</h2>
-                <h3>{product.description[0].title}</h3>
-                <p>{product.description[0].text}</p>
-                <h3>{product.description[1].title}</h3>
-                <p>{product.description[1].text}</p>
-                <h3>{product.description[2].title}</h3>
-                <p>{product.description[2].text}</p>
-              </div>
-              <div>
-                <h2>Tech specs</h2>
-                <p>Screen {product.screen}</p>
-                <p>Resolution {product.resolution}</p>
-                <p>Processor {product.processor}</p>
-                <p>RAM {product.ram}</p>
-                <p>Build in memory {product.capacity}</p>
-                <p>Camera {product.camera}</p>
-                <p>Zoom {product.zoom}</p>
-                <p>Cell {product.cell}</p>
-              </div>
+
+              <section className='product__more'>
+                <div className='product__more__container'>
+                  <h3 className='product__more-title'>
+                    About
+                  </h3>
+
+                  {product.description.map(item => (
+                    <article
+                      key={item.title}
+                      className="product__more-article"
+                    >
+                      <h4 className="product__more-article-title">
+                        {item.title}
+                      </h4>
+
+                      <p className="product__more-article-info">
+                        {item.text}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+
+                <div>
+                  <h3 className='product__more-title'>
+                    Tech specs
+                  </h3>
+                  <div className="product__data">
+                    <p className="product__data-text">Screen</p>
+                    <p className="product__data-number">
+                      {product?.screen}
+                    </p>
+                  </div>
+                  <div className="product__data">
+                    <p className="product__data-text">Resolution</p>
+                    <p className="product__data-number">
+                      {product?.resolution}
+                    </p>
+                  </div>
+                  <div className="product__data">
+                    <p className="product__data-text">Processor</p>
+                    <p className="product__data-number">
+                      {product?.processor}
+                    </p>
+                  </div>
+                  <div className="product__data">
+                    <p className="product__data-text">RAM</p>
+                    <p className="product__data-number">
+                      {product?.ram}
+                    </p>
+                  </div>
+                  <div className="product__data">
+                    <p className="product__data-text">Build in memory</p>
+                    <p className="product__data-number">
+                      {product?.capacity}
+                    </p>
+                  </div>
+                  <div className="product__data">
+                    <p className="product__data-text">Camera</p>
+                    <p className="product__data-number">
+                      {product?.camera}
+                    </p>
+                  </div>
+                  <div className="product__data">
+                    <p className="product__data-text">Zoom</p>
+                    <p className="product__data-number">
+                      {product?.zoom}
+                    </p>
+                  </div>
+                  <div className="product__data">
+                    <p className="product__data-text">Cell</p>
+                    <p className="product__data-number">
+                      {product?.cell}
+                    </p>
+                  </div>
+                </div>
+              </section>
             </div>
           )}
-
-          {/*
-
-          <div className="details__about" data-cy="productDescription">
-            <div className="details__description">
-              <h2 className="details__header">About</h2>
-
-              <hr className="details__separator" />
-
-              <h3>{product?.description[0].title}</h3>
-              <p>{product?.description[0].text}</p>
-              <h3>{product?.description[1].title}</h3>
-              <p>{product?.description[1].text}</p>
-              <h3>{product?.description[2].title}</h3>
-              <p>{product?.description[2].text}</p>
-            </div>
-
-            <div className="details__tech">
-              <h2 className="details__header">Tech specs</h2>
-
-              <hr className="details__separator" />
-            </div>
-          </div> */}
         </Wrapper>
       </section>
     </>
   );
 };
-
-/*
-{product && (
-            <div>
-              <h2>{product.name}</h2>
-              <img src={BASE_URL + product.images[0]} />
-              <div>
-                <p>Available colors: {product.colorsAvailable[0]}</p>
-                <p>Select capacity: {product.capacity[0]}</p>
-                <p>{product.priceDiscount}</p>
-                <p>{product.priceRegular}</p>
-                <ButtonDefault />
-                <ButtonFavs />
-                <p>Screen {product.screen}</p>
-                <p>Resolution {product.resolution}</p>
-                <p>Processor {product.processor}</p>
-                <p>RAM {product.ram}</p>
-              </div>
-              <div>
-                <h2>About</h2>
-                <h3>{product.description[0].title}</h3>
-                <p>{product.description[0].text}</p>
-                <h3>{product.description[1].title}</h3>
-                <p>{product.description[1].text}</p>
-                <h3>{product.description[2].title}</h3>
-                <p>{product.description[2].text}</p>
-              </div>
-              <div>
-                <h2>Tech specs</h2>
-                <p>Screen {product.screen}</p>
-                <p>Resolution {product.resolution}</p>
-                <p>Processor {product.processor}</p>
-                <p>RAM {product.ram}</p>
-                <p>Build in memory {product.capacity}</p>
-                <p>Camera {product.camera}</p>
-                <p>Zoom {product.zoom}</p>
-                <p>Cell {product.cell}</p>
-              </div>
-            </div>
-          )}
-          */

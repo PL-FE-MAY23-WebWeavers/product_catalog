@@ -129,6 +129,52 @@
     gap: 8px;
   }
 
+  &__data {
+    display: flex;
+    justify-content: space-between;
+
+    &__container {
+      margin-top: 32px;
+    }
+
+    &-text {      
+      color: $color-secondary-lm;
+    }
+  }
+
+  &__more {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &-title {
+      margin-top: 56px;
+
+      @include on-tablet {
+        margin-top: 64px;
+      }
+  
+      @include on-desktop {
+        margin-top: 80px;
+      }
+      
+      padding-bottom: 16px;
+      border-bottom: 1px solid $color-elements-lm;
+    }
+
+    &-article {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &-info {
+        color: $color-secondary-lm;
+      }
+    }
+  }
+
   // &__info {
   //   margin-top: 32px;
   //   display: flex;
