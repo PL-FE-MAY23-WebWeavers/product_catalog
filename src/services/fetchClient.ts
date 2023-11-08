@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BASE_URL = 'https://webweavers.onrender.com/api/products';
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 

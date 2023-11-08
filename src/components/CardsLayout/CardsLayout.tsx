@@ -4,7 +4,7 @@ import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider'
 import { Card } from '../Card/Card';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
 
-export const CardsLayout = () => {
+export const CardsLayout: React.FC = () => {
   const { phones } = usePhonesContext();
   const { favourites } = useProductCatalog();
   const location = useLocation();
@@ -12,11 +12,13 @@ export const CardsLayout = () => {
   const isFavouritesPage = location.pathname.endsWith('/favourites');
 
   return (
-    <div className='homepage-catalog__layout'>
+    <div className='cards-layout'>
       {phones.rows.map(phone => (
-        (isFavouritesPage && favourites.some(favoritePhone => favoritePhone.id === phone.id)) || (!isFavouritesPage) ? (
-          <Card key={phone.id} item={phone} />
-        ) : null
+        (isFavouritesPage && favourites.some(favoritePhone =>
+          favoritePhone.id === phone.id))
+          || !isFavouritesPage
+          ? <Card key={phone.id} item={phone} />
+          : null
       ))}
     </div>
   );

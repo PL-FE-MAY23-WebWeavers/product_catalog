@@ -46,7 +46,9 @@ export const Header: React.FC = () => {
             cn('header__link', {
               'header__link--active': isActive,
             })
-          }>
+          }
+          onClick={() => setIsMenuOpen(false)}
+        >
             Home
         </NavLink>
         <NavLink
@@ -55,7 +57,9 @@ export const Header: React.FC = () => {
             cn('header__link', {
               'header__link--active': isActive,
             })
-          }>
+          }
+          onClick={() => setIsMenuOpen(false)}
+        >
             Phones
         </NavLink>
         <NavLink
@@ -64,7 +68,9 @@ export const Header: React.FC = () => {
             cn('header__link', {
               'header__link--active': isActive,
             })
-          }>
+          }
+          onClick={() => setIsMenuOpen(false)}
+        >
             Tablets
         </NavLink>
         <NavLink
@@ -73,7 +79,9 @@ export const Header: React.FC = () => {
             cn('header__link', {
               'header__link--active': isActive,
             })
-          }>
+          }
+          onClick={() => setIsMenuOpen(false)}
+        >
             Accessories
         </NavLink>
       </nav>
@@ -84,8 +92,9 @@ export const Header: React.FC = () => {
           className={({ isActive }) =>
             cn('header__ico-link header__ico-link--favs', {
               'header__link--active': isActive,
-            })
-          }>
+            })}
+          onClick={() => setIsMenuOpen(false)}
+        >
           {/* {favourites.length > 0 && (
             <span className="count-favourites">{favourites.length}</span>
           )} */}
@@ -96,7 +105,9 @@ export const Header: React.FC = () => {
             cn('header__ico-link header__ico-link--cart', {
               'header__link--active': isActive,
             })
-          }>
+          }
+          onClick={() => setIsMenuOpen(false)}
+        >
         </NavLink>
       </div>
     </header>

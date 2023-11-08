@@ -4,25 +4,24 @@ import { Pagination } from '../components/Pagination/Pagination';
 import { usePhonesContext } from '../providers/PhonesProvider/PhonesProvider';
 import { Loader } from '../components/Loader/Loader';
 import { CardsLayout } from '../components/CardsLayout/CardsLayout';
+import { Wrapper } from '../components/utils/Wrapper/Wrapper';
+import { BreadCrumbs } from '../components/BreadCrumbs/BreadCrumbs';
 import './phones.scss';
 
-import { BreadCrumbs } from '../components/BreadCrumbs/BreadCrumbs';
-import { ButtonBack } from '../components/utils/ButtonBack/ButtonBack';
-
-export const Phones = () => {
+export const Phones: React.FC = () => {
   const { isLoading } = usePhonesContext();
+
   return (
-    <>
-      <BreadCrumbs />
-      <ButtonBack />
-      <div className='grid-global'>
-        <h1 className='homepage-item__h1'>Mobile Phones</h1>
+    <section className='phones'>
+      <Wrapper>
+        <BreadCrumbs />
+        <h1 className='phones__h1'>Mobile Phones</h1>
         {isLoading && <Loader />}
-        <div className='homepage-catalog'>
+        <div className='phones__grid grid-global'>
           <CardsLayout />
+          {!isLoading && <Pagination />}
         </div>
-        {!isLoading && <Pagination />}
-      </div>
-    </>
+      </Wrapper>
+    </section>
   );
 };
