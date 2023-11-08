@@ -74,6 +74,19 @@
       grid-column: span 24;
     }
   }
+  
+  &__recomend {
+    grid-column: span 4;
+  
+    @include on-tablet {
+      grid-column: span 12;
+    }
+  
+    @include on-desktop {
+      grid-column: span 24;
+    }
+
+  }
 }
 
 .section__category {
