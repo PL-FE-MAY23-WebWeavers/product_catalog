@@ -57,6 +57,11 @@ $hp-margin-section: 56px;
 $hp-margin-section-tablet: 64px;
 $hp-margin-section-desktop: 80px;
 
+// = slider =
+
+$hp-gap-slider-tablet: 19px;
+$hp-gap-slider-desktop: 16px;
+
 // == CARD ==
 
 $card-padding: 32px;
@@ -64,4 +69,6 @@ $card-gap: 8px;
 
 // == ANIMATION ==
 
-$animation-duration: 0.33s;
+$animation-duration-shadow-button: 0.3s;
+// $animation-duration-sliding: 0.3s;
+// in future :)

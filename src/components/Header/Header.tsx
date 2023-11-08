@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+// import { useProductCatalog } from '../../context/ProductCatalogContext';
 import { Logo } from '../Logo/Logo';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import cn from 'classnames';
@@ -8,6 +9,7 @@ import './header.scss';
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { width } = useWindowDimensions();
+  // const { favourites } = useProductCatalog();
 
   useEffect(() => {
     if (width && width >= 640) {
@@ -93,7 +95,11 @@ export const Header: React.FC = () => {
             })
           }
           onClick={() => setIsMenuOpen(false)}
-        ></NavLink>
+        >
+          {/* {favourites.length > 0 && (
+            <span className="count-favourites">{favourites.length}</span>
+          )} */}
+        </NavLink>
         <NavLink
           to="/cart"
           className={({ isActive }) =>
