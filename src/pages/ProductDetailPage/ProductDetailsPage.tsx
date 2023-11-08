@@ -57,43 +57,43 @@ export const ProductDetailsPage: React.FC = () => {
     <>
       <section className='product'>
         <Wrapper>
-          <BreadCrumbs />
+          <BreadCrumbs product={product}/>
           <div className='product__button-back'>
             <ButtonBack />
           </div>
           {isLoading && <Loader />}
 
           {product && (
-            <div>
+            <>
               <h2 className='product__title'>{product.name}</h2>
-
-              <div className="product__main">
-                <div className='product__main__container'>
-                  <div className="product__photo">
-                    <img
-                      src={BASE_URL + product?.images[selectedImageIndex]}
-                      alt="Product img"
-                    />
-                  </div>
-                  <div className="product__photos">
-                    {product?.images.map((img, index) => (
-                      <button
-                        key={img}
-                        type="button"
-                        onClick={() => setSelectedImageIndex(index)}
-                        onKeyDown={(e) => handleImageKeyPress(e, index)}
-                        className="product__img-button"
-                        tabIndex={0}
-                      >
-                        <img
-                          src={BASE_URL + img}
-                          alt="Product img"
-                          className="product__photos__img"
-                        />
-                      </button>
-                    ))}
-                  </div>
+              <div className='grid-global'>
+                {/* <div className="product__main"> */}
+                {/* <div className='product__main__container'> */}
+                <div className="product__photo">
+                  <img
+                    src={BASE_URL + product?.images[selectedImageIndex]}
+                    alt="Product img"
+                  />
                 </div>
+                <div className="product__photos">
+                  {product?.images.map((img, index) => (
+                    <button
+                      key={img}
+                      type="button"
+                      onClick={() => setSelectedImageIndex(index)}
+                      onKeyDown={(e) => handleImageKeyPress(e, index)}
+                      className="product__img-button"
+                      tabIndex={0}
+                    >
+                      <img
+                        src={BASE_URL + img}
+                        alt="Product img"
+                        className="product__photos__img"
+                      />
+                    </button>
+                  ))}
+                </div>
+                {/* </div> */}
 
                 <div className='product__right'>
                   <div className="product__actions">
@@ -196,86 +196,87 @@ export const ProductDetailsPage: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                  {/* </div> */}
                 </div>
-              </div>
 
-              <section className='product__more'>
-                <div className='product__more__container'>
-                  <h3 className='product__more-title'>
-                    About
-                  </h3>
+                <section className='product__more'>
+                  <div className='product__more__container'>
+                    <h3 className='product__more-title'>
+                      About
+                    </h3>
 
-                  {product.description.map(item => (
-                    <article
-                      key={item.title}
-                      className="product__more-article"
-                    >
-                      <h4 className="product__more-article-title">
-                        {item.title}
-                      </h4>
+                    {product.description.map(item => (
+                      <article
+                        key={item.title}
+                        className="product__more-article"
+                      >
+                        <h4 className="product__more-article-title">
+                          {item.title}
+                        </h4>
 
-                      <p className="product__more-article-info">
-                        {item.text}
+                        <p className="product__more-article-info">
+                          {item.text}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className='product__more__right'>
+                    <h3 className='product__more-title product__more-title-specs'>
+                      Tech specs
+                    </h3>
+                    <div className="product__data">
+                      <p className="product__data-text">Screen</p>
+                      <p className="product__data-number">
+                        {product?.screen}
                       </p>
-                    </article>
-                  ))}
-                </div>
-
-                <div className='product__more__right'>
-                  <h3 className='product__more-title product__more-title-specs'>
-                    Tech specs
-                  </h3>
-                  <div className="product__data">
-                    <p className="product__data-text">Screen</p>
-                    <p className="product__data-number">
-                      {product?.screen}
-                    </p>
+                    </div>
+                    <div className="product__data">
+                      <p className="product__data-text">Resolution</p>
+                      <p className="product__data-number">
+                        {product?.resolution}
+                      </p>
+                    </div>
+                    <div className="product__data">
+                      <p className="product__data-text">Processor</p>
+                      <p className="product__data-number">
+                        {product?.processor}
+                      </p>
+                    </div>
+                    <div className="product__data">
+                      <p className="product__data-text">RAM</p>
+                      <p className="product__data-number">
+                        {product?.ram}
+                      </p>
+                    </div>
+                    <div className="product__data">
+                      <p className="product__data-text">Build in memory</p>
+                      <p className="product__data-number">
+                        {product?.capacity}
+                      </p>
+                    </div>
+                    <div className="product__data">
+                      <p className="product__data-text">Camera</p>
+                      <p className="product__data-number">
+                        {product?.camera}
+                      </p>
+                    </div>
+                    <div className="product__data">
+                      <p className="product__data-text">Zoom</p>
+                      <p className="product__data-number">
+                        {product?.zoom}
+                      </p>
+                    </div>
+                    <div className="product__data">
+                      <p className="product__data-text">Cell</p>
+                      <p className="product__data-number">
+                        {product?.cell.join(', ')}
+                      </p>
+                    </div>
                   </div>
-                  <div className="product__data">
-                    <p className="product__data-text">Resolution</p>
-                    <p className="product__data-number">
-                      {product?.resolution}
-                    </p>
-                  </div>
-                  <div className="product__data">
-                    <p className="product__data-text">Processor</p>
-                    <p className="product__data-number">
-                      {product?.processor}
-                    </p>
-                  </div>
-                  <div className="product__data">
-                    <p className="product__data-text">RAM</p>
-                    <p className="product__data-number">
-                      {product?.ram}
-                    </p>
-                  </div>
-                  <div className="product__data">
-                    <p className="product__data-text">Build in memory</p>
-                    <p className="product__data-number">
-                      {product?.capacity}
-                    </p>
-                  </div>
-                  <div className="product__data">
-                    <p className="product__data-text">Camera</p>
-                    <p className="product__data-number">
-                      {product?.camera}
-                    </p>
-                  </div>
-                  <div className="product__data">
-                    <p className="product__data-text">Zoom</p>
-                    <p className="product__data-number">
-                      {product?.zoom}
-                    </p>
-                  </div>
-                  <div className="product__data">
-                    <p className="product__data-text">Cell</p>
-                    <p className="product__data-number">
-                      {product?.cell.join(', ')}
-                    </p>
-                  </div>
-                </div>
-              </section>
-            </div>
+                </section>
+              </div>
+            </>
           )}
         </Wrapper>
       </section>
