@@ -18,7 +18,6 @@ export const ProductDetailsPage: React.FC = () => {
   const [isLoadError, setIsLoadError] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  const id = 'apple-iphone-8-64gb-gold';
   const BASE_URL = 'https://webweavers.onrender.com/';
 
   const handleImageKeyPress
@@ -69,7 +68,7 @@ export const ProductDetailsPage: React.FC = () => {
               <h2 className='product__title'>{product.name}</h2>
 
               <div className="product__main">
-                <div>
+                <div className='product__main__container'>
                   <div className="product__photo">
                     <img
                       src={BASE_URL + product?.images[selectedImageIndex]}
@@ -96,104 +95,105 @@ export const ProductDetailsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="product__actions">
+                <div className='product__right'>
+                  <div className="product__actions">
+                    <div className="product__options">
+                      <p className="product__options-title small-text">
+                        Available colors
+                      </p>
+
+                      <ul className="product__options-list">
+                        {product.colorsAvailable.map(colorValue => (
+                          <li
+                            key={colorValue}
+                            className={cn('product__options-color', {
+                              'color-option-active': product.color === colorValue,
+                            })}
+                          >
+                            <Link
+                              style={{
+                                backgroundColor: PRODUCTS_COLORS[colorValue],
+                              }}
+                              to={`/phones/${product.namespaceId}-${product.capacity.toLowerCase()}-${colorValue}`}
+                              className="product__options-color-link"
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                      <div className='product__line'/>
+                    </div>
+                  </div>
+
                   <div className="product__options">
                     <p className="product__options-title small-text">
-                      Available colors
+                      Select capacity
                     </p>
 
                     <ul className="product__options-list">
-                      {product.colorsAvailable.map(colorValue => (
+                      {product.capacityAvailable.map(capValue => (
                         <li
-                          key={colorValue}
-                          className={cn('product__options-color', {
-                            'color-option-active': product.color === colorValue,
-                          })}
+                          key={capValue}
+                          className={'product__options-cap'}
                         >
                           <Link
-                            style={{
-                              backgroundColor: PRODUCTS_COLORS[colorValue],
-                            }}
-                            to={`/phones/${product.namespaceId}-${product.capacity.toLowerCase()}-${colorValue}`}
-                            className="product__options-color-link"
-                          />
+                            to={`/phones/${product.namespaceId}-${capValue.toLowerCase()}-${product.color}`}
+                            className={cn('product__options-cap-link', {
+                              'capacity-option-active': product.capacity === capValue,
+                            },
+                            )}
+                          >
+                            {capValue}
+                          </Link>
                         </li>
                       ))}
                     </ul>
                     <div className='product__line'/>
                   </div>
-                </div>
 
-                <div className="product__options">
-                  <p className="product__options-title small-text">
-                    Select capacity
-                  </p>
+                  <div className="product__prices">
+                    <h2 className="product__prices-now">
+                      {`$${product.priceDiscount}`}
+                    </h2>
 
-                  <ul className="product__options-list">
-                    {product.capacityAvailable.map(capValue => (
-                      <li
-                        key={capValue}
-                        className={cn(
-                          'product__options-cap', {
-                            'capacity-option-active': product.capacity === capValue,
-                          },
-                        )}
-                      >
-                        <Link
-                          to={`/phones/${product.namespaceId}-${capValue.toLowerCase()}-${product.color}`}
-                          className="product__options-cap-link"
-                        >
-                          {capValue}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className='product__line'/>
-                </div>
-
-                <div className="product__prices">
-                  <h2 className="product__prices-now">
-                    {`$${product.priceDiscount}`}
-                  </h2>
-
-                  <h2 className="product__prices-before">
-                    {`$${product.priceRegular}`}
-                  </h2>
-                </div>
-
-                <div className="product__info">
-                  <div className="product__buttons">
-                    <ButtonDefault />
-                    <ButtonFavs />
+                    <h2 className="product__prices-before">
+                      {`$${product.priceRegular}`}
+                    </h2>
                   </div>
 
-                  <div className='product__data__container'>
-                    <div className="product__data">
-                      <p className="product__data-text small-text">Screen</p>
-                      <p className="product__data-number small-text">
-                        {product?.screen}
-                      </p>
+                  <div className="product__info">
+                    <div className="product__buttons">
+                      <ButtonDefault />
+                      <ButtonFavs />
                     </div>
 
-                    <div className="product__data">
-                      <p className="product__data-text small-text">Resolution</p>
-                      <p className="product__data-number small-text">
-                        {product?.resolution}
-                      </p>
-                    </div>
+                    <div className='product__data__container'>
+                      <div className="product__data">
+                        <p className="product__data-text small-text">Screen</p>
+                        <p className="product__data-number small-text">
+                          {product?.screen}
+                        </p>
+                      </div>
 
-                    <div className="product__data">
-                      <p className="product__data-text small-text">Processor</p>
-                      <p className="product__data-number small-text">
-                        {product?.processor}
-                      </p>
-                    </div>
+                      <div className="product__data">
+                        <p className="product__data-text small-text">Resolution</p>
+                        <p className="product__data-number small-text">
+                          {product?.resolution}
+                        </p>
+                      </div>
 
-                    <div className="product__data">
-                      <p className="product__data-text small-text">RAM</p>
-                      <p className="product__data-number small-text">
-                        {product?.ram}
-                      </p>
+                      <div className="product__data">
+                        <p className="product__data-text small-text">Processor</p>
+                        <p className="product__data-number small-text">
+                          {product?.processor}
+                        </p>
+                      </div>
+
+                      <div className="product__data">
+                        <p className="product__data-text small-text">RAM</p>
+                        <p className="product__data-number small-text">
+                          {product?.ram}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -221,8 +221,8 @@ export const ProductDetailsPage: React.FC = () => {
                   ))}
                 </div>
 
-                <div>
-                  <h3 className='product__more-title'>
+                <div className='product__more__right'>
+                  <h3 className='product__more-title product__more-title-specs'>
                     Tech specs
                   </h3>
                   <div className="product__data">
@@ -270,7 +270,7 @@ export const ProductDetailsPage: React.FC = () => {
                   <div className="product__data">
                     <p className="product__data-text">Cell</p>
                     <p className="product__data-number">
-                      {product?.cell}
+                      {product?.cell.join(', ')}
                     </p>
                   </div>
                 </div>

@@ -33,6 +33,15 @@
 
     @include on-tablet {
       margin-top: 40px;
+      flex-direction: row;
+    }
+
+    &__container {
+      @include on-tablet {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
     }
   }
 
@@ -56,17 +65,39 @@
     height: 49px;
     margin-top: 16px;
 
+    @include on-tablet {
+      flex-direction: column;
+      margin-top: 0;
+    }
+
     &__img {
       object-fit: contain;
       display: flex;
       justify-content: center;
       width: 51px;
       height: 49px;
+
+      @include on-tablet {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  &__right {
+    @include on-tablet {
+      padding-left: 17px;
+      width: 100%;
+      max-width: 320px;
     }
   }
   
   &__options {
     margin-top: 40px;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
 
     &-title {
       color: $color-secondary-lm;
@@ -102,11 +133,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &-link {
+        font-size: 14px;
+        color: $color-primary-lm;
+        padding: 6px 8px 4px 8px;
+        border: 1px solid $color-icons-lm;
+      }
     }
   }
 
   &__line {
     margin-top: 24px;
+    margin-bottom: 24px;
     border-bottom: 1px solid $color-elements-lm;
   }
 
@@ -119,6 +158,7 @@
     &-before {
       color: $color-secondary-lm;
       text-decoration: line-through;
+      font-weight: 500;
     }
   }
 
@@ -143,10 +183,19 @@
   }
 
   &__more {
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 64px;
+    }
+
     &__container {
       display: flex;
       flex-direction: column;
       gap: 32px;
+      @include on-desktop {
+        width: 560px;
+      }
     }
 
     &-title {
@@ -162,6 +211,10 @@
       
       padding-bottom: 16px;
       border-bottom: 1px solid $color-elements-lm;
+      
+      &-specs {
+        margin-bottom: 30px;
+      }
     }
 
     &-article {
@@ -171,6 +224,12 @@
 
       &-info {
         color: $color-secondary-lm;
+      }
+    }
+
+    &__right {
+      @include on-desktop {
+        width: 512px;
       }
     }
   }
@@ -250,7 +309,8 @@
 }
 
 .capacity-option-active {
-  background-color: $color-hover-and-bg-lm;
+border: none;
+  background-color: $color-primary-lm;
   color: $color-white-lm;
 }
 
