@@ -22,7 +22,9 @@
 
   &__left {
     grid-column: span 4;
-    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
 
     @include on-tablet {
       grid-column: span 12;
@@ -33,10 +35,8 @@
     }
   }
 
-  &__checkout {
+  &__right {
     grid-column: span 4;
-    padding: 24px;
-    border: 1px solid $color-elements-lm;
 
     @include on-tablet {
       grid-column: span 12;
@@ -45,6 +45,12 @@
     @include on-desktop {
       grid-column: span 8;
     }
+  }
+
+  &__checkout {
+    width: 100%;
+    padding: 24px;
+    border: 1px solid $color-elements-lm;
 
     &__total {
       color: $color-primary-lm;
@@ -80,6 +86,14 @@
       background-color: $color-primary-lm;
       border: 0 none;
       color: white;
+      cursor: pointer;
+
+      transition: box-shadow $animation-duration;
+  
+      &:hover {
+        box-shadow: 0 3px 13px 0 $color-primary-lm;
+        // box-shadow: 0px 3px 13px 0px rgba($color-secondary-lm, 0.40);
+      }
     }
   }
 }
