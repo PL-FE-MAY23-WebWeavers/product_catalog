@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './slider.scss';
 import { ButtonSlide } from '../utils/ButtonSlide/ButtonSlide';
 import { ButtonSlideEnum } from '../../types/ButtonSlideEnum';
-import cn from 'classnames';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -12,21 +11,6 @@ import 'swiper/scss/autoplay';
 import { useSliderHook } from '../../hooks/useSliderHook';
 
 export const Slider = () => {
-  const swiper = new Swiper('.swiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    autoplay: {
-      delay: 10000,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-
   const images = [
     'https://webweavers.onrender.com/img/banner-phones.png',
     'https://webweavers.onrender.com/img/banner-tablets.png',
@@ -34,12 +18,25 @@ export const Slider = () => {
   ];
   const { isMobileView } = useSliderHook({images});
 
-  useEffect(() => {
-    swiper.on('slideChange', () => {
-      console.log('hi');
-    });
+  const swiperRef = useRef<Swiper | undefined>();
 
-  }, [swiper]);
+  useEffect(() => {
+    swiperRef.current = new Swiper('.swiper', {
+      modules: [Navigation, Pagination, Autoplay],
+      autoplay: {
+        delay: 10000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      loop: true,
+    });
+  }, []);
 
 
   return (
@@ -48,7 +45,7 @@ export const Slider = () => {
         {!isMobileView && <ButtonSlide
           arrow={ButtonSlideEnum.left}
           setDisable={false}
-          onClickFunction={() => swiper.slidePrev()}
+          onClickFunction={() => swiperRef.current?.slidePrev()}
         />}
         <div className="swiper swipeable-content">
           <div className="swiper-wrapper">
@@ -63,7 +60,7 @@ export const Slider = () => {
         {!isMobileView && <ButtonSlide
           arrow={ButtonSlideEnum.right}
           setDisable={false}
-          onClickFunction={() => swiper.slideNext()}
+          onClickFunction={() => swiperRef.current?.slideNext()}
         />}
       </div>
 
