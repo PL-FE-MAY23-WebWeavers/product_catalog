@@ -3,8 +3,8 @@
 
 .cart-item {
   width: 100%;
-  border: 1px solid #e2e6e9;
-  background-color: white;
+  border: 1px solid $color-elements-lm;
+  background-color: $color-white-lm;
   padding: $gap;
   display: flex;
   flex-flow: column;
@@ -84,7 +84,7 @@
   }
 
   &__price {
-    color: #313237;
+    color: $color-primary-lm;
     font-size: 22px;
     font-style: normal;
     font-weight: 700;

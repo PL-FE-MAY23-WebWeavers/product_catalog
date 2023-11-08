@@ -4,6 +4,7 @@ import { Card } from '../Card/Card';
 
 export const CardsLayout: React.FC = () => {
   const { phones } = usePhonesContext();
+  console.log(phones);
 
   return (
     <div className='cards-layout'>
