@@ -15,7 +15,7 @@ export const Home = () => {
           <Slider />
         </section>
 
-        <section className='homepage-item__section'>
+        <section className='homepage-item__section homepage-item__recomend'>
           <CardsSlider
             title='Brand new models'
             items={[{

@@ -35,6 +35,7 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const [whichView, setWhichView] = useState<WhichView | null>();
+  const itemsBoardRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -52,12 +53,55 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     };
   }, []);
 
-  const nextSlide = () => {
-    setCurrent(current === slides.length - 1 ? length - 1 : current - 1);
+  const slideLeft = () => {
+    const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
+    const itemsBoard = itemsBoardRef.current;
+
+    setCurrent(current === 0 ? length - 1 : current - 1);
+    console.log(current);
+
+    if (itemsBoard) {
+      const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
+      const newLeft = currentLeft + itemWidth;
+      document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+    }
   };
 
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+  const slideRight = () => {
+    const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
+    const itemsBoard = itemsBoardRef.current;
+
+    setCurrent(current === slides.length - 1 ? length - 1 : current - 1);
+
+    if (itemsBoard) {
+      const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
+      const newLeft = currentLeft - itemWidth;
+      document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+    }
+  };
+
+  useEffect(() => {
+    console.log(`Item Width: ${setWidthByView()}`);
+
+    document.documentElement.style.setProperty('--item-width', `${setWidthByView()}px`);
+  }, [whichView]);
+
+  const setWidthByView = () => {
+    const itemWidthM = 228;
+    const itemWidthT = 253;
+    const itemWidthD = 288;
+
+    let itemWidth;
+
+    if (whichView === WhichView.mobile) {
+      itemWidth = itemWidthM;
+    } else if (whichView === WhichView.tablet) {
+      itemWidth = itemWidthT;
+    } else {
+      itemWidth = itemWidthD;
+    }
+
+    return itemWidth;
   };
 
   if (!Array.isArray(slides) || slides.length <= 0) {
@@ -73,16 +117,16 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
         <ButtonSlide
           arrow={ButtonSlideEnum.left}
           setDisable={current === 0}
-          onClickFunction={() => prevSlide()}
+          onClickFunction={slideLeft}
         />
         <ButtonSlide
           arrow={ButtonSlideEnum.right}
           setDisable={current === length - 1}
-          onClickFunction={() => nextSlide()}
+          onClickFunction={slideRight}
         />
       </div>
       <div className='section__items'>
-        <div className='items__board'>
+        <div className='items__board' ref={itemsBoardRef}>
 
           {slides.map((slide, index) => {
             return (

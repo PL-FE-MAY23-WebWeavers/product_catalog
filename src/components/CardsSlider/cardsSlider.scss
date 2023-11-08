@@ -32,7 +32,7 @@
     gap: 0 16px;
     flex-direction: row;
     position: absolute;
-    left: 0px;
+    left: var(--left-offset, 0);
   }
 }
 
