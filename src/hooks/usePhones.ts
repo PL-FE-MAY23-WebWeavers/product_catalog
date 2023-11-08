@@ -15,7 +15,7 @@ export const usePhones = () => {
     getProducts(page, perPage, orderBy, sort, search)
       .then(setPhones)
       .finally(() => setIsLoading(false));
-  }, [page, perPage, orderBy, sort]);
+  }, [page, perPage, orderBy, sort, search]);
 
   return {
     phones,

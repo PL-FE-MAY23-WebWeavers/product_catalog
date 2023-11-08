@@ -4,9 +4,9 @@ import cn from 'classnames';
 import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider';
 
 export const Pagination = () => {
-  const { page, setPage, perPage } = usePhonesContext();
+  const { page, setPage, perPage, phones } = usePhonesContext();
 
-  const items = 71;
+  const items = phones.count;
   const pages = Math.ceil(items / perPage);
   const pageNums = [];
 
