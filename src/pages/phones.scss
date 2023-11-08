@@ -22,7 +22,6 @@
   }
 
   &__count {
-    font-family: Mont;
     font-size: 14px;
     color: $color-secondary-lm;
     margin-bottom: 40px;
@@ -61,7 +60,7 @@
     }
 
     &-search {
-      grid-column: span 2;
+      grid-column: span 4;
 
       @include on-tablet {
         grid-column: span 4;
