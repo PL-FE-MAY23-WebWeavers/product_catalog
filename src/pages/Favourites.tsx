@@ -4,24 +4,24 @@ import { Pagination } from '../components/Pagination/Pagination';
 import { usePhonesContext } from '../providers/PhonesProvider/PhonesProvider';
 import { Loader } from '../components/Loader/Loader';
 import { CardsLayout } from '../components/CardsLayout/CardsLayout';
-import './phones.scss';
 import { BreadCrumbs } from '../components/BreadCrumbs/BreadCrumbs';
-import { ButtonBack } from '../components/utils/ButtonBack/ButtonBack';
+import { Wrapper } from '../components/utils/Wrapper/Wrapper';
+import './phones.scss';
 
 export const Favourites = () => {
   const { isLoading } = usePhonesContext();
+
   return (
-    <>
-      <BreadCrumbs />
-      <ButtonBack />
-      <div className='grid-global'>
-        <h1 className='homepage-item__h1'>Favourites</h1>
+    <section className='phones'>
+      <Wrapper>
+        <BreadCrumbs />
+        <h1 className='phones__h1'>Favourites</h1>
         {isLoading && <Loader />}
-        <div className='homepage-catalog'>
+        <div className='phones__grid grid-global'>
           <CardsLayout />
+          {!isLoading && <Pagination />}
         </div>
-        {!isLoading && <Pagination />}
-      </div>
-    </>
+      </Wrapper>
+    </section>
   );
 };

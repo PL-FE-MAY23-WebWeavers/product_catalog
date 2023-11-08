@@ -1,7 +1,7 @@
 import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { CartItem } from '../types/CartItem';
-import { Phone } from '../types/Phone';
+import { Phone } from '../types/Phones';
 
 type ProductCatalogProviderProps = {
   children: ReactNode;

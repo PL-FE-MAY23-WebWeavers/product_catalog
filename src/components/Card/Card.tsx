@@ -11,7 +11,7 @@ type CardProps = {
 };
 const BASE_URL = 'https://webweavers.onrender.com/';
 
-export const Card = ({ item, }: CardProps) => {
+export const Card = ({ item }: CardProps) => {
   const { favourites, addToFavourites, removeFromFavourites, } = useProductCatalog();
 
   const isFavouritesSelected = favourites.some(

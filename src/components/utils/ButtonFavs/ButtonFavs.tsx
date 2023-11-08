@@ -1,5 +1,6 @@
 import React from 'react';
 import './buttonFavs.scss';
+import cn from 'classnames';
 
 type ButtonFavsProps = {
   handleFavouritesToggle: () => void;
@@ -8,10 +9,11 @@ type ButtonFavsProps = {
 
 export const ButtonFavs = ({ handleFavouritesToggle, isFavouritesSelected }: ButtonFavsProps) => {
   return (
-    <button className={`button__fav ${
-      isFavouritesSelected ? 'button__fav-filled' : ''
-    }`}
-    onClick={handleFavouritesToggle}>
+    <button
+      className={cn('button__fav', {
+        'button__fav-filled': isFavouritesSelected,
+      })}
+      onClick={handleFavouritesToggle}>
     </button>
   );
 };
