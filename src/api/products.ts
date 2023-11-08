@@ -24,10 +24,10 @@ export const getProducts = (
     searchString = `&searchText=${search}`;
   }
   return client.get<Phones>(
-    `?page=${page}&perPage=${perPage}${orderByString}${orderString}${searchString}`
+    `/products?page=${page}&perPage=${perPage}${orderByString}${orderString}${searchString}`
   );
 };
 
 export const getProductDetails = (id: string) => {
-  return client.get<PhoneDetails>(`:${id}`);
+  return client.get<PhoneDetails>(`/products:${id}`);
 };
