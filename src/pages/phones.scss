@@ -1,5 +1,6 @@
-@import "../styles/utils/variables";
-@import "../styles/utils/mixins";
+@import '../styles/utils/variables';
+@import '../styles/utils/mixins';
+@import '../styles/utils/typography';
 
 .phones {
   margin: 25px 0 55px;
@@ -20,36 +21,76 @@
     }
   }
 
+  &__count {
+    font-size: 14px;
+    color: $color-secondary-lm;
+    margin-bottom: 40px;
+  }
+
   &__catalog {
     grid-column: 1 / -1;
-    // display: grid;
-    // grid-template-columns: 1fr;
-    // justify-content: center;
-    // align-items: center;
+  }
+
+  &__filters {
+    margin-bottom: 24px;
+
+    &-sortby {
+      grid-column: span 2;
+      margin-bottom: 10px;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+    }
+
+    &-order {
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+    }
+
+    &-search {
+      grid-column: span 4;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+    }
   }
 }
 
 .cards-layout {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: auto;
-  column-gap: 16px;
-  row-gap: 40px;
+  // grid-template-columns: auto;
+  grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
+  gap: 40px 16px;
 
   @include on-tablet {
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
-    column-gap: 16px;
-    row-gap: 40px;
+    gap: 40px 16px;
   }
-    
+
   @include on-desktop {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
     justify-content: center;
     align-items: center;
-    column-gap: 16px;
-    row-gap: 40px;
+    gap: 40px 16px;
   }
 }

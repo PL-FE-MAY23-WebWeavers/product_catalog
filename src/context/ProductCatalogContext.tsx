@@ -1,11 +1,17 @@
-import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { CartItem } from '../types/CartItem';
 import { Phone } from '../types/Phones';
 
 type ProductCatalogProviderProps = {
   children: ReactNode;
-}
+};
 
 type ProductCatalogContextProps = {
   // CART
@@ -19,7 +25,7 @@ type ProductCatalogContextProps = {
   addToFavourites: (phone: Phone) => void;
   removeFromFavourites: (phone: Phone) => void;
   isFavourite: boolean;
-}
+};
 
 const ProductCatalogContext = createContext({} as ProductCatalogContextProps);
 
@@ -27,9 +33,14 @@ export function useProductCatalog() {
   return useContext(ProductCatalogContext);
 }
 
-export function ProductCatalogProvider({ children }: ProductCatalogProviderProps) {
+export function ProductCatalogProvider({
+  children,
+}: ProductCatalogProviderProps) {
   // useLocalStorage can be used to store different values under different name eg.: 'shopping-cart'
-  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>('shopping-cart', []);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    'shopping-cart',
+    []
+  );
   const [isFavourite, setIsFavourite] = useState(false);
   const [favourites, setFavourites] = useState<Phone[]>(() => {
     const savedFavourites = localStorage.getItem('favourites');
@@ -44,15 +55,15 @@ export function ProductCatalogProvider({ children }: ProductCatalogProviderProps
   }, [favourites]);
 
   const getItemQuantity = (id: string) =>
-    cartItems.find(item => item.id === id)?.quantity || 0;
+    cartItems.find((item) => item.id === id)?.quantity || 0;
 
   const increaseCartQuantity = (addedItem: CartItem) => {
-    setCartItems(currItems => {
-      if(currItems.find(item => item.id === addedItem.id) == null) {
+    setCartItems((currItems) => {
+      if (currItems.find((item) => item.id === addedItem.id) == null) {
         return [...currItems, { ...addedItem, quantity: 1 }];
       }
 
-      return currItems.map(item => {
+      return currItems.map((item) => {
         if (item.id === addedItem.id) {
           return { ...item, quantity: item.quantity + 1 };
         } else {
@@ -63,12 +74,12 @@ export function ProductCatalogProvider({ children }: ProductCatalogProviderProps
   };
 
   const decreaseCartQuantity = (id: string) => {
-    setCartItems(currItems => {
-      if(currItems.find(item => item.id === id)?.quantity === 1) {
-        return currItems.filter(item => item.id !== id);
+    setCartItems((currItems) => {
+      if (currItems.find((item) => item.id === id)?.quantity === 1) {
+        return currItems.filter((item) => item.id !== id);
       }
 
-      return currItems.map(item => {
+      return currItems.map((item) => {
         if (item.id === id) {
           return { ...item, quantity: item.quantity - 1 };
         } else {
@@ -78,9 +89,10 @@ export function ProductCatalogProvider({ children }: ProductCatalogProviderProps
     });
   };
 
-  const removeFromCart = (removedItem: CartItem) => (
-    setCartItems(currItems => currItems.filter(item => item.id !== removedItem.id))
-  );
+  const removeFromCart = (removedItem: CartItem) =>
+    setCartItems((currItems) =>
+      currItems.filter((item) => item.id !== removedItem.id)
+    );
 
   const addToFavourites = (phone: Phone) => {
     setIsFavourite(true);
@@ -95,7 +107,7 @@ export function ProductCatalogProvider({ children }: ProductCatalogProviderProps
   const removeFromFavourites = (phone: Phone) => {
     setIsFavourite(false);
     setFavourites((prevFavourites) =>
-      prevFavourites.filter((item) => item.id !== phone.id),
+      prevFavourites.filter((item) => item.id !== phone.id)
     );
   };
 
@@ -113,7 +125,7 @@ export function ProductCatalogProvider({ children }: ProductCatalogProviderProps
         isFavourite,
       }}
     >
-      { children }
+      {children}
     </ProductCatalogContext.Provider>
   );
 }

@@ -6,7 +6,9 @@ type ButtonDefaultProps = {
   handleAddToCart: () => void;
 };
 
-export const ButtonDefault: React.FC<ButtonDefaultProps> = ({ handleAddToCart }) => {
+export const ButtonDefault: React.FC<ButtonDefaultProps> = ({
+  handleAddToCart,
+}) => {
   return (
     <button
       className={cn({

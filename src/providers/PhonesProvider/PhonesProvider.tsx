@@ -2,8 +2,9 @@ import React, { createContext, useContext } from 'react';
 import { PhonesContextType, PhonesProviderProps } from './types';
 import { usePhones } from '../../hooks/usePhones';
 
-
-export const PhonesContext = createContext<PhonesContextType | undefined>(undefined);
+export const PhonesContext = createContext<PhonesContextType | undefined>(
+  undefined
+);
 
 export const PhonesProvider = ({ children }: PhonesProviderProps) => {
   const { ...args } = usePhones();
