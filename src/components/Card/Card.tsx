@@ -26,6 +26,10 @@ export const Card = ({ item }: CardProps) => {
     }
   };
 
+  const handleAddToCart = () => {
+    console.log('yes');
+  };
+
   return (
     <div className='card card__background'>
       <Link to={`/:${item.itemId}`} className='card card__link'>
@@ -60,7 +64,7 @@ export const Card = ({ item }: CardProps) => {
       </div>
 
       <div className='card card__buttons'>
-        <ButtonDefault />
+        <ButtonDefault handleAddToCart={handleAddToCart}/>
         <ButtonFavs handleFavouritesToggle={handleFavouritesToggle} isFavouritesSelected={isFavouritesSelected}/>
       </div>
     </div>
