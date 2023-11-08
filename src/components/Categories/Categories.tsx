@@ -8,38 +8,19 @@ import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider'
 
 export const Categories = () => {
   const { phones } = usePhonesContext();
-  const imgs = [
-    PhonesImg,
-    TabletsImg,
-    AccessoriesImg,
-  ];
-  const categories = [
-    'Mobile phones',
-    'Tablets',
-    'Accessories',
-  ];
-  const linkTo = [
-    'phones',
-    'tablets',
-    'accessories',
-  ];
-  const modelsCount = [
-    phones.count || 0,
-    0,
-    0,
-  ];
+  const imgs = [PhonesImg, TabletsImg, AccessoriesImg];
+  const categories = ['Mobile phones', 'Tablets', 'Accessories'];
+  const linkTo = ['phones', 'tablets', 'accessories'];
+  const modelsCount = [phones.count || 0, 0, 0];
 
   return (
-    <div className='section__categories'>
-      <h2 className='section__categories-title'>
-          Shop by category
-      </h2>
+    <div className="section__categories">
+      <h2 className="section__categories-title">Shop by category</h2>
 
-      <div className='categories'>
-
+      <div className="categories">
         {imgs.map((img, index) => {
           return (
-            <div key={index} className='category-item'>
+            <div key={index} className="category-item">
               <Category
                 categoryImg={img}
                 category={categories[index]}
@@ -48,8 +29,8 @@ export const Categories = () => {
                 modelsCount={modelsCount[index]}
               />
             </div>
-          );})
-        }
+          );
+        })}
       </div>
     </div>
   );
