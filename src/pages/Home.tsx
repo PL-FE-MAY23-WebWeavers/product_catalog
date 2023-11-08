@@ -1,4 +1,5 @@
 import React from 'react';
+import { Categories } from '../components/Categories/Categories';
 import { Slider } from '../components/Slider/Slider';
 
 export const Home = () => {
@@ -6,7 +7,7 @@ export const Home = () => {
     <div className='grid-container'>
       <div className='grid-global'>
         <h1 className='homepage-item__h1'>
-      Welcome to Nice Gadgets store!
+          Welcome to Nice Gadgets store!
         </h1>
 
         <section className='homepage-item__slider'>
@@ -14,13 +15,14 @@ export const Home = () => {
         </section>
 
         <section className='homepage-item__section'>
+        </section>
 
+        <section className='homepage-item__section section__category'>
+          <Categories />
         </section>
 
         <section className='homepage-item__section'>
-
         </section>
-
       </div>
     </div>
   );
