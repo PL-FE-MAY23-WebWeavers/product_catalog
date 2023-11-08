@@ -53,6 +53,7 @@
 
   &__section {
     margin: $hp-margin-section 0;
+  
     @include on-tablet() {
       margin: $hp-margin-section-tablet 0;
     }

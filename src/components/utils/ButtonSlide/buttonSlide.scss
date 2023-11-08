@@ -1,0 +1,50 @@
+@import './../../../styles/utils/variables';
+
+.button-slide {
+  border: 1px solid $color-icons-lm;
+  color: $color-primary-lm;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 0;
+  
+  font-family: $iconFont;
+
+  &:hover {
+    border: 1px solid $color-primary-lm;
+  }
+  
+  &--disabled {
+    border: 1px solid $color-elements-lm;
+    color: $color-elements-lm;
+    
+    &:hover {
+      border: 1px solid $color-elements-lm;
+    }
+  }
+
+  &--up {
+    &::before {
+      content: $icon-arrow-up;
+    }
+  }
+
+  &--down {
+    &::before {
+      content: $icon-arrow-down;
+    }
+  }
+
+  &--left {
+    &::before {
+      content: $icon-arrow-left;
+    }
+  }
+  
+  &--right {
+    &::before {
+      content: $icon-arrow-right;
+    }
+  }
+}
