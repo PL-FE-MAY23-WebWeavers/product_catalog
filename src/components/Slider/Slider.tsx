@@ -16,7 +16,7 @@ export const Slider = () => {
     'https://webweavers.onrender.com/img/banner-tablets.png',
     'https://webweavers.onrender.com/img/banner-accessories.png'
   ];
-  const { isMobileView } = useSliderHook({images});
+  const { isMobileView } = useSliderHook({ images });
 
   const swiperRef = useRef<Swiper | undefined>();
 

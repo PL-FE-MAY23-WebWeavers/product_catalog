@@ -4,7 +4,7 @@ type useSliderHookProps = {
 images: string[],
 }
 
-export const useSliderHook = ({images}: useSliderHookProps ) => {
+export const useSliderHook = ({ images }: useSliderHookProps ) => {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 639);
 
   useEffect(() => {

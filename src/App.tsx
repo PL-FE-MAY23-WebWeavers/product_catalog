@@ -1,18 +1,19 @@
 import React from 'react';
-import { Outlet} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './styles/main.scss';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { ProductCatalogProvider } from './context/ProductCatalogContext';
+import { PhonesProvider } from './providers/PhonesProvider/PhonesProvider';
 
 export const App = () => (
   <ProductCatalogProvider>
-    <Header />
-    <div className="section">
-      <div className="container">
+    <PhonesProvider>
+      <Header />
+      <main className="main">
         <Outlet />
-      </div>
-    </div>
-    <Footer />
+      </main>
+      <Footer />
+    </PhonesProvider>
   </ProductCatalogProvider>
 );

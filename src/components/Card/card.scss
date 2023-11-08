@@ -9,45 +9,48 @@
     align-items: stretch;
     justify-content: space-between;
 
-    border: 1px solid $color-elements-lm;
-    background: $color-white-lm;
 
-    padding: $card-padding;
-    gap: $card-gap;
+        border: 1px solid $color-elements-lm;
+        background: $color-white-lm;
     
-    width: 212px;
-    height: 439px;
-    
-    @include on-tablet {
-      width: 237px;
-      height: 512px;
-    }
-    
-    @include on-desktop {
-      width: 272px;
-      height: 506px;
-    }
-  }
+        padding: $card-padding;
+        gap: $card-gap;
+        
+        min-width: 212px;
+        height: 439px;
+        
+        @include on-tablet {
+            min-width: 237px;
+            // max-width: 272px;
+            height: 512px;
+        }
+        
+        @include on-desktop {
+            width: 272px;
+            height: 506px;
+        }
 
-  &__link {
-    display: flex;
-    justify-content: center;
-  }
-
-  &__img {
-    max-width: 148px;
-    max-block-size: 129px;
-
-    @include on-tablet {
-      max-width: 224px;
-      max-height: 196px;
     }
-    
-    @include on-desktop {
-      max-width: 208px;
-      max-height: 196px;
+
+    &__link {
+        display: flex;
+        justify-content: center;
     }
-  }
+
+    &__img {
+        max-width: 148px;
+        max-block-size: 129px;
+
+        @include on-tablet {
+            max-width: 224px;
+            max-height: 196px;
+        }
+        
+        @include on-desktop {
+            max-width: 208px;
+            max-height: 196px;
+        }
+    }
 
   &__title {
     color: $color-primary-lm;
