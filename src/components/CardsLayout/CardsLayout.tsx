@@ -2,11 +2,11 @@ import React from 'react';
 import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider';
 import { Card } from '../Card/Card';
 
-export const CardsLayout = () => {
+export const CardsLayout: React.FC = () => {
   const { phones } = usePhonesContext();
-  console.log(phones);
+
   return (
-    <div className='homepage-catalog__layout'>
+    <div className='cards-layout'>
       {phones.rows.map(phone => (
         <Card key={phone.id} item={phone}/>
       ))}

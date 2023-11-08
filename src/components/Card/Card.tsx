@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './card.scss';
 import { ButtonFavs } from '../utils/ButtonFavs/ButtonFavs';
 import { ButtonDefault } from '../utils/ButtonDefault/ButtonDefault';
-import { Phone } from '../../types/Phone';
+import { Phone } from '../../types/Phones';
 
 type CardProps = {
   item: Phone;
@@ -12,7 +12,7 @@ const BASE_URL = 'https://webweavers.onrender.com/';
 
 export const Card = ({ item }: CardProps) => {
   return (
-    <div className='card card__background card-item'>
+    <div className='card card__background'>
       <Link to={`/:${item.itemId}`} className='card card__link'>
         <img src={BASE_URL + item.image} className='card card__img'></img>
       </Link>
