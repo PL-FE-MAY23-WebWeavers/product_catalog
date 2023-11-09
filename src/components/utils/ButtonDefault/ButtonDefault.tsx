@@ -13,11 +13,11 @@ export const ButtonDefault: React.FC<ButtonDefaultProps> = ({
 }) => {
   return (
     <button
-      className={cn({
-        'button-default': true,
+      className={cn('button-default', {
         'button-default__added': itemQuantity > 0,
       })}
       onClick={handleAddToCart}
+      disabled={itemQuantity > 0}
     >
       {itemQuantity > 0 ? 'Added to cart' : 'Add to cart'}
     </button>
