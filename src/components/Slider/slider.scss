@@ -19,7 +19,7 @@
 
 .swipeable-content {
   display: flex;
-  overflow: hidden;
+  overflow: hidden !important;
   flex: 1 0 0;
   width: 100%;
   justify-content: center;
@@ -38,12 +38,13 @@
 
 .swipeable-item {
   flex: 0 0 100%;
-  object-fit: cover;
+  object-fit: cover !important;
   aspect-ratio: 1 / 1;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: 100% !important;
   
   @include on-tablet {
     aspect-ratio: auto;
