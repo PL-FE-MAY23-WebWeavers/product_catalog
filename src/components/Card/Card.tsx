@@ -20,7 +20,6 @@ export const Card = ({ item }: CardProps) => {
     getItemQuantity,
   } = useProductCatalog();
 
-  console.log(item);
   const itemQuantity = getItemQuantity(item.phoneId);
 
   const isFavouritesSelected = favourites.some(
