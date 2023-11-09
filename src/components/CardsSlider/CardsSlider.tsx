@@ -57,7 +57,7 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
     const itemsBoard = itemsBoardRef.current;
 
-    setCurrent(current === 0 ? length - 1 : current - 1);
+    setCurrent(current === 0 ? 0 : current - 1);
     console.log(current);
 
     if (itemsBoard) {
@@ -71,7 +71,7 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
     const itemsBoard = itemsBoardRef.current;
 
-    setCurrent(current === slides.length - 1 ? length - 1 : current - 1);
+    setCurrent(current === slides.length - 1 ? length - 1 : current + 1);
 
     if (itemsBoard) {
       const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
@@ -117,12 +117,20 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
         <ButtonSlide
           arrow={ButtonSlideEnum.left}
           setDisable={current === 0}
-          onClickFunction={slideLeft}
+          onClickFunction={() => {
+            if (current === 0) return;
+            return slideLeft();
+          }
+          }
         />
         <ButtonSlide
           arrow={ButtonSlideEnum.right}
           setDisable={current === length - 1}
-          onClickFunction={slideRight}
+          onClickFunction={() => {
+            if (current === length - 1) return;
+            return slideRight();
+          }
+          }
         />
       </div>
       <div className='section__items'>

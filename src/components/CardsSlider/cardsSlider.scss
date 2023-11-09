@@ -1,3 +1,4 @@
+@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
 .section {
@@ -33,6 +34,7 @@
     flex-direction: row;
     position: absolute;
     left: var(--left-offset, 0);
+    transition: left $animation-duration-sliding ease;
   }
 }
 
