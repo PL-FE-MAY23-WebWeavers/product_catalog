@@ -17,13 +17,8 @@
 }
 
 .swipeable-content {
-  display: flex;
   overflow: hidden !important;
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  flex-grow: 1;
 
   @include on-tablet {
     height: 189px;
@@ -35,14 +30,24 @@
 }
 
 .swipeable-item {
-  flex: 0 0 100%;
-  object-fit: cover !important;
+  height: 100vw;
+
+  @include on-tablet {
+    height: 189px;
+  }
+
+  @include on-desktop {
+    height: 400px;
+  }
+}
+
+.item-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   aspect-ratio: 1 / 1;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  // height: 100% !important;
+  object-fit: cover;
 
   @include on-tablet {
     aspect-ratio: auto;
