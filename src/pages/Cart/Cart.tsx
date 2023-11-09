@@ -8,6 +8,11 @@ import emptyCart from '../../images/empty-cart.png';
 
 export const Cart: React.FC = () => {
   const { cartItems } = useProductCatalog();
+  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <section className="cart">
@@ -32,8 +37,11 @@ export const Cart: React.FC = () => {
             </div>
             <div className="cart__right">
               <div className="cart__checkout">
-                <div className="cart__checkout__total">$2657</div>
-                <div className="cart__checkout__sumary">Total for 3 items</div>
+                <div className="cart__checkout__total">${totalPrice}</div>
+                <div className="cart__checkout__sumary">
+                  Total for {totalQuantity}{' '}
+                  {totalQuantity === 1 ? 'item' : 'items'}
+                </div>
                 <span className="cart__checkout__br"></span>
                 <button className="cart__checkout__button">Checkout</button>
               </div>
