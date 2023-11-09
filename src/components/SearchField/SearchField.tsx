@@ -5,10 +5,13 @@ import cn from 'classnames';
 
 export const SearchField = () => {
   const [input, setInput] = useState<string>('');
-  const { setSearch } = usePhonesContext();
+  const { setSearch, setPage } = usePhonesContext();
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => setSearch(input), 400);
+    const timeoutId = setTimeout(() => {
+      setSearch(input);
+      setPage(1);
+    }, 400);
 
     return () => clearTimeout(timeoutId);
   }, [input]);
