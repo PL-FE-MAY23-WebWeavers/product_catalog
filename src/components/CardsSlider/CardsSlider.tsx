@@ -8,6 +8,7 @@ import { Card } from '../Card/Card';
 type CardsSliderProps = {
   items: Phone[];
   title: string;
+  id: number; // you should add id if you are using more than one of this component on one site
 };
 
 enum WhichView {
@@ -16,13 +17,8 @@ enum WhichView {
   desktop = 4,
 }
 
-export const CardsSlider = ({ items, title }: CardsSliderProps) => {
-  const slides = [1, 2, 3, 4, 5, 6].map((m) => {
-    return {
-      ...items[0],
-      id: m,
-    };
-  });
+export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
+  const slides = [...items];
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const [whichView, setWhichView] = useState<WhichView | null>(null);
@@ -49,30 +45,11 @@ export const CardsSlider = ({ items, title }: CardsSliderProps) => {
   }, []);
 
   const slideLeft = () => {
-    // const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
-    // const itemsBoard = itemsBoardRef.current;
-
     setCurrent((prev) => (prev <= 0 ? 0 : prev - 1));
-
-    // if (itemsBoard) {
-    //   const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
-    //   const newLeft = -current * itemWidth;
-    //   document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
-    // }
   };
 
   const slideRight = () => {
-    // const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
-
-    // const itemsBoard = itemsBoardRef.current;
-
     setCurrent((prev) => (prev === slides.length - 1 ? length - 1 : prev + 1));
-
-    // if (itemsBoard) {
-    //   const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
-    //   const newLeft = -current * itemWidth;
-    //   document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
-    // }
   };
 
   const slide = () => {
@@ -87,7 +64,10 @@ export const CardsSlider = ({ items, title }: CardsSliderProps) => {
     }
     const newLeft = -current * itemWidth;
 
-    document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+    document.documentElement.style.setProperty(
+      `--left-offset-${id}`,
+      `${newLeft}px`
+    );
   };
 
   useEffect(() => {
@@ -96,13 +76,13 @@ export const CardsSlider = ({ items, title }: CardsSliderProps) => {
 
   const handleRightDisable = () => {
     if (whichView === WhichView.mobile) {
-      return current === length;
+      return current === length - 1;
     } else if (whichView === WhichView.tablet && window.innerWidth <= 722) {
-      return current + 1 === length;
-    } else if (whichView === WhichView.tablet && window.innerWidth > 722) {
-      return current + 1 === length;
+      return current + 1 === length - 1;
+    } else if (whichView === WhichView.tablet) {
+      return current + 3 === length - 1;
     } else {
-      return current + 4 === length;
+      return current + 4 === length - 1;
     }
   };
 
