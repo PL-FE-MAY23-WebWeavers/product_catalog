@@ -67,8 +67,6 @@ export const ProductDetailsPage: React.FC = () => {
             <>
               <h2 className='product__title'>{product.name}</h2>
               <div className='grid-global'>
-                {/* <div className="product__main"> */}
-                {/* <div className='product__main__container'> */}
                 <div className="product__photo">
                   <img
                     src={BASE_URL + product?.images[selectedImageIndex]}
@@ -93,7 +91,6 @@ export const ProductDetailsPage: React.FC = () => {
                     </button>
                   ))}
                 </div>
-                {/* </div> */}
 
                 <div className='product__right'>
                   <div className="product__actions">
@@ -114,7 +111,7 @@ export const ProductDetailsPage: React.FC = () => {
                               style={{
                                 backgroundColor: PRODUCTS_COLORS[colorValue],
                               }}
-                              to={`/phones/${product.namespaceId}-${product.capacity.toLowerCase()}-${colorValue}`}
+                              to={`/phones/:${product.namespaceId}-${product.capacity.toLowerCase()}-${colorValue}`}
                               className="product__options-color-link"
                             />
                           </li>
@@ -136,7 +133,7 @@ export const ProductDetailsPage: React.FC = () => {
                           className={'product__options-cap'}
                         >
                           <Link
-                            to={`/phones/${product.namespaceId}-${capValue.toLowerCase()}-${product.color}`}
+                            to={`/phones/:${product.namespaceId}-${capValue.toLowerCase()}-${product.color}`}
                             className={cn('product__options-cap-link', {
                               'capacity-option-active': product.capacity === capValue,
                             },
@@ -196,7 +193,6 @@ export const ProductDetailsPage: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  {/* </div> */}
                 </div>
 
                 <section className='product__more'>
