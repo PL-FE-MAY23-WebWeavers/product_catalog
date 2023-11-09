@@ -27,18 +27,22 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
   });
   const [current, setCurrent] = useState(0);
   const length = slides.length;
-  const [whichView, setWhichView] = useState<WhichView | null>();
+  const [whichView, setWhichView] = useState<WhichView | null>(null);
   const itemsBoardRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWhichView(() => {
-        if (window.innerWidth <= 639) return WhichView.mobile;
-        if (window.innerWidth >= 1200) return WhichView.desktop;
-        return WhichView.tablet;
-      });
-    };
+  const handleResize = () => {
+    setWhichView(() => {
+      if (window.innerWidth <= 639) return WhichView.mobile;
+      if (window.innerWidth >= 1200) return WhichView.desktop;
+      return WhichView.tablet;
+    });
+  };
 
+  useEffect(() => {
+    handleResize();
+  }, []);
+
+  useEffect(() => {
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -47,54 +51,77 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
   }, []);
 
   const slideLeft = () => {
-    const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
-    const itemsBoard = itemsBoardRef.current;
+    // const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
+    // const itemsBoard = itemsBoardRef.current;
 
-    setCurrent(current <= 0 ? 0 : current - 1);
-    console.log(current);
+    setCurrent((prev) => prev <= 0 ? 0 : prev - 1);
 
-    if (itemsBoard) {
-      const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
-      const newLeft = currentLeft + itemWidth;
-      document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
-    }
+    // if (itemsBoard) {
+    //   const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
+    //   const newLeft = -current * itemWidth;
+    //   document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+    // }
   };
 
   const slideRight = () => {
-    const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
-    const itemsBoard = itemsBoardRef.current;
+    // const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
 
-    setCurrent(current === slides.length - 1 ? length - 1 : current + 1);
+    // const itemsBoard = itemsBoardRef.current;
 
-    if (itemsBoard) {
-      const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
-      const newLeft = currentLeft - itemWidth;
-      document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
-    }
+    setCurrent((prev) => prev === slides.length - 1 ? length - 1 : prev + 1);
+
+    // if (itemsBoard) {
+    //   const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
+    //   const newLeft = -current * itemWidth;
+    //   document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+    // }
   };
 
-  useEffect(() => {
-    console.log(`Item Width: ${setWidthByView()}`);
-
-    document.documentElement.style.setProperty('--item-width', `${setWidthByView()}px`);
-  }, [whichView]);
-
-  const setWidthByView = () => {
-    const itemWidthM = 228;
-    const itemWidthT = 253;
-    const itemWidthD = 288;
-
+  const slide = () => {
     let itemWidth;
 
     if (whichView === WhichView.mobile) {
-      itemWidth = itemWidthM;
+      itemWidth = 228;
     } else if (whichView === WhichView.tablet) {
-      itemWidth = itemWidthT;
+      itemWidth = 253;
     } else {
-      itemWidth = itemWidthD;
+      itemWidth = 288;
     }
+    const newLeft = -current * itemWidth;
 
-    return itemWidth;
+    document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+  };
+
+  useEffect(() => {
+    slide();
+  }, [whichView, current]);
+
+  // const setWidthByView = () => {
+  //   const itemWidthM = 228;
+  //   const itemWidthT = 253;
+  //   const itemWidthD = 288;
+
+  //   let itemWidth;
+
+  //   if (whichView === WhichView.mobile) {
+  //     itemWidth = itemWidthM;
+  //   } else if (whichView === WhichView.tablet) {
+  //     itemWidth = itemWidthT;
+  //   } else {
+  //     itemWidth = itemWidthD;
+  //   }
+
+  //   return itemWidth;
+  // };
+
+  const handleRightDisable = () => {
+    if (whichView === WhichView.mobile) {
+      return current === length;
+    } else if (whichView === WhichView.tablet && window.innerWidth <= 722) {
+      return current + 1 === length;
+    } else {
+      return current + 4 === length;
+    }
   };
 
   if (!Array.isArray(slides) || slides.length <= 0) {
@@ -118,9 +145,9 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
         />
         <ButtonSlide
           arrow={ButtonSlideEnum.right}
-          setDisable={current === length - 1}
+          setDisable={handleRightDisable()}
           onClickFunction={() => {
-            if (current === length - 1) return;
+            if (handleRightDisable()) return;
             return slideRight();
           }
           }

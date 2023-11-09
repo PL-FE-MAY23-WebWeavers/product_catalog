@@ -64,7 +64,7 @@ export const Slider = () => {
         />}
       </div>
 
-      <div className='swiper-pagination'></div>
+      {/* <div className='swiper-pagination'></div> */}
     </>
   );
 };
