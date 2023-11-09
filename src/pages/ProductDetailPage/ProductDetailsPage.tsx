@@ -11,30 +11,24 @@ import { Link, useParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader/Loader';
 import cn from 'classnames';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
+import { Phone } from '../../types/Phones';
 
 export const ProductDetailsPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const [product, setProduct] = useState<PhoneDetails | null>(null);
+  const [phone, setPhone] = useState<Phone | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isLoadError, setIsLoadError] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const BASE_URL = 'https://webweavers.onrender.com/';
 
-  const handleImageKeyPress = (
-    event: React.KeyboardEvent<HTMLButtonElement>,
-    index: number
-  ) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      setSelectedImageIndex(index);
-    }
-  };
-
   const newProductId = productId?.slice(1);
 
   useEffect(() => {
     if (newProductId) {
       getProductDetails(newProductId);
+      getRecommended(newProductId);
     }
   }, [newProductId]);
 
@@ -47,6 +41,25 @@ export const ProductDetailsPage = () => {
       .then((response) => {
         const productDetails = response.data;
         setProduct(productDetails);
+        setIsLoadError(false);
+      })
+      .catch(() => {
+        setIsLoadError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
+
+  function getRecommended(id: string) {
+    const BASE_URL = 'https://webweavers.onrender.com/api/products';
+    const url = `${BASE_URL}/${id}/recommended`;
+
+    axios
+      .get(url)
+      .then((response) => {
+        const productPhones = response.data;
+        setPhone(productPhones);
         setIsLoadError(false);
       })
       .catch(() => {
@@ -75,6 +88,8 @@ export const ProductDetailsPage = () => {
     console.log('cart');
   };
 
+  console.log(phone);
+
   return (
     <>
       <section className="product">
@@ -97,20 +112,15 @@ export const ProductDetailsPage = () => {
                 </div>
                 <div className="product__photos">
                   {product?.images.map((img, index) => (
-                    <button
+                    <div
                       key={img}
-                      type="button"
                       onClick={() => setSelectedImageIndex(index)}
-                      onKeyDown={(e) => handleImageKeyPress(e, index)}
-                      className="product__img"
+                      className={`product__photos-block ${
+                        index === selectedImageIndex ? 'selected' : ''
+                      }`}
                       tabIndex={0}
-                    >
-                      <img
-                        src={BASE_URL + img}
-                        alt="Product img"
-                        className="product__photos__img"
-                      />
-                    </button>
+                      style={{ backgroundImage: `url(${BASE_URL + img})` }}
+                    ></div>
                   ))}
                 </div>
 

@@ -79,6 +79,26 @@
       grid-column: 1 / 3;
     }
 
+    &-block {
+      display: flex;
+      flex-wrap: wrap;
+      height: 66px;
+      width: 66px;
+      border: 1px solid #c4c4c4;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      &.selected {
+        border: 1px solid black;
+      }
+
+      @media (max-width: 400px) {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
     &__img {
       object-fit: contain;
       display: flex;
