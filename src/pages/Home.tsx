@@ -18,11 +18,7 @@ export const Home = () => {
         </section>
 
         <section className="homepage-item__section homepage-item__recomend">
-          <CardsSlider
-            title="Brand new models"
-            items={newProducts}
-            id={1}
-          />
+          <CardsSlider title="Brand new models" items={newProducts} id={1} />
         </section>
 
         <section className="homepage-item__section section__category">
@@ -30,11 +26,7 @@ export const Home = () => {
         </section>
 
         <section className="homepage-item__section homepage-item__recomend">
-          <CardsSlider
-            title="Hot prices"
-            items={discountProducts}
-            id={2}
-          />
+          <CardsSlider title="Hot prices" items={discountProducts} id={2} />
         </section>
       </div>
     </div>
