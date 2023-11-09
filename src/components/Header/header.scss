@@ -1,5 +1,5 @@
-@import "../../styles/utils/variables";
-@import "../../styles/utils/mixins";
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 .header {
   width: 100%;
@@ -44,7 +44,6 @@
   }
 
   &__link {
-    font-family: Mont;
     font-size: 12px;
     line-height: 48px;
     font-weight: 700;
@@ -110,6 +109,31 @@
         content: $icon-cart;
       }
     }
+
+    &__count {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      width: 14px;
+      height: 14px;
+      border-radius: 100%;
+      background-color: $color-red-lm;
+      border: 1px solid $color-white-lm;
+      color: $color-white-lm;
+      font-size: 9px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 14px;
+
+      @include on-tablet {
+        top: 10px;
+      }
+
+      @include on-desktop {
+        top: 18px;
+      }
+    }
   }
 
   &__menu {
@@ -133,7 +157,7 @@
       height: 16px;
       width: 16px;
       position: relative;
-      transition: transform .6s;
+      transition: transform 0.6s;
     }
 
     &-bar {
@@ -145,17 +169,20 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition: transform .6s, opacity .8s, top .6s;
-     
-        &--top {
-          top: 25%;
-        }
-        
-        &--bottom {
-          top: 75%;
-        }
-    }      
-    
+      transition:
+        transform 0.6s,
+        opacity 0.8s,
+        top 0.6s;
+
+      &--top {
+        top: 25%;
+      }
+
+      &--bottom {
+        top: 75%;
+      }
+    }
+
     &:hover {
       .header__menu-icon {
         transform: scale(1.2);
@@ -222,7 +249,7 @@
         gap: $gap;
         padding-top: 24px;
       }
-  
+
       &__sub-nav {
         display: block;
         height: 64px;

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type useSliderHookProps = {
-images: string[],
-}
+  images: string[];
+};
 
-export const useSliderHook = ({ images }: useSliderHookProps ) => {
+export const useSliderHook = ({ images }: useSliderHookProps) => {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 639);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const useSliderHook = ({ images }: useSliderHookProps ) => {
   }, []);
 
   useEffect(() => {
-    images.forEach(src => {
+    images.forEach((src) => {
       const img = new Image();
       img.src = src;
     });

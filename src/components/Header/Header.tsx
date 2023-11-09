@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useProductCatalog } from '../../context/ProductCatalogContext';
 import { Logo } from '../Logo/Logo';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import cn from 'classnames';
@@ -8,6 +9,7 @@ import './header.scss';
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { width } = useWindowDimensions();
+  const { favourites, cartItems } = useProductCatalog();
 
   useEffect(() => {
     if (width && width >= 640) {
@@ -18,18 +20,18 @@ export const Header: React.FC = () => {
   return (
     <header
       className={cn('header', {
-        'header--menu-open': isMenuOpen
+        'header--menu-open': isMenuOpen,
       })}
     >
       <div className="header__top" id="header__top">
-        <Logo/>
+        <Logo />
         <button
           className={cn('header__menu', {
-            'header__menu--active': isMenuOpen
+            'header__menu--active': isMenuOpen,
           })}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div className='header__menu-icon'>
+          <div className="header__menu-icon">
             <div className="header__menu-bar header__menu-bar--top"></div>
             <div className="header__menu-bar header__menu-bar--mid"></div>
             <div className="header__menu-bar header__menu-bar--bottom"></div>
@@ -37,9 +39,9 @@ export const Header: React.FC = () => {
         </button>
       </div>
 
-      <nav className='header__nav'>
+      <nav className="header__nav">
         <NavLink
-          to='/'
+          to="/"
           className={({ isActive }) =>
             cn('header__link', {
               'header__link--active': isActive,
@@ -47,10 +49,10 @@ export const Header: React.FC = () => {
           }
           onClick={() => setIsMenuOpen(false)}
         >
-            Home
+          Home
         </NavLink>
         <NavLink
-          to='/phones'
+          to="/phones"
           className={({ isActive }) =>
             cn('header__link', {
               'header__link--active': isActive,
@@ -58,10 +60,10 @@ export const Header: React.FC = () => {
           }
           onClick={() => setIsMenuOpen(false)}
         >
-            Phones
+          Phones
         </NavLink>
         <NavLink
-          to='/tablets'
+          to="/tablets"
           className={({ isActive }) =>
             cn('header__link', {
               'header__link--active': isActive,
@@ -69,10 +71,10 @@ export const Header: React.FC = () => {
           }
           onClick={() => setIsMenuOpen(false)}
         >
-            Tablets
+          Tablets
         </NavLink>
         <NavLink
-          to='/accessories'
+          to="/accessories"
           className={({ isActive }) =>
             cn('header__link', {
               'header__link--active': isActive,
@@ -80,13 +82,13 @@ export const Header: React.FC = () => {
           }
           onClick={() => setIsMenuOpen(false)}
         >
-            Accessories
+          Accessories
         </NavLink>
       </nav>
 
-      <div className='header__sub-nav'>
+      <div className="header__sub-nav">
         <NavLink
-          to='/favourites'
+          to="/favourites"
           className={({ isActive }) =>
             cn('header__ico-link header__ico-link--favs', {
               'header__link--active': isActive,
@@ -94,9 +96,12 @@ export const Header: React.FC = () => {
           }
           onClick={() => setIsMenuOpen(false)}
         >
+          {favourites.length > 0 && (
+            <span className="header__ico-link__count">{favourites.length}</span>
+          )}
         </NavLink>
         <NavLink
-          to='/cart'
+          to="/cart"
           className={({ isActive }) =>
             cn('header__ico-link header__ico-link--cart', {
               'header__link--active': isActive,
@@ -104,6 +109,9 @@ export const Header: React.FC = () => {
           }
           onClick={() => setIsMenuOpen(false)}
         >
+          {cartItems.length > 0 && (
+            <span className="header__ico-link__count">{cartItems.length}</span>
+          )}
         </NavLink>
       </div>
     </header>

@@ -1,9 +1,15 @@
 import React from 'react';
-import { Routes, Route, HashRouter as Router, Navigate } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  HashRouter as Router,
+  Navigate,
+} from 'react-router-dom';
 import { App } from './App';
 import { PageNotFound } from './pages/PageNotFound';
 import { Home } from './pages/Home';
 import { Phones } from './pages/Phones';
+import { Favourites } from './pages/Favourites';
 import { Cart } from './pages/Cart/Cart';
 import { ProductDetailsPage } from './pages/ProductDetailPage/ProductDetailsPage';
 
@@ -22,6 +28,9 @@ export const Root = () => (
         </Route>
         <Route path="accessories">
           <Route index element={<PageNotFound />} />
+        </Route>
+        <Route path="favourites">
+          <Route index element={<Favourites />} />
         </Route>
         <Route path="cart">
           <Route index element={<Cart />} />

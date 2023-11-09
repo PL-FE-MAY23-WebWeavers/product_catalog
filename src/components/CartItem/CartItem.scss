@@ -1,0 +1,151 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.cart-item {
+  width: 100%;
+  border: 1px solid $color-elements-lm;
+  background-color: $color-white-lm;
+  padding: $gap;
+  display: flex;
+  flex-flow: column;
+  gap: $gap;
+
+  @include on-tablet {
+    flex-flow: nowrap;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+
+    @include on-tablet {
+      gap: 24px;
+    }
+  }
+
+  &__remove {
+    width: 16px;
+    height: 16px;
+    background-color: unset;
+    border: 0 none;
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: $icon-close;
+      font-family: $iconFont;
+      font-size: 17px;
+      color: $color-icons-lm;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      line-height: 16px;
+      text-align: center;
+      transition: color $animation-duration;
+    }
+
+    &:hover {
+      &::before {
+        color: $color-primary-lm;
+      }
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 80px;
+    height: 80px;
+    padding: 7px;
+  }
+
+  &__name {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+  }
+
+  &__amount {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    width: 34px;
+    text-align: center;
+  }
+
+  &__price {
+    color: $color-primary-lm;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1;
+    text-align: right;
+    margin-left: auto;
+    padding-top: 4px;
+
+    @include on-tablet {
+      width: 80px;
+      margin-left: 0;
+    }
+  }
+
+  &__button {
+    width: 34px;
+    height: 34px;
+    background-color: unset;
+    border: 1px solid $color-icons-lm;
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+
+    transition: border-color $animation-duration;
+
+    &::before {
+      content: '';
+      font-family: $iconFont;
+      font-size: 17px;
+      color: $color-primary-lm;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      line-height: 32px;
+      text-align: center;
+    }
+
+    &--decrease {
+      &::before {
+        content: $icon-minus;
+      }
+    }
+
+    &--increase {
+      &::before {
+        content: $icon-plus;
+      }
+    }
+
+    &:hover {
+      border-color: $color-primary-lm;
+    }
+
+    &:disabled {
+      border-color: $color-elements-lm;
+      cursor: unset;
+
+      &::before {
+        color: $color-icons-lm;
+      }
+    }
+  }
+}
