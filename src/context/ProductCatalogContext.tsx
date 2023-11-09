@@ -18,7 +18,7 @@ type ProductCatalogContextProps = {
   cartItems: CartItem[];
   increaseCartQuantity: (item: CartItem) => void;
   decreaseCartQuantity: (id: string) => void;
-  removeFromCart: (item: CartItem) => void;
+  removeFromCart: (id: string) => void;
   getItemQuantity: (id: string) => number;
   // FAVS
   favourites: Phone[];
@@ -89,10 +89,8 @@ export function ProductCatalogProvider({
     });
   };
 
-  const removeFromCart = (removedItem: CartItem) =>
-    setCartItems((currItems) =>
-      currItems.filter((item) => item.id !== removedItem.id)
-    );
+  const removeFromCart = (id: string) =>
+    setCartItems((currItems) => currItems.filter((item) => item.id !== id));
 
   const addToFavourites = (phone: Phone) => {
     setIsFavourite(true);
