@@ -16,6 +16,7 @@ export const ProductDetailsPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const [product, setProduct] = useState<PhoneDetails | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoadError, setIsLoadError] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const {
