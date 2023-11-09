@@ -3,7 +3,7 @@
 .searchfield {
   &__header {
     margin-bottom: 4px;
-    color: $color-secondary-lm;
+    color: $color-secondary-lm !important;
   }
 
   &__container {
