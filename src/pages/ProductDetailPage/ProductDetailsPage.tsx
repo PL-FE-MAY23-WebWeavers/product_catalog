@@ -275,6 +275,11 @@ export const ProductDetailsPage: React.FC = () => {
                     </div>
                   </div>
                 </section>
+                <section className='product__like'>
+                  <h2>
+                    You may also like
+                  </h2>
+                </section>
               </div>
             </>
           )}
