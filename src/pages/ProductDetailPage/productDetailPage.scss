@@ -64,7 +64,6 @@
     flex-direction: row;
     justify-content: center;
     gap: 8px;
-    height: 49px;
     margin-top: 16px;
 
     @include on-tablet {
@@ -84,13 +83,13 @@
       flex-wrap: wrap;
       height: 66px;
       width: 66px;
-      border: 1px solid #c4c4c4;
+      border: 1px solid $color-elements-lm;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center center;
 
       &.selected {
-        border: 1px solid black;
+        border: 1px solid $color-primary-lm;
       }
 
       @media (max-width: 400px) {
@@ -295,4 +294,33 @@
 
 .image-active {
   border: 1px solid $color-hover-and-bg-lm;
+}
+
+.homepage-item {
+  &__h1 {
+    grid-column: span 4;
+    margin: $hp-margin-h1 0;
+
+    @include on-tablet() {
+      grid-column: span 12;
+      margin: $hp-margin-h1-tablet 0;
+    }
+
+    @include on-desktop() {
+      grid-column: span 24;
+      margin: $hp-margin-h1-desktop 0;
+    }
+  }
+
+  &__recomend {
+    grid-column: span 4;
+
+    @include on-tablet {
+      grid-column: span 12;
+    }
+
+    @include on-desktop {
+      grid-column: span 24;
+    }
+  }
 }

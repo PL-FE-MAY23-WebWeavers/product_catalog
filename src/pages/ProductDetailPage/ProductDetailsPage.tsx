@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PRODUCTS_COLORS, PhoneDetails } from '../../types/PhoneDetails';
+import { Phone } from '../../types/Phones';
 import axios from 'axios';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
 import { ButtonBack } from '../../components/utils/ButtonBack/ButtonBack';
@@ -11,12 +12,12 @@ import { Link, useParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader/Loader';
 import cn from 'classnames';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
-import { Phone } from '../../types/Phones';
+import { CardsSlider } from '../../components/CardsSlider/CardsSlider';
 
 export const ProductDetailsPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const [product, setProduct] = useState<PhoneDetails | null>(null);
-  const [phone, setPhone] = useState<Phone | null>(null);
+  const [phone, setPhone] = useState<Phone[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoadError, setIsLoadError] = useState(false);
@@ -31,6 +32,7 @@ export const ProductDetailsPage = () => {
   const itemQuantity = product ? getItemQuantity(product.id) : 0;
 
   const BASE_URL = 'https://webweavers.onrender.com/';
+  const desiredNetworks = ['GSM', 'LTE', 'UMTS'];
 
   const newProductId = productId?.slice(1);
 
@@ -67,8 +69,9 @@ export const ProductDetailsPage = () => {
     axios
       .get(url)
       .then((response) => {
-        const productPhones = response.data;
+        const productPhones = response.data.rows as Phone[];
         setPhone(productPhones);
+        console.log(productPhones);
         setIsLoadError(false);
       })
       .catch(() => {
@@ -119,8 +122,6 @@ export const ProductDetailsPage = () => {
       quantity: itemQuantity,
     });
   };
-
-  console.log(phone);
 
   return (
     <section className="product">
@@ -319,13 +320,15 @@ export const ProductDetailsPage = () => {
                   <div className="product__data">
                     <p className="product__data-text">Cell</p>
                     <p className="product__data-number">
-                      {product?.cell.join(', ')}
+                      {product?.cell
+                        .filter((network) => desiredNetworks.includes(network))
+                        .join(', ')}
                     </p>
                   </div>
                 </div>
               </section>
-              <section className="product__like">
-                <h2>You may also like</h2>
+              <section className="product__like homepage-item__recomend">
+                <CardsSlider title="You may also like" items={phone} id={1} />
               </section>
             </div>
           </>
