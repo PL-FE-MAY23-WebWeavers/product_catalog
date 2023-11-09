@@ -23,14 +23,25 @@ export const Card = ({ item }: CardProps) => {
   const itemQuantity = getItemQuantity(item.phoneId);
 
   const isFavouritesSelected = favourites.some(
-    (phone) => phone.itemId === item.itemId
+    (phone) => phone.id === item.itemId
   );
 
   const handleFavouritesToggle = () => {
+    const phoneItem = {
+      id: item.itemId,
+      name: item.name,
+      price: item.price || item.fullPrice,
+      priceRegular: item.fullPrice,
+      image: item.image,
+      screen: item.screen,
+      capacity: item.capacity,
+      ram: item.ram,
+    };
+
     if (isFavouritesSelected) {
-      removeFromFavourites(item);
+      removeFromFavourites(item.itemId);
     } else {
-      addToFavourites(item);
+      addToFavourites(phoneItem);
     }
   };
 
