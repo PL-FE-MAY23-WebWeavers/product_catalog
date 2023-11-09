@@ -49,7 +49,7 @@
     justify-content: center;
 
     @include on-tablet {
-      grid-column: 2 / 7;
+      grid-column: 2 / 8;
     }
 
     @include on-desktop {
@@ -96,7 +96,7 @@
   &__right {
     grid-column: 1 / -1;
     @include on-tablet {
-      grid-column: 7 / -1;
+      grid-column: 8 / -1;
     }
 
     @include on-desktop {
