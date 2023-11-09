@@ -1,54 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './card.scss';
+import '../Card/card.scss';
 import { ButtonFavs } from '../utils/ButtonFavs/ButtonFavs';
 import { ButtonDefault } from '../utils/ButtonDefault/ButtonDefault';
-import { Phone } from '../../types/Phones';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
+import { FavItem } from '../../types/FavItem';
 
-type CardProps = {
-  item: Phone;
+type CardFavsProps = {
+  item: FavItem;
 };
 const BASE_URL = 'https://webweavers.onrender.com/';
 
-export const Card: React.FC<CardProps> = ({ item }) => {
+export const CardFavs: React.FC<CardFavsProps> = ({ item }) => {
   const {
-    favourites,
     addToFavourites,
     removeFromFavourites,
     increaseCartQuantity,
     getItemQuantity,
   } = useProductCatalog();
 
-  const itemQuantity = getItemQuantity(item.phoneId);
+  console.log(item);
 
-  const isFavouritesSelected = favourites.some(
-    (phone) => phone.id === item.itemId
-  );
+  const itemQuantity = getItemQuantity(item.id);
+
+  const isFavouritesSelected = true;
 
   const handleFavouritesToggle = () => {
-    const phoneItem = {
-      id: item.itemId,
-      itemId: item.itemId,
-      name: item.name,
-      price: item.price || item.fullPrice,
-      priceRegular: item.fullPrice,
-      image: item.image,
-      screen: item.screen,
-      capacity: item.capacity,
-      ram: item.ram,
-    };
-
     if (isFavouritesSelected) {
-      removeFromFavourites(item.itemId);
+      removeFromFavourites(item.id);
     } else {
-      addToFavourites(phoneItem);
+      addToFavourites(item);
     }
   };
 
   const handleAddToCart = () => {
     increaseCartQuantity({
-      id: item.phoneId,
+      id: item.id,
       name: item.name,
       price: item.price,
       image: item.image,
@@ -67,7 +54,7 @@ export const Card: React.FC<CardProps> = ({ item }) => {
       <div className="card card__prices">
         <h3 className="card card__price">{item.price}</h3>
 
-        <h3 className="card card__fullprice">{item.fullPrice}</h3>
+        <h3 className="card card__fullprice">{item.priceRegular}</h3>
       </div>
 
       <div className="card card__divider" />

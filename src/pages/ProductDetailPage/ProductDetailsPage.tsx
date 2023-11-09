@@ -77,6 +77,7 @@ export const ProductDetailsPage = () => {
 
     const phoneItem = {
       id: product.id,
+      itemId: product.id,
       name: product.name,
       price: product.priceDiscount || product.priceRegular,
       priceRegular: product.priceRegular,

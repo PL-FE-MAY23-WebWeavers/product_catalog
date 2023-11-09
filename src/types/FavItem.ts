@@ -1,5 +1,6 @@
 export type FavItem = {
   id: string;
+  itemId: string;
   name: string;
   price: number;
   priceRegular: number;
