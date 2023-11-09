@@ -8,7 +8,7 @@ import { Card } from '../Card/Card';
 type CardsSliderProps = {
   items: Phone[];
   title: string;
-  id?: number; // you should add id if you are using more than one of this component on one site
+  id: number; // you should add id if you are using more than one of this component on one site
 };
 
 enum WhichView {
@@ -18,14 +18,7 @@ enum WhichView {
 }
 
 export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
-  const slides = [
-    ...[1, 2, 3, 4, 5, 6].map((num) => {
-      return {
-        ...items[0],
-        id: num,
-      };
-    }),
-  ];
+  const slides = [...items];
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const [whichView, setWhichView] = useState<WhichView | null>(null);

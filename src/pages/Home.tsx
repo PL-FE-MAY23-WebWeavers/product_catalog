@@ -1,9 +1,13 @@
 import React from 'react';
 import { Categories } from '../components/Categories/Categories';
 import { Slider } from '../components/Slider/Slider';
-// import { CardsSlider } from '../components/CardsSlider/CardsSlider';
+import { CardsSlider } from '../components/CardsSlider/CardsSlider';
+import { useDiscountProducts } from '../hooks/useDiscountProducts';
+import { useNewProducts } from '../hooks/useNewProducts';
 
 export const Home = () => {
+  const { newProducts } = useNewProducts();
+  const { discountProducts } = useDiscountProducts();
   return (
     <div className="grid-container">
       <div className="grid-global">
@@ -14,10 +18,7 @@ export const Home = () => {
         </section>
 
         <section className="homepage-item__section homepage-item__recomend">
-          {/* <CardsSlider
-            title="Brand new models"
-            items={}
-          /> */}
+          <CardsSlider title="Brand new models" items={newProducts} id={1} />
         </section>
 
         <section className="homepage-item__section section__category">
@@ -25,10 +26,7 @@ export const Home = () => {
         </section>
 
         <section className="homepage-item__section homepage-item__recomend">
-          {/* <CardsSlider
-            title="Hot Prices"
-            items={}
-          /> */}
+          <CardsSlider title="Hot prices" items={discountProducts} id={2} />
         </section>
       </div>
     </div>
