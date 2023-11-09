@@ -64,7 +64,7 @@ export const Tablets: React.FC = () => {
           </div>
         </section>
 
-        {tablets.length === 0 && (
+        {tablets.length > 0 && (
           <h3 className="phones__h1">Opps! We are out of stock!</h3>
         )}
         {isLoading && <Loader />}
