@@ -4,13 +4,6 @@ import { Phone } from '../../types/Phones';
 import { ButtonSlide } from '../utils/ButtonSlide/ButtonSlide';
 import { ButtonSlideEnum } from '../../types/ButtonSlideEnum';
 import { Card } from '../Card/Card';
-import Swiper from 'swiper';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/scss/autoplay';
-
 
 type CardsSliderProps = {
   items: Phone[],
@@ -57,7 +50,7 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
     const itemsBoard = itemsBoardRef.current;
 
-    setCurrent(current === 0 ? 0 : current - 1);
+    setCurrent(current <= 0 ? 0 : current - 1);
     console.log(current);
 
     if (itemsBoard) {
