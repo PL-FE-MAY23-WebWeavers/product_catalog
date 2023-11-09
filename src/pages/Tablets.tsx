@@ -75,7 +75,7 @@ export const Tablets: React.FC = () => {
             </div>
           </>
         )}
-        <Loader />
+
         {isLoading && <Loader />}
       </Wrapper>
     </section>
