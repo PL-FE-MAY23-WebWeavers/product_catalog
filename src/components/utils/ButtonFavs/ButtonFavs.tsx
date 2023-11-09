@@ -7,13 +7,16 @@ type ButtonFavsProps = {
   isFavouritesSelected: boolean;
 };
 
-export const ButtonFavs = ({ handleFavouritesToggle, isFavouritesSelected }: ButtonFavsProps) => {
+export const ButtonFavs = ({
+  handleFavouritesToggle,
+  isFavouritesSelected,
+}: ButtonFavsProps) => {
   return (
     <button
       className={cn('button__fav', {
         'button__fav-filled': isFavouritesSelected,
       })}
-      onClick={handleFavouritesToggle}>
-    </button>
+      onClick={handleFavouritesToggle}
+    ></button>
   );
 };

@@ -1,0 +1,47 @@
+@import '../../styles/utils/variables';
+
+.searchfield {
+  &__header {
+    margin-bottom: 4px;
+    color: $color-secondary-lm;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__box {
+    outline: none;
+    height: 40px;
+    width: 100%;
+    border: 1px solid $color-icons-lm;
+    color: $color-primary-lm;
+    // padding-top: 7px;
+    padding-left: 10px;
+
+    &::placeholder {
+      color: $color-primary-lm;
+    }
+
+    &-close-icon {
+      position: relative;
+      right: 25px;
+      top: 8px;
+
+      &::before {
+        content: $icon-close;
+        font-family: $iconFont;
+        font-size: 16px;
+        color: $color-icons-lm;
+
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+      }
+
+      &--hidden {
+        display: hidden;
+      }
+    }
+  }
+}

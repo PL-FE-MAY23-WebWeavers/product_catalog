@@ -9,11 +9,25 @@ export const usePhones = () => {
   const [perPage, setPerPage] = useState<number>(16);
   const [orderBy, setOrderBy] = useState<string>('id');
   const [sort, setSort] = useState<string>('ASC');
+  const [search, setSearch] = useState<string>('');
 
   useEffect(() => {
-    getProducts(page, perPage, orderBy, sort)
-      .then(setPhones).finally(() => setIsLoading(false));
-  }, [page, perPage, orderBy, sort]);
+    getProducts(page, perPage, orderBy, sort, search)
+      .then(setPhones)
+      .finally(() => setIsLoading(false));
+  }, [page, perPage, orderBy, sort, search]);
 
-  return { phones, page, setPage, perPage, setPerPage, setOrderBy, setSort, isLoading };
+  return {
+    phones,
+    page,
+    setPage,
+    perPage,
+    setPerPage,
+    setOrderBy,
+    orderBy,
+    setSort,
+    isLoading,
+    search,
+    setSearch,
+  };
 };

@@ -6,9 +6,9 @@ import { ButtonSlideEnum } from '../../types/ButtonSlideEnum';
 import { Card } from '../Card/Card';
 
 type CardsSliderProps = {
-  items: Phone[],
-  title: string,
-}
+  items: Phone[];
+  title: string;
+};
 
 enum WhichView {
   mobile = 1.5,
@@ -16,14 +16,12 @@ enum WhichView {
   desktop = 4,
 }
 
-export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
-  const slides = [1,2,3,4,5,6].map(m => {
-    return (
-      {
-        ...items[0],
-        id: m,
-      }
-    );
+export const CardsSlider = ({ items, title }: CardsSliderProps) => {
+  const slides = [1, 2, 3, 4, 5, 6].map((m) => {
+    return {
+      ...items[0],
+      id: m,
+    };
   });
   const [current, setCurrent] = useState(0);
   const length = slides.length;
@@ -54,7 +52,7 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     // const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
     // const itemsBoard = itemsBoardRef.current;
 
-    setCurrent((prev) => prev <= 0 ? 0 : prev - 1);
+    setCurrent((prev) => (prev <= 0 ? 0 : prev - 1));
 
     // if (itemsBoard) {
     //   const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
@@ -68,7 +66,7 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
 
     // const itemsBoard = itemsBoardRef.current;
 
-    setCurrent((prev) => prev === slides.length - 1 ? length - 1 : prev + 1);
+    setCurrent((prev) => (prev === slides.length - 1 ? length - 1 : prev + 1));
 
     // if (itemsBoard) {
     //   const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
@@ -96,28 +94,12 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     slide();
   }, [whichView, current]);
 
-  // const setWidthByView = () => {
-  //   const itemWidthM = 228;
-  //   const itemWidthT = 253;
-  //   const itemWidthD = 288;
-
-  //   let itemWidth;
-
-  //   if (whichView === WhichView.mobile) {
-  //     itemWidth = itemWidthM;
-  //   } else if (whichView === WhichView.tablet) {
-  //     itemWidth = itemWidthT;
-  //   } else {
-  //     itemWidth = itemWidthD;
-  //   }
-
-  //   return itemWidth;
-  // };
-
   const handleRightDisable = () => {
     if (whichView === WhichView.mobile) {
       return current === length;
     } else if (whichView === WhichView.tablet && window.innerWidth <= 722) {
+      return current + 1 === length;
+    } else if (whichView === WhichView.tablet && window.innerWidth > 722) {
       return current + 1 === length;
     } else {
       return current + 4 === length;
@@ -128,50 +110,46 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     return null;
   }
 
-  return (<>
-    <section className='slider-models'>
-    </section>
-    <div className='cards-slider__section'>
-      <div className='section__title'>
-        <h2 className='title'>{title}</h2>
-        <ButtonSlide
-          arrow={ButtonSlideEnum.left}
-          setDisable={current === 0}
-          onClickFunction={() => {
-            if (current === 0) return;
-            return slideLeft();
-          }
-          }
-        />
-        <ButtonSlide
-          arrow={ButtonSlideEnum.right}
-          setDisable={handleRightDisable()}
-          onClickFunction={() => {
-            if (handleRightDisable()) return;
-            return slideRight();
-          }
-          }
-        />
-      </div>
-      <div className='section__items'>
-        <div className='items__board' ref={itemsBoardRef}>
-
-          {slides.map((slide, index) => {
-            return (
-              <div
-                className={index === current ? 'slide active' : 'slide'}
-                key={index}
-              >
-                <div className='items__item'>
-                  <Card item={slide}/>
+  return (
+    <>
+      <section className="slider-models"></section>
+      <div className="cards-slider__section">
+        <div className="section__title">
+          <h2 className="title">{title}</h2>
+          <ButtonSlide
+            arrow={ButtonSlideEnum.left}
+            setDisable={current === 0}
+            onClickFunction={() => {
+              if (current === 0) return;
+              return slideLeft();
+            }}
+          />
+          <ButtonSlide
+            arrow={ButtonSlideEnum.right}
+            setDisable={handleRightDisable()}
+            onClickFunction={() => {
+              if (handleRightDisable()) return;
+              return slideRight();
+            }}
+          />
+        </div>
+        <div className="section__items">
+          <div className="items__board" ref={itemsBoardRef}>
+            {slides.map((slide, index) => {
+              return (
+                <div
+                  className={index === current ? 'slide active' : 'slide'}
+                  key={index}
+                >
+                  <div className="items__item">
+                    <Card item={slide} />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
-
-    </div>
-  </>
+    </>
   );
 };

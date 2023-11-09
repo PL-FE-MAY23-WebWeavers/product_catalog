@@ -4,10 +4,10 @@ import cn from 'classnames';
 import { ButtonSlideEnum } from '../../../types/ButtonSlideEnum';
 
 type ButtonSlideProps = {
-arrow: ButtonSlideEnum,
-setDisable: boolean;
-onClickFunction: () => void;
-}
+  arrow: ButtonSlideEnum;
+  setDisable: boolean;
+  onClickFunction: () => void;
+};
 
 export const ButtonSlide = ({
   arrow,
@@ -23,6 +23,7 @@ export const ButtonSlide = ({
         'button-slide--left': arrow === ButtonSlideEnum.left,
         'button-slide--right': arrow === ButtonSlideEnum.right,
         'button-slide--disabled': setDisable,
-      })}></div>
+      })}
+    ></div>
   );
 };
