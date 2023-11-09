@@ -24,9 +24,9 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-
-  // transition: transform $animation-duration-sliding ease;
-
+  position: relative;
+  min-height: 320px;
+  
   @include on-tablet {
     height: 189px;
   }
@@ -40,6 +40,10 @@
   flex: 0 0 100%;
   object-fit: cover;
   aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   
   @include on-tablet {
     aspect-ratio: auto;

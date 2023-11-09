@@ -38,40 +38,44 @@
 .homepage-item {
   &__h1 {
     grid-column: span 4;
-    margin-bottom: $hp-margin-h1;
+    margin: $hp-margin-h1 0;
 
     @include on-tablet() {
       grid-column: span 12;
-      margin-bottom: $hp-margin-h1-tablet;
+      margin: $hp-margin-h1-tablet 0;
     }
 
     @include on-desktop() {
-      margin-bottom: $hp-margin-h1-desktop;
+      margin: $hp-margin-h1-desktop 0;
       grid-column: span 24;
     }
   }
 
   &__section {
     margin-bottom: $hp-margin-section;
-  
+    
     @include on-tablet() {
       margin-bottom: $hp-margin-section-tablet;
     }
-
+    
     @include on-desktop() {
       margin-bottom: $hp-margin-section-desktop;
     }
   }
-
+  
   &__slider {
     grid-column: span 4;
-
+    margin-bottom: $hp-margin-slider-mobile;
+    
     @include on-tablet {
       grid-column: span 12;
+      margin-bottom: $hp-margin-slider-tablet;
     }
 
     @include on-desktop {
       grid-column: span 24;
+      margin-bottom: $hp-margin-slider-desktop;
+
     }
   }
   

@@ -2,8 +2,12 @@ import React from 'react';
 import { Categories } from '../components/Categories/Categories';
 import { Slider } from '../components/Slider/Slider';
 import { CardsSlider } from '../components/CardsSlider/CardsSlider';
+import { useDiscountProducts } from '../hooks/useDiscountProducts';
+import { useNewProducts } from '../hooks/useNewProducts';
 
 export const Home = () => {
+  const { newProducts } = useNewProducts();
+  const { discountProducts } = useDiscountProducts();
   return (
     <div className='grid-container'>
       <div className='grid-global'>
@@ -18,21 +22,7 @@ export const Home = () => {
         <section className='homepage-item__section homepage-item__recomend'>
           <CardsSlider
             title='Brand new models'
-            items={[{
-              id: 1,
-              category: 'phones',
-              phoneId: 'apple-iphone-11-128gb-yellow',
-              itemId: 'apple-iphone-11-128gb-yellow',
-              name: 'Apple iPhone 11 128GB Yellow',
-              fullPrice: 1100,
-              price: 1050,
-              screen: '6.1\' IPS',
-              capacity: '128GB',
-              color: 'yellow',
-              ram: '4GB',
-              year: 2019,
-              image: 'img/phones/apple-iphone-7/black/00.jpg'
-            }]}
+            items={newProducts}
           />
         </section>
 
@@ -42,22 +32,23 @@ export const Home = () => {
 
         <section className='homepage-item__section homepage-item__recomend'>
           <CardsSlider
-            title='Brand new models'
-            items={[{
-              id: 1,
-              category: 'phones',
-              phoneId: 'apple-iphone-11-128gb-yellow',
-              itemId: 'apple-iphone-11-128gb-yellow',
-              name: 'Apple iPhone 11 128GB Yellow',
-              fullPrice: 1100,
-              price: 1050,
-              screen: '6.1\' IPS',
-              capacity: '128GB',
-              color: 'yellow',
-              ram: '4GB',
-              year: 2019,
-              image: 'img/phones/apple-iphone-7/black/00.jpg'
-            }]}
+            title='Hot prices'
+            items={discountProducts}
+            // items={[{
+            //   id: 1,
+            //   category: 'phones',
+            //   phoneId: 'apple-iphone-11-128gb-yellow',
+            //   itemId: 'apple-iphone-11-128gb-yellow',
+            //   name: 'Apple iPhone 11 128GB Yellow',
+            //   fullPrice: 1100,
+            //   price: 1050,
+            //   screen: '6.1\' IPS',
+            //   capacity: '128GB',
+            //   color: 'yellow',
+            //   ram: '4GB',
+            //   year: 2019,
+            //   image: 'img/phones/apple-iphone-7/black/00.jpg'
+            // }]}
           />
         </section>
       </div>

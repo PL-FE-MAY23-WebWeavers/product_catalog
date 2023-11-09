@@ -2,22 +2,22 @@ import { useEffect, useState } from 'react';
 import { client } from '../services/fetchClient';
 import { Phone } from '../types/Phones';
 
-export const useDiscountProducts = () => {
-  const [isLoadingD, setIsLoadingD] = useState<boolean>(true);
-  const [discountProducts, setDiscountProducts] = useState<Phone[]>([]);
+export const useNewProducts = () => {
+  const [isLoadingN, setIsLoadingN] = useState<boolean>(true);
+  const [newProducts, setNewProducts] = useState<Phone[]>([]);
 
   useEffect(() => {
     client.get('/products/discount')
       .then((response) => {
-        setDiscountProducts([...response as Phone[]]);
+        setNewProducts([...response as Phone[]]);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       })
       .finally(() => {
-        setIsLoadingD(false);
+        setIsLoadingN(false);
       });
   }, []);
 
-  return { discountProducts, isLoadingD };
+  return { newProducts, isLoadingN };
 };

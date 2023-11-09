@@ -17,14 +17,7 @@ enum WhichView {
 }
 
 export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
-  const slides = [1,2,3,4,5,6].map(m => {
-    return (
-      {
-        ...items[0],
-        id: m,
-      }
-    );
-  });
+  const slides = [...items];
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const [whichView, setWhichView] = useState<WhichView | null>();
