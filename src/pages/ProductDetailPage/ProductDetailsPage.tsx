@@ -10,8 +10,9 @@ import { Wrapper } from '../../components/utils/Wrapper/Wrapper';
 import { Link, useParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader/Loader';
 import cn from 'classnames';
+import { useProductCatalog } from '../../context/ProductCatalogContext';
 
-export const ProductDetailsPage: React.FC = () => {
+export const ProductDetailsPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const [product, setProduct] = useState<PhoneDetails | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -20,8 +21,10 @@ export const ProductDetailsPage: React.FC = () => {
 
   const BASE_URL = 'https://webweavers.onrender.com/';
 
-  const handleImageKeyPress
-  = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+  const handleImageKeyPress = (
+    event: React.KeyboardEvent<HTMLButtonElement>,
+    index: number
+  ) => {
     if (event.key === 'Enter' || event.key === ' ') {
       setSelectedImageIndex(index);
     }
@@ -39,7 +42,8 @@ export const ProductDetailsPage: React.FC = () => {
     const BASE_URL = 'https://webweavers.onrender.com/api/products';
     const url = `${BASE_URL}/${id}`;
 
-    axios.get(url)
+    axios
+      .get(url)
       .then((response) => {
         const productDetails = response.data;
         setProduct(productDetails);
@@ -53,20 +57,38 @@ export const ProductDetailsPage: React.FC = () => {
       });
   }
 
+  const { favourites, getItemQuantity } = useProductCatalog();
+
+  // #here
+
+  const itemQuantity = product ? getItemQuantity(product.id) : 0;
+
+  const isFavouritesSelected = product
+    ? favourites.some((phone) => phone.itemId === product.id)
+    : false;
+
+  const handleFavouritesToggle = () => {
+    console.log('favs');
+  };
+
+  const handleAddToCart = () => {
+    console.log('cart');
+  };
+
   return (
     <>
-      <section className='product'>
+      <section className="product">
         <Wrapper>
-          <BreadCrumbs product={product}/>
-          <div className='product__button-back'>
+          <BreadCrumbs product={product} />
+          <div className="product__button-back">
             <ButtonBack />
           </div>
           {isLoading && <Loader />}
 
           {product && (
             <>
-              <h2 className='product__title'>{product.name}</h2>
-              <div className='grid-global'>
+              <h2 className="product__title">{product.name}</h2>
+              <div className="grid-global">
                 <div className="product__photo">
                   <img
                     src={BASE_URL + product?.images[selectedImageIndex]}
@@ -92,7 +114,7 @@ export const ProductDetailsPage: React.FC = () => {
                   ))}
                 </div>
 
-                <div className='product__right'>
+                <div className="product__right">
                   <div className="product__actions">
                     <div className="product__options">
                       <p className="product__options-title small-text">
@@ -100,24 +122,27 @@ export const ProductDetailsPage: React.FC = () => {
                       </p>
 
                       <ul className="product__options-list">
-                        {product.colorsAvailable.map(colorValue => (
+                        {product.colorsAvailable.map((colorValue) => (
                           <li
                             key={colorValue}
                             className={cn('product__options-color', {
-                              'color-option-active': product.color === colorValue,
+                              'color-option-active':
+                                product.color === colorValue,
                             })}
                           >
                             <Link
                               style={{
                                 backgroundColor: PRODUCTS_COLORS[colorValue],
                               }}
-                              to={`/phones/:${product.namespaceId}-${product.capacity.toLowerCase()}-${colorValue}`}
+                              to={`/phones/:${
+                                product.namespaceId
+                              }-${product.capacity.toLowerCase()}-${colorValue}`}
                               className="product__options-color-link"
                             />
                           </li>
                         ))}
                       </ul>
-                      <div className='product__line'/>
+                      <div className="product__line" />
                     </div>
                   </div>
 
@@ -127,24 +152,23 @@ export const ProductDetailsPage: React.FC = () => {
                     </p>
 
                     <ul className="product__options-list">
-                      {product.capacityAvailable.map(capValue => (
-                        <li
-                          key={capValue}
-                          className={'product__options-cap'}
-                        >
+                      {product.capacityAvailable.map((capValue) => (
+                        <li key={capValue} className={'product__options-cap'}>
                           <Link
-                            to={`/phones/:${product.namespaceId}-${capValue.toLowerCase()}-${product.color}`}
+                            to={`/phones/:${
+                              product.namespaceId
+                            }-${capValue.toLowerCase()}-${product.color}`}
                             className={cn('product__options-cap-link', {
-                              'capacity-option-active': product.capacity === capValue,
-                            },
-                            )}
+                              'capacity-option-active':
+                                product.capacity === capValue,
+                            })}
                           >
                             {capValue}
                           </Link>
                         </li>
                       ))}
                     </ul>
-                    <div className='product__line'/>
+                    <div className="product__line" />
                   </div>
 
                   <div className="product__prices">
@@ -159,11 +183,17 @@ export const ProductDetailsPage: React.FC = () => {
 
                   <div className="product__info">
                     <div className="product__buttons">
-                      <ButtonDefault />
-                      <ButtonFavs />
+                      <ButtonDefault
+                        handleAddToCart={handleAddToCart}
+                        itemQuantity={itemQuantity}
+                      />
+                      <ButtonFavs
+                        handleFavouritesToggle={handleFavouritesToggle}
+                        isFavouritesSelected={isFavouritesSelected}
+                      />
                     </div>
 
-                    <div className='product__data__container'>
+                    <div className="product__data__container">
                       <div className="product__data">
                         <p className="product__data-text small-text">Screen</p>
                         <p className="product__data-number small-text">
@@ -172,14 +202,18 @@ export const ProductDetailsPage: React.FC = () => {
                       </div>
 
                       <div className="product__data">
-                        <p className="product__data-text small-text">Resolution</p>
+                        <p className="product__data-text small-text">
+                          Resolution
+                        </p>
                         <p className="product__data-number small-text">
                           {product?.resolution}
                         </p>
                       </div>
 
                       <div className="product__data">
-                        <p className="product__data-text small-text">Processor</p>
+                        <p className="product__data-text small-text">
+                          Processor
+                        </p>
                         <p className="product__data-number small-text">
                           {product?.processor}
                         </p>
@@ -195,13 +229,11 @@ export const ProductDetailsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <section className='product__more'>
-                  <div className='product__more__container'>
-                    <h3 className='product__more-title'>
-                      About
-                    </h3>
+                <section className="product__more">
+                  <div className="product__more__container">
+                    <h3 className="product__more-title">About</h3>
 
-                    {product.description.map(item => (
+                    {product.description.map((item) => (
                       <article
                         key={item.title}
                         className="product__more-article"
@@ -217,15 +249,13 @@ export const ProductDetailsPage: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className='product__more__right'>
-                    <h3 className='product__more-title product__more-title-specs'>
+                  <div className="product__more__right">
+                    <h3 className="product__more-title product__more-title-specs">
                       Tech specs
                     </h3>
                     <div className="product__data">
                       <p className="product__data-text">Screen</p>
-                      <p className="product__data-number">
-                        {product?.screen}
-                      </p>
+                      <p className="product__data-number">{product?.screen}</p>
                     </div>
                     <div className="product__data">
                       <p className="product__data-text">Resolution</p>
@@ -241,9 +271,7 @@ export const ProductDetailsPage: React.FC = () => {
                     </div>
                     <div className="product__data">
                       <p className="product__data-text">RAM</p>
-                      <p className="product__data-number">
-                        {product?.ram}
-                      </p>
+                      <p className="product__data-number">{product?.ram}</p>
                     </div>
                     <div className="product__data">
                       <p className="product__data-text">Build in memory</p>
@@ -253,15 +281,11 @@ export const ProductDetailsPage: React.FC = () => {
                     </div>
                     <div className="product__data">
                       <p className="product__data-text">Camera</p>
-                      <p className="product__data-number">
-                        {product?.camera}
-                      </p>
+                      <p className="product__data-number">{product?.camera}</p>
                     </div>
                     <div className="product__data">
                       <p className="product__data-text">Zoom</p>
-                      <p className="product__data-number">
-                        {product?.zoom}
-                      </p>
+                      <p className="product__data-number">{product?.zoom}</p>
                     </div>
                     <div className="product__data">
                       <p className="product__data-text">Cell</p>
@@ -271,10 +295,8 @@ export const ProductDetailsPage: React.FC = () => {
                     </div>
                   </div>
                 </section>
-                <section className='product__like'>
-                  <h2>
-                    You may also like
-                  </h2>
+                <section className="product__like">
+                  <h2>You may also like</h2>
                 </section>
               </div>
             </>
