@@ -1,0 +1,278 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.product {
+  margin: 24px 0 56px;
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 80px;
+  }
+
+  &__button-back {
+    margin-top: 24px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__main {
+    grid-column: 1 / -1;
+    margin-top: 32px;
+
+    @include on-tablet {
+      margin-top: 40px;
+      flex-direction: row;
+    }
+  }
+
+  &__photo {
+    grid-column: 1 / -1;
+    height: 288px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      grid-column: 2 / 8;
+    }
+
+    @include on-desktop {
+      height: 464px;
+      grid-column: 3 / 13;
+    }
+  }
+
+  &__photos {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    height: 49px;
+    margin-top: 16px;
+
+    @include on-tablet {
+      flex-direction: column;
+      margin-top: 0;
+      grid-column: 1 / 2;
+      grid-row: 1 /2;
+      justify-content: flex-start;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 3;
+    }
+
+    &__img {
+      object-fit: contain;
+      display: flex;
+      justify-content: center;
+      width: 51px;
+      height: 49px;
+
+      @include on-tablet {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  &__right {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 8 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 14 / 20;
+    }
+  }
+
+  &__options {
+    margin-top: 40px;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+
+    &-title {
+      color: $color-secondary-lm;
+    }
+
+    &-list {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    &-color {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      border: 1px solid $color-elements-lm;
+      border-radius: 50%;
+
+      @include on-tablet {
+        width: 36px;
+        height: 36px;
+      }
+
+      &-link {
+        width: 100%;
+        border: 2px solid $color-white-lm;
+        border-radius: 50%;
+      }
+    }
+
+    &-cap {
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-link {
+        font-size: 14px;
+        color: $color-primary-lm;
+        padding: 6px 8px 4px;
+        border: 1px solid $color-icons-lm;
+      }
+    }
+  }
+
+  &__line {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid $color-elements-lm;
+  }
+
+  &__prices {
+    margin-top: 32px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    &-before {
+      color: $color-secondary-lm;
+      text-decoration: line-through;
+      font-weight: 500;
+    }
+  }
+
+  &__buttons {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+
+    &__container {
+      margin-top: 32px;
+    }
+
+    &-text {
+      color: $color-secondary-lm;
+    }
+  }
+
+  &__more {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 64px;
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      @include on-desktop {
+        width: 560px;
+      }
+    }
+
+    &-title {
+      margin-top: 56px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $color-elements-lm;
+
+      @include on-tablet {
+        margin-top: 64px;
+      }
+
+      @include on-desktop {
+        margin-top: 80px;
+      }
+
+      &-specs {
+        margin-bottom: 30px;
+      }
+    }
+
+    &-article {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &-info {
+        color: $color-secondary-lm;
+      }
+    }
+
+    &__right {
+      @include on-desktop {
+        width: 512px;
+      }
+    }
+  }
+
+  &__like {
+    grid-column: 1 / -1;
+    margin-top: 56px;
+
+    @include on-tablet {
+      margin-top: 64px;
+    }
+
+    @include on-desktop {
+      margin-top: 80px;
+    }
+  }
+}
+
+.color-option-active {
+  border-color: $color-primary-lm;
+}
+
+.capacity-option-active {
+  border: none;
+  background-color: $color-primary-lm;
+  color: $color-white-lm;
+}
+
+.image-active {
+  border: 1px solid $color-hover-and-bg-lm;
+}
