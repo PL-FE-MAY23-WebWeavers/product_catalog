@@ -4,6 +4,7 @@ import { Wrapper } from '../../components/utils/Wrapper/Wrapper';
 import './cart.scss';
 import { CartItem } from '../../components/CartItem/CartItem';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
+import emptyCart from '../../images/empty-cart.png';
 
 export const Cart: React.FC = () => {
   const { cartItems } = useProductCatalog();
@@ -14,7 +15,14 @@ export const Cart: React.FC = () => {
         <ButtonBack />
         <h1 className="cart__h1">Cart</h1>
         {cartItems.length === 0 ? (
-          <div>yes</div>
+          <div className="cart__empty">
+            <img
+              src={emptyCart}
+              alt="empty cart"
+              className="cart__empty__img"
+            />
+            <p className="cart__empty__msg">Your cart is empty</p>
+          </div>
         ) : (
           <div className="cart__grid grid-global">
             <div className="cart__left">

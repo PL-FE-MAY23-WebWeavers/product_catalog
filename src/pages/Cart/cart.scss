@@ -3,6 +3,7 @@
 
 .cart {
   margin: 24px 0 56px;
+  overflow: hidden;
 
   @include on-tablet {
     margin-bottom: 64px;
@@ -93,6 +94,25 @@
       &:hover {
         box-shadow: 0 3px 13px 0 $color-primary-lm;
         // box-shadow: 0px 3px 13px 0px rgba($color-secondary-lm, 0.40);
+      }
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+
+    &__msg {
+      color: $color-empty-cart;
+      font-size: 16px;
+      margin-top: $gap;
+
+      @include on-tablet {
+        margin-top: 0;
+        font-size: 24px;
       }
     }
   }
