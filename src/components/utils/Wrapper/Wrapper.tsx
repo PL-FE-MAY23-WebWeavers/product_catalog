@@ -5,9 +5,5 @@ type WrapperProps = {
 };
 
 export const Wrapper: React.FC<WrapperProps> = ({ children }) => {
-  return (
-    <div className='wrapper grid-container'>
-      { children }
-    </div>
-  );
+  return <div className="wrapper grid-container">{children}</div>;
 };

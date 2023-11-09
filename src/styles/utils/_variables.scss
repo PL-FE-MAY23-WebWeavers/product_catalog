@@ -4,52 +4,54 @@ $gap: 16px;
 // = light mode =
 
 $color-primary-lm: #313237;
-$color-secondary-lm: #89939A;
+$color-secondary-lm: #89939a;
 
-$color-icons-lm: #B4BDC3;
-$color-elements-lm: #E2E6E9;
-$color-hover-and-bg-lm: #FAFBFC;
+$color-icons-lm: #b4bdc3;
+$color-elements-lm: #e2e6e9;
+$color-hover-and-bg-lm: #fafbfc;
 
-$color-white-lm: #FFF;
-$color-green-lm: #27AE60;
-$color-red-lm: #EB5757;
+$color-white-lm: #fff;
+$color-green-lm: #27ae60;
+$color-red-lm: #eb5757;
+
+$color-empty-cart: #da4453;
 
 // == ICONS ==
 
-$iconFont: "icomoon";
+$iconFont: 'icomoon';
 
-$icon-sun: "\e900";
-$icon-moon: "\e901";
-$icon-arrow-down: "\e902";
-$icon-arrow-left: "\e903";
-$icon-arrow-right: "\e904";
-$icon-arrow-up: "\e905";
-$icon-cart: "\e906";
-$icon-close: "\e907";
-$icon-favs: "\e908";
-$icon-favs-full: "\e909";
-$icon-home: "\e90a";
-$icon-menu: "\e90b";
-$icon-minus: "\e90c";
-$icon-plus: "\e90d";
-$icon-search: "\e90e";
-$icon-phone: "\e942";
-$icon-location: "\e947";
-$icon-user-tie: "\e976";
-$icon-spinner6: "\e97f";
-$icon-contrast: "\e9d5";
-$icon-hangouts: "\ea8e";
-$icon-whatsapp: "\ea93";
-$icon-github: "\eab0";
-$icon-linkedin: "\eac9";
-$icon-linkedin2: "\eaca";
+$icon-sun: '\e900';
+$icon-moon: '\e901';
+$icon-arrow-down: '\e902';
+$icon-arrow-left: '\e903';
+$icon-arrow-right: '\e904';
+$icon-arrow-up: '\e905';
+$icon-cart: '\e906';
+$icon-close: '\e907';
+$icon-favs: '\e908';
+$icon-favs-full: '\e909';
+$icon-home: '\e90a';
+$icon-menu: '\e90b';
+$icon-minus: '\e90c';
+$icon-plus: '\e90d';
+$icon-search: '\e90e';
+$icon-phone: '\e942';
+$icon-location: '\e947';
+$icon-user-tie: '\e976';
+$icon-spinner6: '\e97f';
+$icon-contrast: '\e9d5';
+$icon-hangouts: '\ea8e';
+$icon-whatsapp: '\ea93';
+$icon-github: '\eab0';
+$icon-linkedin: '\eac9';
+$icon-linkedin2: '\eaca';
 
 // == HOME PAGE ==
 // = h1 =
 
 $hp-margin-h1: 24px;
-$hp-margin-h1-tablet:32px;
-$hp-margin-h1-desktop:56px;
+$hp-margin-h1-tablet: 32px;
+$hp-margin-h1-desktop: 56px;
 
 // = section =
 
@@ -73,5 +75,5 @@ $card-gap: 8px;
 // == ANIMATION ==
 
 $animation-duration-shadow-button: 0.3s;
-$animation-duration-sliding: 0.3s; 
-// in future :)
+$animation-duration-sliding: 0.3s;
+$animation-duration: 0.3s;

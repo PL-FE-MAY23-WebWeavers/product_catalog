@@ -6,13 +6,12 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, Mont,
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Mont, monospace;
 }
 
 h1 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -24,7 +23,7 @@ h1 {
     line-height: 116.667%;
     letter-spacing: -0.48px;
   }
-  
+
   @include on-desktop {
     font-size: 48px;
     line-height: 116.667%;
@@ -34,7 +33,7 @@ h1 {
 
 h2 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 22px;
   font-style: normal;
   font-weight: 800;
@@ -43,19 +42,19 @@ h2 {
   @include on-tablet {
     font-size: 32px;
     line-height: 128.125%;
-    letter-spacing: -0.32px;   
+    letter-spacing: -0.32px;
   }
-  
+
   @include on-desktop {
     font-size: 32px;
     line-height: 128.125%;
-    letter-spacing: -0.32px;  
+    letter-spacing: -0.32px;
   }
 }
 
 h3 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -66,7 +65,7 @@ h3 {
     font-weight: 800;
     line-height: 140%;
   }
-  
+
   @include on-desktop {
     font-size: 22px;
     font-weight: 800;
@@ -76,16 +75,16 @@ h3 {
 
 h4 {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  
+
   @include on-tablet {
     font-size: 20px;
   }
-  
+
   @include on-desktop {
     font-size: 20px;
   }
@@ -93,7 +92,7 @@ h4 {
 
 .uppercase {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -104,7 +103,7 @@ h4 {
 
 button {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -113,7 +112,7 @@ button {
 
 p {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -122,7 +121,7 @@ p {
 
 .small-text {
   color: $color-primary-lm;
-  font-family: 'Mont';
+  font-family: Mont;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;

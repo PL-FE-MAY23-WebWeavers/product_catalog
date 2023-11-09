@@ -9,13 +9,11 @@ export const Home = () => {
   const { newProducts } = useNewProducts();
   const { discountProducts } = useDiscountProducts();
   return (
-    <div className='grid-container'>
-      <div className='grid-global'>
-        <h1 className='homepage-item__h1'>
-          Welcome to Nice Gadgets store!
-        </h1>
+    <div className="grid-container">
+      <div className="grid-global">
+        <h1 className="homepage-item__h1">Welcome to Nice Gadgets store!</h1>
 
-        <section className='homepage-item__slider'>
+        <section className="homepage-item__slider">
           <Slider />
         </section>
 
@@ -26,7 +24,7 @@ export const Home = () => {
           />
         </section>
 
-        <section className='homepage-item__section section__category'>
+        <section className="homepage-item__section section__category">
           <Categories />
         </section>
 

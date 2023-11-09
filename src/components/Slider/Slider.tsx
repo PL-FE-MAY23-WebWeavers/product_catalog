@@ -14,7 +14,7 @@ export const Slider = () => {
   const images = [
     'https://webweavers.onrender.com/img/banner-phones.png',
     'https://webweavers.onrender.com/img/banner-tablets.png',
-    'https://webweavers.onrender.com/img/banner-accessories.png'
+    'https://webweavers.onrender.com/img/banner-accessories.png',
   ];
   const { isMobileView } = useSliderHook({ images });
 
@@ -38,30 +38,39 @@ export const Slider = () => {
     });
   }, []);
 
-
   return (
     <>
-      <div className='slider sliderWrapper'>
-        {!isMobileView && <ButtonSlide
-          arrow={ButtonSlideEnum.left}
-          setDisable={false}
-          onClickFunction={() => swiperRef.current?.slidePrev()}
-        />}
+      <div className="slider sliderWrapper">
+        {!isMobileView && (
+          <ButtonSlide
+            arrow={ButtonSlideEnum.left}
+            setDisable={false}
+            onClickFunction={() => swiperRef.current?.slidePrev()}
+          />
+        )}
         <div className="swiper swipeable-content">
           <div className="swiper-wrapper">
-            <div className="swiper-slide"><img className='swipeable-item' src={images[0]}/></div>
+            <div className="swiper-slide">
+              <img className="swipeable-item" src={images[0]} />
+            </div>
 
-            <div className="swiper-slide"><img className='swipeable-item' src={images[1]}/></div>
+            <div className="swiper-slide">
+              <img className="swipeable-item" src={images[1]} />
+            </div>
 
-            <div className="swiper-slide"><img className='swipeable-item' src={images[2]}/></div>
+            <div className="swiper-slide">
+              <img className="swipeable-item" src={images[2]} />
+            </div>
           </div>
         </div>
 
-        {!isMobileView && <ButtonSlide
-          arrow={ButtonSlideEnum.right}
-          setDisable={false}
-          onClickFunction={() => swiperRef.current?.slideNext()}
-        />}
+        {!isMobileView && (
+          <ButtonSlide
+            arrow={ButtonSlideEnum.right}
+            setDisable={false}
+            onClickFunction={() => swiperRef.current?.slideNext()}
+          />
+        )}
       </div>
 
       {/* <div className='swiper-pagination'></div> */}

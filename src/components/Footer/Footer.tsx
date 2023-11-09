@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <div className='footer__logo'>
+        <div className="footer__logo">
           <Logo />
         </div>
 
@@ -29,17 +29,11 @@ export const Footer: React.FC = () => {
             Github
           </Link>
 
-          <Link
-            to="/contacts"
-            className={'footer__nav footer__nav-link'}
-          >
+          <Link to="/contacts" className={'footer__nav footer__nav-link'}>
             Contacts
           </Link>
 
-          <Link
-            to="/rights"
-            className={'footer__nav footer__nav-link'}
-          >
+          <Link to="/rights" className={'footer__nav footer__nav-link'}>
             Rights
           </Link>
         </ul>
@@ -47,7 +41,7 @@ export const Footer: React.FC = () => {
         <div className="footer__back-to-top">
           <Link
             to={{ pathname }}
-            className='footer__back-label'
+            className="footer__back-label"
             onClick={handleScroll}
           >
             Back to top
@@ -55,10 +49,9 @@ export const Footer: React.FC = () => {
 
           <Link
             to={{ pathname }}
-            className='footer__back-button'
+            className="footer__back-button"
             onClick={handleScroll}
-          >
-          </Link>
+          ></Link>
         </div>
       </div>
     </footer>

@@ -8,17 +8,11 @@ import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider'
 
 export const Categories = () => {
   const { phones } = usePhonesContext();
-  // const imgs = [
-  //   PhonesImg,
-  //   TabletsImg,
-  //   AccessoriesImg,
-  // ];
   const imgs: string[] = [
     'https://webweavers.onrender.com/img/categories/Phones.jpg',
     'https://webweavers.onrender.com/img/categories/Tablets.jpg',
     'https://webweavers.onrender.com/img/categories/Accessories.jpg',
   ];
-
   const categories = [
     'Mobile phones',
     'Tablets',
@@ -42,10 +36,9 @@ export const Categories = () => {
       </h2>
 
       <div className='categories'>
-        {/*
         {imgs.map((img, index) => {
           return (
-            <div key={index} className='category-item'>
+            <div key={index} className="category-item">
               <Category
                 categoryImg={img}
                 category={categories[index]}
@@ -54,22 +47,8 @@ export const Categories = () => {
                 modelsCount={modelsCount[index]}
               />
             </div>
-          );})
-        } */}
-
-        {imgs.map((img, index) => {
-          return (
-            <div key={index} className='category-item'>
-              <Category
-                categoryImg={img}
-                category={categories[index]}
-                index={index}
-                linkTo={linkTo[index]}
-                modelsCount={modelsCount[index]}
-              />
-            </div>
-          );})
-        }
+          );
+        })}
       </div>
     </div>
   );
