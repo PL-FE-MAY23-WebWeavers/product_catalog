@@ -11,6 +11,8 @@ import { Home } from './pages/Home';
 import { Phones } from './pages/Phones';
 import { Favourites } from './pages/Favourites';
 import { Cart } from './pages/Cart/Cart';
+import { Tablets } from './pages/Tablets';
+import { Accessories } from './pages/Accessories';
 import { ProductDetailsPage } from './pages/ProductDetailPage/ProductDetailsPage';
 
 export const Root = () => (
@@ -24,10 +26,10 @@ export const Root = () => (
           <Route path="*" element={<PageNotFound />} />
         </Route>
         <Route path="tablets">
-          <Route index element={<PageNotFound />} />
+          <Route index element={<Tablets />} />
         </Route>
         <Route path="accessories">
-          <Route index element={<PageNotFound />} />
+          <Route index element={<Accessories />} />
         </Route>
         <Route path="favourites">
           <Route index element={<Favourites />} />
