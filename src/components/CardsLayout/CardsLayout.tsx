@@ -1,8 +1,10 @@
+/* eslint-disable indent */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider';
 import { Card } from '../Card/Card';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
+import { CardFavs } from '../CardFavs/CardFavs';
 
 export const CardsLayout: React.FC = () => {
   const { phones } = usePhonesContext();
@@ -13,13 +15,11 @@ export const CardsLayout: React.FC = () => {
 
   return (
     <div className="cards-layout">
-      {phones.rows.map((phone) =>
-        (isFavouritesPage &&
-          favourites.some((favPhone) => favPhone.id === phone.itemId)) ||
-        !isFavouritesPage ? (
-          <Card key={phone.id} item={phone} />
-        ) : null
-      )}
+      {isFavouritesPage
+        ? favourites.map((favPhone) => (
+            <CardFavs key={favPhone.id} item={favPhone} />
+          ))
+        : phones.rows.map((phone) => <Card key={phone.id} item={phone} />)}
     </div>
   );
 };
