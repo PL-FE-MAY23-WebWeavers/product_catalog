@@ -8,7 +8,7 @@ import { Card } from '../Card/Card';
 type CardsSliderProps = {
   items: Phone[];
   title: string;
-  id: number; // you should add id if you are using more than one of this component on one site
+  id?: number; // you should add id if you are using more than one of this component on one site
 };
 
 enum WhichView {
@@ -18,7 +18,14 @@ enum WhichView {
 }
 
 export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
-  const slides = [...items];
+  const slides = [
+    ...[1, 2, 3, 4, 5, 6].map((num) => {
+      return {
+        ...items[0],
+        id: num,
+      };
+    }),
+  ];
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const [whichView, setWhichView] = useState<WhichView | null>(null);
@@ -75,14 +82,22 @@ export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
   }, [whichView, current]);
 
   const handleRightDisable = () => {
+    if (whichView === WhichView.mobile && length <= WhichView.mobile)
+      return true;
+    if (whichView === WhichView.tablet && length <= WhichView.tablet)
+      return true;
+    if (whichView === WhichView.mobile && length <= WhichView.desktop)
+      return true;
     if (whichView === WhichView.mobile) {
       return current === length - 1;
     } else if (whichView === WhichView.tablet && window.innerWidth <= 722) {
       return current + 1 === length - 1;
-    } else if (whichView === WhichView.tablet) {
+    } else if (whichView === WhichView.tablet && window.innerWidth >= 1062) {
       return current + 3 === length - 1;
+    } else if (whichView === WhichView.tablet) {
+      return current + 2 === length - 1;
     } else {
-      return current + 4 === length - 1;
+      return current + 3 === length - 1;
     }
   };
 
@@ -114,7 +129,11 @@ export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
           />
         </div>
         <div className="section__items">
-          <div className="items__board" ref={itemsBoardRef}>
+          <div
+            className="items__board"
+            ref={itemsBoardRef}
+            style={{ left: `var(--left-offset-${id}, 0)` }}
+          >
             {slides.map((slide, index) => {
               return (
                 <div
