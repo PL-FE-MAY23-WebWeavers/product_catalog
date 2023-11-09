@@ -46,7 +46,7 @@ export const Card = ({ item }: CardProps) => {
 
   return (
     <div className="card card__background">
-      <Link to={`/:${item.itemId}`} className="card card__link">
+      <Link to={`/phones/:${item.itemId}`} className="card card__link">
         <img src={BASE_URL + item.image} className="card card__img"></img>
       </Link>
 
