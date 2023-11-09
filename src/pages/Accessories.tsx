@@ -41,35 +41,41 @@ export const Accessories: React.FC = () => {
         <BreadCrumbs />
         <h1 className="phones__h1">Accessories</h1>
         <p className="phones__count p">{accessories.length} items</p>
-        <section className="phones__filters grid-global">
-          <div className="phones__filters-sortby">
-            <DropdownMenu
-              options={categoryOptions}
-              menuName="Sort By"
-              defaultValue={{ value: 'newest', label: 'Newest' }}
-              handleOption={handleSetOrderBy}
-            />
-          </div>
-          <div className="phones__filters-order">
-            <DropdownMenu
-              options={perPage}
-              menuName="Items on page"
-              defaultValue={{ label: '16', value: '16' }}
-              handleOption={handlePerPage}
-            />
-          </div>
-          <div className="phones__filters-search">
-            <SearchField />
-          </div>
-        </section>
 
-        {accessories.length > 0 && (
+        {accessories.length === 0 && (
           <h3 className="phones__h1">Opps! We are out of stock!</h3>
         )}
+
+        {accessories.length > 0 && (
+          <>
+            <section className="phones__filters grid-global">
+              <div className="phones__filters-sortby">
+                <DropdownMenu
+                  options={categoryOptions}
+                  menuName="Sort By"
+                  defaultValue={{ value: 'newest', label: 'Newest' }}
+                  handleOption={handleSetOrderBy}
+                />
+              </div>
+              <div className="phones__filters-order">
+                <DropdownMenu
+                  options={perPage}
+                  menuName="Items on page"
+                  defaultValue={{ label: '16', value: '16' }}
+                  handleOption={handlePerPage}
+                />
+              </div>
+              <div className="phones__filters-search">
+                <SearchField />
+              </div>
+            </section>
+            <div className="phones__grid grid-global">
+              {!isLoading && <Pagination />}
+            </div>
+          </>
+        )}
+
         {isLoading && <Loader />}
-        <div className="phones__grid grid-global">
-          {!isLoading && <Pagination />}
-        </div>
       </Wrapper>
     </section>
   );
