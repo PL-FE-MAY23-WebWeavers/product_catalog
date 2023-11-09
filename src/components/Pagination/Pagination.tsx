@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider';
 
 export const Pagination = () => {
-  const { page, setPage, perPage, phones } = usePhonesContext();
+  const { page, setPage, perPage, phones, targetRef } = usePhonesContext();
 
   const items = phones.count;
   const pages = Math.ceil(items / perPage);
@@ -16,14 +16,23 @@ export const Pagination = () => {
 
   const handleClick = (num: number) => () => {
     setPage(num);
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleForwardClick = () => {
     setPage((prev) => prev + 1);
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleBackClick = () => {
     setPage((prev) => prev - 1);
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (

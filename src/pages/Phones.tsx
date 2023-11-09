@@ -17,7 +17,8 @@ import {
 import './phones.scss';
 
 export const Phones: React.FC = () => {
-  const { phones, isLoading, setOrderBy, setPerPage } = usePhonesContext();
+  const { phones, isLoading, setOrderBy, setPerPage, targetRef } =
+    usePhonesContext();
 
   const handleSetOrderBy: (
     newValue: SingleValue<{ label: string; value: string }>,
@@ -39,7 +40,9 @@ export const Phones: React.FC = () => {
     <section className="phones">
       <Wrapper>
         <BreadCrumbs />
-        <h1 className="phones__h1">Mobile Phones</h1>
+        <h1 ref={targetRef} className="phones__h1">
+          Mobile Phones
+        </h1>
         <p className="phones__count p">{phones.count} models</p>
         <section className="phones__filters grid-global">
           <div className="phones__filters-sortby">

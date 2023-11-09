@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getProducts } from '../api/products';
 import { Phones } from '../types/Phones';
 
@@ -10,6 +10,7 @@ export const usePhones = () => {
   const [orderBy, setOrderBy] = useState<string>('id');
   const [sort, setSort] = useState<string>('ASC');
   const [search, setSearch] = useState<string>('');
+  const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getProducts(page, perPage, orderBy, sort, search)
@@ -29,5 +30,6 @@ export const usePhones = () => {
     isLoading,
     search,
     setSearch,
+    targetRef,
   };
 };
