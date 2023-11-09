@@ -7,7 +7,7 @@ export const useNewProducts = () => {
   const [newProducts, setNewProducts] = useState<Phone[]>([]);
 
   useEffect(() => {
-    client.get('/products/discount')
+    client.get('/products/new')
       .then((response) => {
         setNewProducts([...response as Phone[]]);
       })
