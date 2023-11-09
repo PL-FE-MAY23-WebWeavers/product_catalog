@@ -7,11 +7,12 @@ export const useNewProducts = () => {
   const [newProducts, setNewProducts] = useState<Phone[]>([]);
 
   useEffect(() => {
-    client.get('/products/new')
+    client
+      .get('/products/new')
       .then((response) => {
-        setNewProducts([...response as Phone[]]);
+        setNewProducts([...(response as Phone[])]);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error fetching data:', error);
       })
       .finally(() => {

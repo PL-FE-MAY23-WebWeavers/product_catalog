@@ -6,9 +6,9 @@ import { ButtonSlideEnum } from '../../types/ButtonSlideEnum';
 import { Card } from '../Card/Card';
 
 type CardsSliderProps = {
-  items: Phone[],
-  title: string,
-}
+  items: Phone[];
+  title: string;
+};
 
 enum WhichView {
   mobile = 1.5,
@@ -16,7 +16,7 @@ enum WhichView {
   desktop = 4,
 }
 
-export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
+export const CardsSlider = ({ items, title }: CardsSliderProps) => {
   const slides = [...items];
   const [current, setCurrent] = useState(0);
   const length = slides.length;
@@ -40,7 +40,12 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
   }, []);
 
   const slideLeft = () => {
-    const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
+    const itemWidth = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--item-width'
+      ),
+      10
+    );
     const itemsBoard = itemsBoardRef.current;
 
     setCurrent(current <= 0 ? 0 : current - 1);
@@ -49,12 +54,20 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     if (itemsBoard) {
       const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
       const newLeft = currentLeft + itemWidth;
-      document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+      document.documentElement.style.setProperty(
+        '--left-offset',
+        `${newLeft}px`
+      );
     }
   };
 
   const slideRight = () => {
-    const itemWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'), 10);
+    const itemWidth = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        '--item-width'
+      ),
+      10
+    );
     const itemsBoard = itemsBoardRef.current;
 
     setCurrent(current === slides.length - 1 ? length - 1 : current + 1);
@@ -62,14 +75,20 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     if (itemsBoard) {
       const currentLeft = parseInt(getComputedStyle(itemsBoard).left, 10);
       const newLeft = currentLeft - itemWidth;
-      document.documentElement.style.setProperty('--left-offset', `${newLeft}px`);
+      document.documentElement.style.setProperty(
+        '--left-offset',
+        `${newLeft}px`
+      );
     }
   };
 
   useEffect(() => {
     console.log(`Item Width: ${setWidthByView()}`);
 
-    document.documentElement.style.setProperty('--item-width', `${setWidthByView()}px`);
+    document.documentElement.style.setProperty(
+      '--item-width',
+      `${setWidthByView()}px`
+    );
   }, [whichView]);
 
   const setWidthByView = () => {
@@ -94,50 +113,46 @@ export const CardsSlider = ({ items, title }: CardsSliderProps ) => {
     return null;
   }
 
-  return (<>
-    <section className='slider-models'>
-    </section>
-    <div className='cards-slider__section'>
-      <div className='section__title'>
-        <h2 className='title'>{title}</h2>
-        <ButtonSlide
-          arrow={ButtonSlideEnum.left}
-          setDisable={current === 0}
-          onClickFunction={() => {
-            if (current === 0) return;
-            return slideLeft();
-          }
-          }
-        />
-        <ButtonSlide
-          arrow={ButtonSlideEnum.right}
-          setDisable={current === length - 1}
-          onClickFunction={() => {
-            if (current === length - 1) return;
-            return slideRight();
-          }
-          }
-        />
-      </div>
-      <div className='section__items'>
-        <div className='items__board' ref={itemsBoardRef}>
-
-          {slides.map((slide, index) => {
-            return (
-              <div
-                className={index === current ? 'slide active' : 'slide'}
-                key={index}
-              >
-                <div className='items__item'>
-                  <Card item={slide}/>
+  return (
+    <>
+      <section className="slider-models"></section>
+      <div className="cards-slider__section">
+        <div className="section__title">
+          <h2 className="title">{title}</h2>
+          <ButtonSlide
+            arrow={ButtonSlideEnum.left}
+            setDisable={current === 0}
+            onClickFunction={() => {
+              if (current === 0) return;
+              return slideLeft();
+            }}
+          />
+          <ButtonSlide
+            arrow={ButtonSlideEnum.right}
+            setDisable={current === length - 1}
+            onClickFunction={() => {
+              if (current === length - 1) return;
+              return slideRight();
+            }}
+          />
+        </div>
+        <div className="section__items">
+          <div className="items__board" ref={itemsBoardRef}>
+            {slides.map((slide, index) => {
+              return (
+                <div
+                  className={index === current ? 'slide active' : 'slide'}
+                  key={index}
+                >
+                  <div className="items__item">
+                    <Card item={slide} />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
-
-    </div>
-  </>
+    </>
   );
 };

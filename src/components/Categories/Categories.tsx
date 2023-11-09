@@ -13,29 +13,15 @@ export const Categories = () => {
     'https://webweavers.onrender.com/img/categories/Tablets.jpg',
     'https://webweavers.onrender.com/img/categories/Accessories.jpg',
   ];
-  const categories = [
-    'Mobile phones',
-    'Tablets',
-    'Accessories',
-  ];
-  const linkTo = [
-    'phones',
-    'tablets',
-    'accessories',
-  ];
-  const modelsCount = [
-    phones.count,
-    0,
-    0,
-  ];
+  const categories = ['Mobile phones', 'Tablets', 'Accessories'];
+  const linkTo = ['phones', 'tablets', 'accessories'];
+  const modelsCount = [phones.count, 0, 0];
 
   return (
-    <div className='section__categories'>
-      <h2 className='section__categories-title'>
-          Shop by category
-      </h2>
+    <div className="section__categories">
+      <h2 className="section__categories-title">Shop by category</h2>
 
-      <div className='categories'>
+      <div className="categories">
         {imgs.map((img, index) => {
           return (
             <div key={index} className="category-item">

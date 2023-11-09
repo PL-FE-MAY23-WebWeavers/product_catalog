@@ -17,20 +17,17 @@ export const Home = () => {
           <Slider />
         </section>
 
-        <section className='homepage-item__section homepage-item__recomend'>
-          <CardsSlider
-            title='Brand new models'
-            items={newProducts}
-          />
+        <section className="homepage-item__section homepage-item__recomend">
+          <CardsSlider title="Brand new models" items={newProducts} />
         </section>
 
         <section className="homepage-item__section section__category">
           <Categories />
         </section>
 
-        <section className='homepage-item__section homepage-item__recomend'>
+        <section className="homepage-item__section homepage-item__recomend">
           <CardsSlider
-            title='Hot prices'
+            title="Hot prices"
             items={discountProducts}
             // items={[{
             //   id: 1,
