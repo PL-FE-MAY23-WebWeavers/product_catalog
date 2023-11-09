@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { CartItem } from '../types/CartItem';
-import { Phone } from '../types/Phones';
+import { FavItem } from '../types/FavItem';
 
 type ProductCatalogProviderProps = {
   children: ReactNode;
@@ -21,9 +21,9 @@ type ProductCatalogContextProps = {
   removeFromCart: (id: string) => void;
   getItemQuantity: (id: string) => number;
   // FAVS
-  favourites: Phone[];
-  addToFavourites: (phone: Phone) => void;
-  removeFromFavourites: (phone: Phone) => void;
+  favourites: FavItem[];
+  addToFavourites: (phone: FavItem) => void;
+  removeFromFavourites: (id: string) => void;
   isFavourite: boolean;
 };
 
@@ -42,7 +42,7 @@ export function ProductCatalogProvider({
     []
   );
   const [isFavourite, setIsFavourite] = useState(false);
-  const [favourites, setFavourites] = useState<Phone[]>(() => {
+  const [favourites, setFavourites] = useState<FavItem[]>(() => {
     const savedFavourites = localStorage.getItem('favourites');
     if (savedFavourites) {
       return JSON.parse(savedFavourites);
@@ -92,7 +92,8 @@ export function ProductCatalogProvider({
   const removeFromCart = (id: string) =>
     setCartItems((currItems) => currItems.filter((item) => item.id !== id));
 
-  const addToFavourites = (phone: Phone) => {
+  const addToFavourites = (phone: FavItem) => {
+    console.log(phone);
     setIsFavourite(true);
     setFavourites((prevFavourites) => {
       if (!prevFavourites.some((item) => item.id === phone.id)) {
@@ -102,10 +103,10 @@ export function ProductCatalogProvider({
     });
   };
 
-  const removeFromFavourites = (phone: Phone) => {
+  const removeFromFavourites = (id: string) => {
     setIsFavourite(false);
     setFavourites((prevFavourites) =>
-      prevFavourites.filter((item) => item.id !== phone.id)
+      prevFavourites.filter((item) => item.id !== id)
     );
   };
 

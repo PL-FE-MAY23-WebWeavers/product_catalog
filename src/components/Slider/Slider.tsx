@@ -24,7 +24,7 @@ export const Slider = () => {
     swiperRef.current = new Swiper('.swiper', {
       modules: [Navigation, Pagination, Autoplay],
       autoplay: {
-        delay: 10000,
+        delay: 7000,
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -51,15 +51,21 @@ export const Slider = () => {
         <div className="swiper swipeable-content">
           <div className="swiper-wrapper">
             <div className="swiper-slide">
-              <img className="swipeable-item" src={images[0]} />
+              <div className="swipeable-item">
+                <img className="item-img" src={images[0]} />
+              </div>
             </div>
 
             <div className="swiper-slide">
-              <img className="swipeable-item" src={images[1]} />
+              <div className="swipeable-item">
+                <img className="item-img" src={images[1]} />
+              </div>
             </div>
 
             <div className="swiper-slide">
-              <img className="swipeable-item" src={images[2]} />
+              <div className="swipeable-item">
+                <img className="item-img" src={images[2]} />
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +79,7 @@ export const Slider = () => {
         )}
       </div>
 
-      <div className="swiper-pagination"></div>
+      {/* <div className='swiper-pagination'></div> */}
     </>
   );
 };

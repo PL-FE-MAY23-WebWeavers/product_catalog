@@ -17,14 +17,8 @@
 }
 
 .swipeable-content {
-  display: flex;
-  overflow: hidden;
-  flex: 1 0 0;
+  overflow: hidden !important;
   width: 100%;
-  justify-content: center;
-  align-items: center;
-
-  // transition: transform $animation-duration-sliding ease;
 
   @include on-tablet {
     height: 189px;
@@ -36,9 +30,24 @@
 }
 
 .swipeable-item {
-  flex: 0 0 100%;
-  object-fit: cover;
+  height: 100vw;
+
+  @include on-tablet {
+    height: 189px;
+  }
+
+  @include on-desktop {
+    height: 400px;
+  }
+}
+
+.item-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   aspect-ratio: 1 / 1;
+  object-fit: cover;
 
   @include on-tablet {
     aspect-ratio: auto;

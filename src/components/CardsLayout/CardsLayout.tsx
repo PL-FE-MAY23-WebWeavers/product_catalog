@@ -15,7 +15,7 @@ export const CardsLayout: React.FC = () => {
     <div className="cards-layout">
       {phones.rows.map((phone) =>
         (isFavouritesPage &&
-          favourites.some((favoritePhone) => favoritePhone.id === phone.id)) ||
+          favourites.some((favPhone) => favPhone.id === phone.itemId)) ||
         !isFavouritesPage ? (
           <Card key={phone.id} item={phone} />
         ) : null
