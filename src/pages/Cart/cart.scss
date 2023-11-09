@@ -89,7 +89,7 @@
       cursor: pointer;
 
       transition: box-shadow $animation-duration;
-  
+
       &:hover {
         box-shadow: 0 3px 13px 0 $color-primary-lm;
         // box-shadow: 0px 3px 13px 0px rgba($color-secondary-lm, 0.40);

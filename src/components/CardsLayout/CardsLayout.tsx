@@ -8,7 +8,6 @@ export const CardsLayout: React.FC = () => {
   const { phones } = usePhonesContext();
   const { favourites } = useProductCatalog();
   const location = useLocation();
-  console.log(phones);
 
   const isFavouritesPage = location.pathname.endsWith('/favourites');
 

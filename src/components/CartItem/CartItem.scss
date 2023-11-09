@@ -128,7 +128,7 @@
         content: $icon-minus;
       }
     }
-  
+
     &--increase {
       &::before {
         content: $icon-plus;
@@ -138,7 +138,7 @@
     &:hover {
       border-color: $color-primary-lm;
     }
- 
+
     &:disabled {
       border-color: $color-elements-lm;
       cursor: unset;

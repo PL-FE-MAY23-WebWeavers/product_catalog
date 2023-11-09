@@ -16,9 +16,7 @@ export const CartItem: React.FC<CartItemProps> = ({ name, price, imgURL }) => (
         src={`${[imgURL]}`}
         alt="Cart item image"
       />
-      <div className="cart-item__name">
-        {name}
-      </div>
+      <div className="cart-item__name">{name}</div>
     </div>
     <div className="cart-item__row">
       <div className="cart-item__count">
