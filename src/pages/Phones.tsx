@@ -1,4 +1,5 @@
 import React from 'react';
+import { SingleValue, ActionMeta } from 'react-select';
 
 import { Pagination } from '../components/Pagination/Pagination';
 import { usePhonesContext } from '../providers/PhonesProvider/PhonesProvider';
@@ -6,16 +7,18 @@ import { Loader } from '../components/Loader/Loader';
 import { CardsLayout } from '../components/CardsLayout/CardsLayout';
 import { Wrapper } from '../components/utils/Wrapper/Wrapper';
 import { BreadCrumbs } from '../components/BreadCrumbs/BreadCrumbs';
-import './phones.scss';
 import { DropdownMenu } from '../components/DropdownMenu/DropdownMenu';
+import { SearchField } from '../components/SearchField/SearchField';
 import {
   categoryOptions,
   perPage,
 } from '../components/DropdownMenu/dropdownmenuTypes';
-import { SingleValue, ActionMeta } from 'react-select';
-import { SearchField } from '../components/SearchField/SearchField';
+
+import './phones.scss';
+
 export const Phones: React.FC = () => {
   const { phones, isLoading, setOrderBy, setPerPage } = usePhonesContext();
+
   const handleSetOrderBy: (
     newValue: SingleValue<{ label: string; value: string }>,
     actionMeta: ActionMeta<{ label: string; value: string }>
@@ -23,6 +26,7 @@ export const Phones: React.FC = () => {
     setOrderBy(option?.value as string);
     console.log(option?.value);
   };
+
   const handlePerPage: (
     newValue: SingleValue<{ label: string; value: string }>,
     actionMeta: ActionMeta<{ label: string; value: string }>
@@ -30,6 +34,7 @@ export const Phones: React.FC = () => {
     setPerPage(Number(option?.value) as number);
     console.log(option?.value);
   };
+
   return (
     <section className="phones">
       <Wrapper>

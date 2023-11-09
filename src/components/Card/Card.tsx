@@ -12,8 +12,15 @@ type CardProps = {
 const BASE_URL = 'https://webweavers.onrender.com/';
 
 export const Card = ({ item }: CardProps) => {
-  const { favourites, addToFavourites, removeFromFavourites } =
-    useProductCatalog();
+  const {
+    favourites,
+    addToFavourites,
+    removeFromFavourites,
+    increaseCartQuantity,
+    getItemQuantity,
+  } = useProductCatalog();
+
+  const itemQuantity = getItemQuantity(item.phoneId);
 
   const isFavouritesSelected = favourites.some(
     (phone) => phone.itemId === item.itemId
@@ -25,6 +32,16 @@ export const Card = ({ item }: CardProps) => {
     } else {
       addToFavourites(item);
     }
+  };
+
+  const handleAddToCart = () => {
+    increaseCartQuantity({
+      id: item.phoneId,
+      name: item.name,
+      price: item.price,
+      image: item.image,
+      quantity: itemQuantity,
+    });
   };
 
   return (
@@ -61,7 +78,10 @@ export const Card = ({ item }: CardProps) => {
       </div>
 
       <div className="card card__buttons">
-        <ButtonDefault />
+        <ButtonDefault
+          handleAddToCart={handleAddToCart}
+          itemQuantity={itemQuantity}
+        />
         <ButtonFavs
           handleFavouritesToggle={handleFavouritesToggle}
           isFavouritesSelected={isFavouritesSelected}

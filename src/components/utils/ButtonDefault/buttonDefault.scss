@@ -4,19 +4,22 @@
   background-color: $color-primary-lm;
   color: $color-white-lm;
   border: 0 none;
-  cursor: pointer;
+  padding: 0;
 
   height: 40px;
-  justify-content: center;
-  align-items: center;
+  line-height: 40px;
   text-align: center;
   flex: 1 0 0;
   box-shadow: 0 0 0 0 $color-primary-lm;
 
   transition: box-shadow $animation-duration-shadow-button ease;
 
-  &:hover {
-    box-shadow: 0 3px 13px 0 $color-primary-lm;
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 3px 13px 0 $color-primary-lm;
+    }
   }
 
   &__added {

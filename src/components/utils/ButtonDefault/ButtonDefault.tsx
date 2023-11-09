@@ -2,15 +2,24 @@ import React from 'react';
 import './buttonDefault.scss';
 import cn from 'classnames';
 
-export const ButtonDefault = () => {
+type ButtonDefaultProps = {
+  handleAddToCart: () => void;
+  itemQuantity: number;
+};
+
+export const ButtonDefault: React.FC<ButtonDefaultProps> = ({
+  handleAddToCart,
+  itemQuantity,
+}) => {
   return (
     <button
-      className={cn({
-        'button-default': true,
-        'button-default__added': false,
+      className={cn('button-default', {
+        'button-default__added': itemQuantity > 0,
       })}
+      onClick={handleAddToCart}
+      disabled={itemQuantity > 0}
     >
-      Add to cart
+      {itemQuantity > 0 ? 'Added to cart' : 'Add to cart'}
     </button>
   );
 };

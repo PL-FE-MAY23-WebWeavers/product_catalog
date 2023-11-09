@@ -44,7 +44,6 @@
   }
 
   &__link {
-    font-family: Mont;
     font-size: 12px;
     line-height: 48px;
     font-weight: 700;
@@ -108,6 +107,31 @@
     &--cart {
       &::before {
         content: $icon-cart;
+      }
+    }
+
+    &__count {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      width: 14px;
+      height: 14px;
+      border-radius: 100%;
+      background-color: $color-red-lm;
+      border: 1px solid $color-white-lm;
+      color: $color-white-lm;
+      font-size: 9px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 14px;
+
+      @include on-tablet {
+        top: 10px;
+      }
+
+      @include on-desktop {
+        top: 18px;
       }
     }
   }

@@ -14,7 +14,13 @@ type ProductCatalogProviderProps = {
 };
 
 type ProductCatalogContextProps = {
+  // CART
   cartItems: CartItem[];
+  increaseCartQuantity: (item: CartItem) => void;
+  decreaseCartQuantity: (id: string) => void;
+  removeFromCart: (id: string) => void;
+  getItemQuantity: (id: string) => number;
+  // FAVS
   favourites: Phone[];
   addToFavourites: (phone: Phone) => void;
   removeFromFavourites: (phone: Phone) => void;
@@ -30,9 +36,11 @@ export function useProductCatalog() {
 export function ProductCatalogProvider({
   children,
 }: ProductCatalogProviderProps) {
-  // [cartItems, setCartItems] will be used in the future
   // useLocalStorage can be used to store different values under different name eg.: 'shopping-cart'
-  const [cartItems] = useLocalStorage<CartItem[]>('shopping-cart', []);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    'shopping-cart',
+    []
+  );
   const [isFavourite, setIsFavourite] = useState(false);
   const [favourites, setFavourites] = useState<Phone[]>(() => {
     const savedFavourites = localStorage.getItem('favourites');
@@ -45,6 +53,44 @@ export function ProductCatalogProvider({
   useEffect(() => {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
+
+  const getItemQuantity = (id: string) =>
+    cartItems.find((item) => item.id === id)?.quantity || 0;
+
+  const increaseCartQuantity = (addedItem: CartItem) => {
+    setCartItems((currItems) => {
+      if (currItems.find((item) => item.id === addedItem.id) == null) {
+        return [...currItems, { ...addedItem, quantity: 1 }];
+      }
+
+      return currItems.map((item) => {
+        if (item.id === addedItem.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        } else {
+          return item;
+        }
+      });
+    });
+  };
+
+  const decreaseCartQuantity = (id: string) => {
+    setCartItems((currItems) => {
+      if (currItems.find((item) => item.id === id)?.quantity === 1) {
+        return currItems.filter((item) => item.id !== id);
+      }
+
+      return currItems.map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return item;
+        }
+      });
+    });
+  };
+
+  const removeFromCart = (id: string) =>
+    setCartItems((currItems) => currItems.filter((item) => item.id !== id));
 
   const addToFavourites = (phone: Phone) => {
     setIsFavourite(true);
@@ -67,6 +113,10 @@ export function ProductCatalogProvider({
     <ProductCatalogContext.Provider
       value={{
         cartItems,
+        increaseCartQuantity,
+        decreaseCartQuantity,
+        removeFromCart,
+        getItemQuantity,
         favourites,
         addToFavourites,
         removeFromFavourites,
