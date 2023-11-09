@@ -18,8 +18,13 @@ export const ProductDetailsPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isLoadError, setIsLoadError] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const { favourites, getItemQuantity, increaseCartQuantity } =
-    useProductCatalog();
+  const {
+    favourites,
+    removeFromFavourites,
+    addToFavourites,
+    getItemQuantity,
+    increaseCartQuantity,
+  } = useProductCatalog();
   const itemQuantity = product ? getItemQuantity(product.id) : 0;
 
   const BASE_URL = 'https://webweavers.onrender.com/';
@@ -60,13 +65,31 @@ export const ProductDetailsPage = () => {
       });
   }
 
-  // #here
   const isFavouritesSelected = product
-    ? favourites.some((phone) => phone.itemId === product.id)
+    ? favourites.some((phone) => phone.id === product.id)
     : false;
 
   const handleFavouritesToggle = () => {
-    console.log('favs');
+    if (!product) {
+      return;
+    }
+
+    const phoneItem = {
+      id: product.id,
+      name: product.name,
+      price: product.priceDiscount || product.priceRegular,
+      priceRegular: product.priceRegular,
+      image: product.images[0],
+      screen: product.screen,
+      capacity: product.capacity,
+      ram: product.ram,
+    };
+
+    if (isFavouritesSelected) {
+      removeFromFavourites(product.id);
+    } else {
+      addToFavourites(phoneItem);
+    }
   };
 
   const handleAddToCart = () => {

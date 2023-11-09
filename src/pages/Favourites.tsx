@@ -19,7 +19,9 @@ export const Favourites: React.FC = () => {
         <h1 className="phones__h1">Favourites</h1>
         <p className="phones__count p">{favourites.length} models</p>
         {favourites.length === 0 && (
-          <h3 className="phones__h1">No phones have been added to favourites!</h3>
+          <h3 className="phones__h1">
+            No phones have been added to favourites!
+          </h3>
         )}
         {isLoading && <Loader />}
         <div className="phones__grid grid-global">
