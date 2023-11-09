@@ -38,28 +38,28 @@
 .homepage-item {
   &__h1 {
     grid-column: span 4;
-    margin: $hp-margin-h1 0;
+    margin-bottom: $hp-margin-h1;
 
     @include on-tablet() {
       grid-column: span 12;
-      margin: $hp-margin-h1-tablet 0;
+      margin-bottom: $hp-margin-h1-tablet;
     }
 
     @include on-desktop() {
-      margin: $hp-margin-h1-desktop 0;
+      margin-bottom: $hp-margin-h1-desktop;
       grid-column: span 24;
     }
   }
 
   &__section {
-    margin: $hp-margin-section 0;
+    margin-bottom: $hp-margin-section;
   
     @include on-tablet() {
-      margin: $hp-margin-section-tablet 0;
+      margin-bottom: $hp-margin-section-tablet;
     }
 
     @include on-desktop() {
-      margin: $hp-margin-section-desktop 0;
+      margin-bottom: $hp-margin-section-desktop;
     }
   }
 

@@ -24,7 +24,7 @@ export const Categories = () => {
     'accessories',
   ];
   const modelsCount = [
-    phones.count || 0,
+    phones.count,
     0,
     0,
   ];
