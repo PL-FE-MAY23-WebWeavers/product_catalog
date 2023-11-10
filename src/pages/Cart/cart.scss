@@ -3,7 +3,7 @@
 
 .cart {
   margin: 25px 0 55px;
-  overflow: hidden;
+  // overflow: hidden;
 
   @include on-tablet {
     margin-bottom: 64px;
@@ -56,6 +56,8 @@
     width: 100%;
     padding: 24px;
     border: 1px solid $color-elements-lm;
+    position: sticky;
+    top: 16px;
 
     &__total {
       color: $color-primary-lm;

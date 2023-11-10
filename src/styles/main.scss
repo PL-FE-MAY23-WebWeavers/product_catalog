@@ -18,4 +18,8 @@
   @include on-desktop {
     min-height: calc(100vh - 162px);
   }
+
+  &--cart {
+    overflow: unset;
+  }
 }
