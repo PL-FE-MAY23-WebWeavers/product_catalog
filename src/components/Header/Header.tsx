@@ -10,6 +10,7 @@ export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { width } = useWindowDimensions();
   const { favourites, cartItems } = useProductCatalog();
+  const cartCount = cartItems.reduce((prev, next) => prev + next.quantity, 0);
 
   useEffect(() => {
     if (width && width >= 640) {
@@ -109,8 +110,8 @@ export const Header: React.FC = () => {
           }
           onClick={() => setIsMenuOpen(false)}
         >
-          {cartItems.length > 0 && (
-            <span className="header__ico-link__count">{cartItems.length}</span>
+          {cartCount > 0 && (
+            <span className="header__ico-link__count">{cartCount}</span>
           )}
         </NavLink>
       </div>

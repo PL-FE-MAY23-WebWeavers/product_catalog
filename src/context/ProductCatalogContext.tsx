@@ -93,7 +93,6 @@ export function ProductCatalogProvider({
     setCartItems((currItems) => currItems.filter((item) => item.id !== id));
 
   const addToFavourites = (phone: FavItem) => {
-    console.log(phone);
     setIsFavourite(true);
     setFavourites((prevFavourites) => {
       if (!prevFavourites.some((item) => item.id === phone.id)) {

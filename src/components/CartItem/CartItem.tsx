@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './CartItem.scss';
 import { CartItem as CartItemTypes } from '../../types/CartItem';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
@@ -24,12 +25,14 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
           className="cart-item__remove"
           onClick={handleRemoveItem}
         ></button>
-        <img
-          className="cart-item__image"
-          src={BASE_URL + item.image}
-          alt="Cart item image"
-        />
-        <div className="cart-item__name">{item.name}</div>
+        <Link to={`/phones/:${item.id}`} className="cart-item__link">
+          <img
+            className="cart-item__image"
+            src={BASE_URL + item.image}
+            alt="Cart item image"
+          />
+          <div className="cart-item__name">{item.name}</div>
+        </Link>
       </div>
       <div className="cart-item__row">
         <div className="cart-item__count">

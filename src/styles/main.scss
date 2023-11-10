@@ -4,13 +4,22 @@
 @import './utils/mixins';
 @import './utils/typography';
 @import './utils/grid';
-@import '../components/Card/card.scss';
+@import '../components/Card/card';
 
 // to be removed soon
 .main {
   min-height: calc(100vh - 298px);
+  overflow: auto;
 
   @include on-tablet {
+    min-height: calc(100vh - 146px);
+  }
+
+  @include on-desktop {
     min-height: calc(100vh - 162px);
+  }
+
+  &--cart {
+    overflow: unset;
   }
 }
