@@ -25,7 +25,7 @@ export const Phones: React.FC = () => {
     actionMeta: ActionMeta<{ label: string; value: string }>
   ) => void = (option) => {
     setOrderBy(option?.value as string);
-    console.log(option?.value);
+    // console.log(option?.value);
   };
 
   const handlePerPage: (
@@ -33,7 +33,7 @@ export const Phones: React.FC = () => {
     actionMeta: ActionMeta<{ label: string; value: string }>
   ) => void = (option) => {
     setPerPage(Number(option?.value) as number);
-    console.log(option?.value);
+    // console.log(option?.value);
   };
 
   return (

@@ -19,8 +19,6 @@ export const CardFavs: React.FC<CardFavsProps> = ({ item }) => {
     getItemQuantity,
   } = useProductCatalog();
 
-  console.log(item);
-
   const itemQuantity = getItemQuantity(item.id);
 
   const isFavouritesSelected = true;
