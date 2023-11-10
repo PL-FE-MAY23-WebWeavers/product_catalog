@@ -69,7 +69,7 @@ export const ProductDetailsPage = () => {
     axios
       .get(url)
       .then((response) => {
-        const productPhones = response.data.rows as Phone[];
+        const productPhones = response.data as Phone[];
         setPhone(productPhones);
         console.log(productPhones);
         setIsLoadError(false);

@@ -295,32 +295,3 @@
 .image-active {
   border: 1px solid $color-hover-and-bg-lm;
 }
-
-.homepage-item {
-  &__h1 {
-    grid-column: span 4;
-    margin: $hp-margin-h1 0;
-
-    @include on-tablet() {
-      grid-column: span 12;
-      margin: $hp-margin-h1-tablet 0;
-    }
-
-    @include on-desktop() {
-      grid-column: span 24;
-      margin: $hp-margin-h1-desktop 0;
-    }
-  }
-
-  &__recomend {
-    grid-column: span 4;
-
-    @include on-tablet {
-      grid-column: span 12;
-    }
-
-    @include on-desktop {
-      grid-column: span 24;
-    }
-  }
-}
