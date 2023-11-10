@@ -88,7 +88,7 @@
   }
 
   @include on-desktop {
-    grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
+    grid-template-columns: repeat(4, minmax(237px, 1fr));
     justify-content: center;
     align-items: center;
     gap: 40px 16px;
