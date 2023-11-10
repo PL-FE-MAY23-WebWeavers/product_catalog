@@ -1,3 +1,5 @@
+import { Phone } from './Phones';
+
 export type PhoneDetails = {
   id: string;
   namespaceId: string;
@@ -22,6 +24,11 @@ export type PhoneDetails = {
 type Description = {
   title: string;
   text: string[];
+};
+
+export type Recommended = {
+  count: number;
+  rows: Phone[];
 };
 
 export const PRODUCTS_COLORS: { [color: string]: string } = {

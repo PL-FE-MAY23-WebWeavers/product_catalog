@@ -64,7 +64,6 @@
     flex-direction: row;
     justify-content: center;
     gap: 8px;
-    height: 49px;
     margin-top: 16px;
 
     @include on-tablet {
@@ -77,6 +76,26 @@
 
     @include on-desktop {
       grid-column: 1 / 3;
+    }
+
+    &-block {
+      display: flex;
+      flex-wrap: wrap;
+      height: 66px;
+      width: 66px;
+      border: 1px solid $color-elements-lm;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      &.selected {
+        border: 1px solid $color-primary-lm;
+      }
+
+      @media (max-width: 400px) {
+        height: 40px;
+        width: 40px;
+      }
     }
 
     &__img {

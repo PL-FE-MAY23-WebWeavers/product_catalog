@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PRODUCTS_COLORS, PhoneDetails } from '../../types/PhoneDetails';
+import { Phone } from '../../types/Phones';
 import axios from 'axios';
 import { BreadCrumbs } from '../../components/BreadCrumbs/BreadCrumbs';
 import { ButtonBack } from '../../components/utils/ButtonBack/ButtonBack';
@@ -11,10 +12,12 @@ import { Link, useParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader/Loader';
 import cn from 'classnames';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
+import { CardsSlider } from '../../components/CardsSlider/CardsSlider';
 
 export const ProductDetailsPage = () => {
   const { productId } = useParams<{ productId: string }>();
   const [product, setProduct] = useState<PhoneDetails | null>(null);
+  const [phone, setPhone] = useState<Phone[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoadError, setIsLoadError] = useState(false);
@@ -29,21 +32,14 @@ export const ProductDetailsPage = () => {
   const itemQuantity = product ? getItemQuantity(product.id) : 0;
 
   const BASE_URL = 'https://webweavers.onrender.com/';
-
-  const handleImageKeyPress = (
-    event: React.KeyboardEvent<HTMLButtonElement>,
-    index: number
-  ) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      setSelectedImageIndex(index);
-    }
-  };
+  const desiredNetworks = ['GSM', 'LTE', 'UMTS'];
 
   const newProductId = productId?.slice(1);
 
   useEffect(() => {
     if (newProductId) {
       getProductDetails(newProductId);
+      getRecommended(newProductId);
     }
   }, [newProductId]);
 
@@ -56,6 +52,26 @@ export const ProductDetailsPage = () => {
       .then((response) => {
         const productDetails = response.data;
         setProduct(productDetails);
+        setIsLoadError(false);
+      })
+      .catch(() => {
+        setIsLoadError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
+
+  function getRecommended(id: string) {
+    const BASE_URL = 'https://webweavers.onrender.com/api/products';
+    const url = `${BASE_URL}/${id}/recommended`;
+
+    axios
+      .get(url)
+      .then((response) => {
+        const productPhones = response.data as Phone[];
+        setPhone(productPhones);
+        console.log(productPhones);
         setIsLoadError(false);
       })
       .catch(() => {
@@ -129,20 +145,15 @@ export const ProductDetailsPage = () => {
               </div>
               <div className="product__photos">
                 {product?.images.map((img, index) => (
-                  <button
+                  <div
                     key={img}
-                    type="button"
                     onClick={() => setSelectedImageIndex(index)}
-                    onKeyDown={(e) => handleImageKeyPress(e, index)}
-                    className="product__img"
+                    className={`product__photos-block ${
+                      index === selectedImageIndex ? 'selected' : ''
+                    }`}
                     tabIndex={0}
-                  >
-                    <img
-                      src={BASE_URL + img}
-                      alt="Product img"
-                      className="product__photos__img"
-                    />
-                  </button>
+                    style={{ backgroundImage: `url(${BASE_URL + img})` }}
+                  ></div>
                 ))}
               </div>
 
@@ -310,13 +321,15 @@ export const ProductDetailsPage = () => {
                   <div className="product__data">
                     <p className="product__data-text">Cell</p>
                     <p className="product__data-number">
-                      {product?.cell.join(', ')}
+                      {product?.cell
+                        .filter((network) => desiredNetworks.includes(network))
+                        .join(', ')}
                     </p>
                   </div>
                 </div>
               </section>
-              <section className="product__like">
-                <h2>You may also like</h2>
+              <section className="product__like homepage-item__recomend">
+                <CardsSlider title="You may also like" items={phone} id={1} />
               </section>
             </div>
           </>

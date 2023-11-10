@@ -1,6 +1,6 @@
 import { Phones } from '../types/Phones';
 import { client } from '../services/fetchClient';
-import { PhoneDetails } from '../types/PhoneDetails';
+import { PhoneDetails, Recommended } from '../types/PhoneDetails';
 
 export const getProducts = (
   page: number,
@@ -30,4 +30,8 @@ export const getProducts = (
 
 export const getProductDetails = (id: string) => {
   return client.get<PhoneDetails>(`/products:${id}`);
+};
+
+export const getRecommended = (id: string) => {
+  return client.get<Recommended>(`/products/${id}/recommended`);
 };
