@@ -1,24 +1,22 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.63a26b95.css",
-    "main.js": "/product_catalog/static/js/main.e4e5f7b1.js",
-    "static/media/Tablets.jpg": "/product_catalog/static/media/Tablets.b7936102bbee95b04858.jpg",
+    "main.css": "/product_catalog/static/css/main.373564f6.css",
+    "main.js": "/product_catalog/static/js/main.cca3687e.js",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.3c6bd1886792ca6da9d59ce7bea7dc78.svg",
-    "static/media/Accessories.jpg": "/product_catalog/static/media/Accessories.be436ca505029b61f86e.jpg",
     "static/media/Mont-Regular.otf": "/product_catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/product_catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/product_catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
-    "static/media/Phones.jpg": "/product_catalog/static/media/Phones.b56db7dd087ccfce9ea1.jpg",
     "static/media/icomoon.svg?kj0kgl": "/product_catalog/static/media/icomoon.95bbce94f1578fab69ba.svg",
+    "static/media/empty-cart.png": "/product_catalog/static/media/empty-cart.b5fe7e5c334490fa84e5.png",
     "static/media/icomoon.eot?kj0kgl": "/product_catalog/static/media/icomoon.4fcdf497474088b899ff.eot",
     "static/media/icomoon.woff?kj0kgl": "/product_catalog/static/media/icomoon.4c57b015e27bf661f780.woff",
     "static/media/icomoon.ttf?kj0kgl": "/product_catalog/static/media/icomoon.d9652e12dcc5f808a29b.ttf",
     "index.html": "/product_catalog/index.html",
-    "main.63a26b95.css.map": "/product_catalog/static/css/main.63a26b95.css.map",
-    "main.e4e5f7b1.js.map": "/product_catalog/static/js/main.e4e5f7b1.js.map"
+    "main.373564f6.css.map": "/product_catalog/static/css/main.373564f6.css.map",
+    "main.cca3687e.js.map": "/product_catalog/static/js/main.cca3687e.js.map"
   },
   "entrypoints": [
-    "static/css/main.63a26b95.css",
-    "static/js/main.e4e5f7b1.js"
+    "static/css/main.373564f6.css",
+    "static/js/main.cca3687e.js"
   ]
 }
