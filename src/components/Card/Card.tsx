@@ -9,7 +9,7 @@ import { useProductCatalog } from '../../context/ProductCatalogContext';
 type CardProps = {
   item: Phone;
 };
-const BASE_URL = 'https://webweavers.onrender.com/';
+const BASE_URL = 'https://webweavers-app.onrender.com/';
 
 export const Card: React.FC<CardProps> = ({ item }) => {
   const {

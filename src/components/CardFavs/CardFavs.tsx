@@ -9,7 +9,7 @@ import { FavItem } from '../../types/FavItem';
 type CardFavsProps = {
   item: FavItem;
 };
-const BASE_URL = 'https://webweavers.onrender.com/';
+const BASE_URL = 'https://webweavers-app.onrender.com/';
 
 export const CardFavs: React.FC<CardFavsProps> = ({ item }) => {
   const {

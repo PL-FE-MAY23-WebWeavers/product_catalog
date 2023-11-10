@@ -9,9 +9,9 @@ import { usePhonesContext } from '../../providers/PhonesProvider/PhonesProvider'
 export const Categories = () => {
   const { phones } = usePhonesContext();
   const imgs: string[] = [
-    'https://webweavers.onrender.com/img/categories/Phones.jpg',
-    'https://webweavers.onrender.com/img/categories/Tablets.jpg',
-    'https://webweavers.onrender.com/img/categories/Accessories.jpg',
+    'https://webweavers-app.onrender.com/img/categories/Phones.jpg',
+    'https://webweavers-app.onrender.com/img/categories/Tablets.jpg',
+    'https://webweavers-app.onrender.com/img/categories/Accessories.jpg',
   ];
   const categories = ['Mobile phones', 'Tablets', 'Accessories'];
   const linkTo = ['phones', 'tablets', 'accessories'];

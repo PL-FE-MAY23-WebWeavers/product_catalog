@@ -1,4 +1,4 @@
-const URL_BASE = 'https://webweavers.onrender.com';
+const URL_BASE = 'https://webweavers-app.onrender.com';
 const ENDPOINT = '/products';
 
 interface APIResponse<T> {

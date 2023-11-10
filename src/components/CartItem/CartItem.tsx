@@ -8,7 +8,7 @@ type CartItemProps = {
   item: CartItemTypes;
 };
 
-const BASE_URL = 'https://webweavers.onrender.com/';
+const BASE_URL = 'https://-app.onrender.com/';
 
 export const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } =

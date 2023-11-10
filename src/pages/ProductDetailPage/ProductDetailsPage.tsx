@@ -31,7 +31,7 @@ export const ProductDetailsPage = () => {
   } = useProductCatalog();
   const itemQuantity = product ? getItemQuantity(product.id) : 0;
 
-  const BASE_URL = 'https://webweavers.onrender.com/';
+  const BASE_URL = 'https://webweavers-app.onrender.com/';
   const desiredNetworks = ['GSM', 'LTE', 'UMTS'];
 
   const newProductId = productId?.slice(1);
@@ -44,7 +44,7 @@ export const ProductDetailsPage = () => {
   }, [newProductId]);
 
   function getProductDetails(id: string) {
-    const BASE_URL = 'https://webweavers.onrender.com/api/products';
+    const BASE_URL = 'https://webweavers-app.onrender.com/api/products';
     const url = `${BASE_URL}/${id}`;
 
     axios
@@ -63,7 +63,7 @@ export const ProductDetailsPage = () => {
   }
 
   function getRecommended(id: string) {
-    const BASE_URL = 'https://webweavers.onrender.com/api/products';
+    const BASE_URL = 'https://webweavers-app.onrender.com/api/products';
     const url = `${BASE_URL}/${id}/recommended`;
 
     axios
