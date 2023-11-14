@@ -5,6 +5,7 @@ import { Logo } from '../Logo/Logo';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import cn from 'classnames';
 import './header.scss';
+import { UserButton, SignedIn, SignedOut, SignIn } from '@clerk/clerk-react';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -88,6 +89,24 @@ export const Header: React.FC = () => {
       </nav>
 
       <div className="header__sub-nav">
+        <SignedIn>
+          <NavLink
+            className="header__ico-link  header__ico-link--loggedin"
+            to="/signin"
+          >
+            <UserButton afterSignOutUrl="/" />
+          </NavLink>
+        </SignedIn>
+        <SignedOut>
+          {' '}
+          <NavLink
+            className="header__ico-link header__ico-link--user"
+            to="/signin"
+          >
+            {' '}
+          </NavLink>
+        </SignedOut>
+
         <NavLink
           to="/favourites"
           className={({ isActive }) =>

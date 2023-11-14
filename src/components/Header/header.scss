@@ -110,6 +110,16 @@
       }
     }
 
+    &--user {
+      &::before {
+        content: $icon-user;
+      }
+    }
+
+    &--loggedin {
+      // missing styles
+    }
+
     &__count {
       display: block;
       position: absolute;
