@@ -59,7 +59,7 @@ const ClerkProviderWithRoutes = () => {
             <Route index element={<SignIn />} />
           </Route>
           <Route
-            path="useraccount"
+            path="user-profile"
             element={
               <SignedIn>
                 <UserPage />

@@ -112,12 +112,15 @@
 
     &--user {
       &::before {
-        content: $icon-user;
+        content: $icon-user-tie;
+        color: $color-secondary-lm;
       }
     }
 
-    &--loggedin {
-      // missing styles
+    &--user-online {
+      &::before {
+        content: $icon-user-tie;
+      }
     }
 
     &__count {
@@ -272,9 +275,10 @@
       }
 
       &__ico-link {
-        width: 50%;
+        width: 33.3%;
 
-        &--favs {
+        &--user,
+        &--user-online {
           border-left-width: 0;
         }
       }
