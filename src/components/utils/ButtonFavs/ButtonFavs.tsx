@@ -17,6 +17,9 @@ export const ButtonFavs = ({
         'button__fav-filled': isFavouritesSelected,
       })}
       onClick={handleFavouritesToggle}
+      aria-label={
+        isFavouritesSelected ? 'Remove from favorites' : 'Add to favorites'
+      }
     ></button>
   );
 };

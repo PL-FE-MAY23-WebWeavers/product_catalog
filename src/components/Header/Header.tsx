@@ -32,6 +32,7 @@ export const Header: React.FC = () => {
             'header__menu--active': isMenuOpen,
           })}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
         >
           <div className="header__menu-icon">
             <div className="header__menu-bar header__menu-bar--top"></div>
