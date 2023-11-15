@@ -6,6 +6,8 @@ import { CartItem } from '../../components/CartItem/CartItem';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
 import emptyCart from '../../images/empty-cart.png';
 
+const paymentUrl = process.env.REACT_APP_PAYMENT_SERVER;
+
 export const Cart: React.FC = () => {
   const { cartItems } = useProductCatalog();
   const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
@@ -13,7 +15,13 @@ export const Cart: React.FC = () => {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  let checkoutValue = '';
 
+  cartItems.forEach((item) => {
+    checkoutValue += `${item.name}:${item.quantity}:${item.price * 100}-`;
+  });
+
+  checkoutValue = checkoutValue.trim();
   return (
     <section className="cart">
       <Wrapper>
@@ -43,12 +51,16 @@ export const Cart: React.FC = () => {
                   {totalQuantity === 1 ? 'item' : 'items'}
                 </div>
                 <span className="cart__checkout__br"></span>
-                <button
-                  className="cart__checkout__button"
-                  aria-label="Proceed to Checkout"
+                <form
+                  action={paymentUrl + '/create-checkout-session'}
+                  method="POST"
                 >
-                  Checkout
-                </button>
+                  <input type="hidden" name="cart" value={checkoutValue} />
+                  <button className="cart__checkout__button" type="submit">
+                    Checkout
+                  </button>
+                </form>
+                {/* <button className="cart__checkout__button">Checkout</button> */}
               </div>
             </div>
           </div>
