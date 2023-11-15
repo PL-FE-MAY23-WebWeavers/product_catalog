@@ -110,6 +110,19 @@
       }
     }
 
+    &--user {
+      &::before {
+        content: $icon-user-tie;
+        color: $color-secondary-lm;
+      }
+    }
+
+    &--user-online {
+      &::before {
+        content: $icon-user-tie;
+      }
+    }
+
     &__count {
       display: block;
       position: absolute;
@@ -262,9 +275,10 @@
       }
 
       &__ico-link {
-        width: 50%;
+        width: 33.3%;
 
-        &--favs {
+        &--user,
+        &--user-online {
           border-left-width: 0;
         }
       }
