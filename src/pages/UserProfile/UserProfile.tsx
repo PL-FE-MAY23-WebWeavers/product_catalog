@@ -49,7 +49,3 @@ export const UserProfile: React.FC = () => {
     </section>
   );
 };
-
-{
-  /* <UserButton afterSignOutUrl="/" /> */
-}
