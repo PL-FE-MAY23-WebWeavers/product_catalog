@@ -43,7 +43,15 @@ export const Cart: React.FC = () => {
                   {totalQuantity === 1 ? 'item' : 'items'}
                 </div>
                 <span className="cart__checkout__br"></span>
-                <button className="cart__checkout__button">Checkout</button>
+                <form
+                  action="http://localhost:4242/create-checkout-session"
+                  method="POST"
+                >
+                  <button className="cart__checkout__button" type="submit">
+                    Checkout
+                  </button>
+                </form>
+                {/* <button className="cart__checkout__button">Checkout</button> */}
               </div>
             </div>
           </div>

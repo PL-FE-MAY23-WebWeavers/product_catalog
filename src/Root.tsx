@@ -14,6 +14,7 @@ import { Cart } from './pages/Cart/Cart';
 import { Tablets } from './pages/Tablets';
 import { Accessories } from './pages/Accessories';
 import { ProductDetailsPage } from './pages/ProductDetailPage/ProductDetailsPage';
+import { Payment } from './components/Payment/Payment';
 
 export const Root = () => (
   <Router>
@@ -36,6 +37,9 @@ export const Root = () => (
         </Route>
         <Route path="cart">
           <Route index element={<Cart />} />
+        </Route>
+        <Route path="payment">
+          <Route index element={<Payment />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
