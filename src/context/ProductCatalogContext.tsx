@@ -25,6 +25,7 @@ type ProductCatalogContextProps = {
   addToFavourites: (phone: FavItem) => void;
   removeFromFavourites: (id: string) => void;
   isFavourite: boolean;
+  emptyCart: () => void;
 };
 
 const ProductCatalogContext = createContext({} as ProductCatalogContextProps);
@@ -109,6 +110,10 @@ export function ProductCatalogProvider({
     );
   };
 
+  const emptyCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <ProductCatalogContext.Provider
       value={{
@@ -121,6 +126,7 @@ export function ProductCatalogProvider({
         addToFavourites,
         removeFromFavourites,
         isFavourite,
+        emptyCart,
       }}
     >
       {children}

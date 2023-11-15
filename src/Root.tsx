@@ -17,6 +17,8 @@ import { Accessories } from './pages/Accessories';
 import { ProductDetailsPage } from './pages/ProductDetailPage/ProductDetailsPage';
 import { UserProfile } from './pages/UserProfile/UserProfile';
 import { ClerkProvider, SignIn } from '@clerk/clerk-react';
+import { Cancelled } from './pages/Payments/Cancelled';
+import { Successful } from './pages/Payments/Successful';
 
 const ClerkProviderWithRoutes = () => {
   const navigate = useNavigate();
@@ -46,6 +48,12 @@ const ClerkProviderWithRoutes = () => {
           </Route>
           <Route path="cart">
             <Route index element={<Cart />} />
+          </Route>
+          <Route path="success">
+            <Route index element={<Successful />} />
+          </Route>
+          <Route path="cancel">
+            <Route index element={<Cancelled />} />
           </Route>
           <Route path="signin">
             <Route index element={<SignIn />} />
