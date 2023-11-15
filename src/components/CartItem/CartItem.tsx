@@ -24,6 +24,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
         <button
           className="cart-item__remove"
           onClick={handleRemoveItem}
+          aria-label="Remove Item"
         ></button>
         <Link to={`/phones/:${item.id}`} className="cart-item__link">
           <img
@@ -40,11 +41,13 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
             className="cart-item__button cart-item__button--decrease"
             onClick={handleDecreaseQuantity}
             disabled={item.quantity === 1}
+            aria-label="Decrease Quantity"
           />
           <div className="cart-item__amount">{item.quantity}</div>
           <button
             className="cart-item__button cart-item__button--increase"
             onClick={handleIncreaseQuantity}
+            aria-label="Increase Quantity"
           />
         </div>
         <div className="cart-item__price">${item.price}</div>

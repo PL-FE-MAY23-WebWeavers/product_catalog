@@ -14,6 +14,21 @@ export const ButtonSlide = ({
   setDisable,
   onClickFunction,
 }: ButtonSlideProps) => {
+  const getAriaLabel = () => {
+    switch (arrow) {
+      case ButtonSlideEnum.up:
+        return 'Slide Up';
+      case ButtonSlideEnum.down:
+        return 'Slide Down';
+      case ButtonSlideEnum.left:
+        return 'Slide Left';
+      case ButtonSlideEnum.right:
+        return 'Slide Right';
+      default:
+        return '';
+    }
+  };
+
   return (
     <div
       onClick={onClickFunction}
@@ -24,6 +39,7 @@ export const ButtonSlide = ({
         'button-slide--right': arrow === ButtonSlideEnum.right,
         'button-slide--disabled': setDisable,
       })}
+      aria-label={getAriaLabel()}
     ></div>
   );
 };

@@ -43,7 +43,12 @@ export const Cart: React.FC = () => {
                   {totalQuantity === 1 ? 'item' : 'items'}
                 </div>
                 <span className="cart__checkout__br"></span>
-                <button className="cart__checkout__button">Checkout</button>
+                <button
+                  className="cart__checkout__button"
+                  aria-label="Proceed to Checkout"
+                >
+                  Checkout
+                </button>
               </div>
             </div>
           </div>

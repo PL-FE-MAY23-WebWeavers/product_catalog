@@ -45,6 +45,7 @@ export const Pagination = () => {
           })}
           onClick={handleBackClick}
           disabled={page === 1}
+          aria-label="Previous Page"
         />
         {pageNums.map((num) => (
           <button
@@ -54,6 +55,7 @@ export const Pagination = () => {
             })}
             key={num}
             onClick={handleClick(num)}
+            aria-label={`Go to Page ${num}`}
           >
             {num}
           </button>
@@ -65,6 +67,7 @@ export const Pagination = () => {
           })}
           onClick={handleForwardClick}
           disabled={page === pageNums.length}
+          aria-label="Next Page"
         />
       </div>
     </div>
