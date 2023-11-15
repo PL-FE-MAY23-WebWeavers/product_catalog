@@ -329,7 +329,7 @@ export const ProductDetailsPage = () => {
                 </div>
               </section>
               <section className="product__like homepage-item__recomend">
-                <CardsSlider title="You may also like" items={phone} id={1} />
+                <CardsSlider title="You may also like" items={phone} />
               </section>
             </div>
           </>

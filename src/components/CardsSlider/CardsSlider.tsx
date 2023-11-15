@@ -1,14 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './cardsSlider.scss';
 import { Phone } from '../../types/Phones';
 import { ButtonSlide } from '../utils/ButtonSlide/ButtonSlide';
 import { ButtonSlideEnum } from '../../types/ButtonSlideEnum';
 import { Card } from '../Card/Card';
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
+import { A11y, Navigation } from 'swiper/modules';
 
 type CardsSliderProps = {
   items: Phone[];
   title: string;
-  id: number; // you should add id if you are using more than one of this component on one site
 };
 
 enum WhichView {
@@ -17,12 +18,10 @@ enum WhichView {
   desktop = 4,
 }
 
-export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
+export const CardsSlider = ({ items, title }: CardsSliderProps) => {
   const slides = [...items];
-  const [current, setCurrent] = useState(0);
-  const length = slides.length;
-  const [whichView, setWhichView] = useState<WhichView | null>(null);
-  const itemsBoardRef = useRef<HTMLDivElement | null>(null);
+  const [whichView, setWhichView] = useState<WhichView>(1.5);
+  const [swiper, setSwiper] = useState<SwiperClass | null>(null);
 
   const handleResize = () => {
     setWhichView(() => {
@@ -45,52 +44,14 @@ export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
   }, []);
 
   const slideLeft = () => {
-    setCurrent((prev) => (prev <= 0 ? 0 : prev - 1));
+    if (swiper) {
+      swiper.slidePrev();
+    }
   };
 
   const slideRight = () => {
-    setCurrent((prev) => (prev === slides.length - 1 ? length - 1 : prev + 1));
-  };
-
-  const slide = () => {
-    let itemWidth;
-
-    if (whichView === WhichView.mobile) {
-      itemWidth = 228;
-    } else if (whichView === WhichView.tablet) {
-      itemWidth = 253;
-    } else {
-      itemWidth = 288;
-    }
-    const newLeft = -current * itemWidth;
-
-    document.documentElement.style.setProperty(
-      `--left-offset-${id}`,
-      `${newLeft}px`
-    );
-  };
-
-  useEffect(() => {
-    slide();
-  }, [whichView, current]);
-
-  const handleRightDisable = () => {
-    if (whichView === WhichView.mobile && length <= WhichView.mobile)
-      return true;
-    if (whichView === WhichView.tablet && length <= WhichView.tablet)
-      return true;
-    if (whichView === WhichView.mobile && length <= WhichView.desktop)
-      return true;
-    if (whichView === WhichView.mobile) {
-      return current === length - 1;
-    } else if (whichView === WhichView.tablet && window.innerWidth <= 722) {
-      return current + 1 === length - 1;
-    } else if (whichView === WhichView.tablet && window.innerWidth >= 1062) {
-      return current + 3 === length - 1;
-    } else if (whichView === WhichView.tablet) {
-      return current + 2 === length - 1;
-    } else {
-      return current + 3 === length - 1;
+    if (swiper) {
+      swiper.slideNext();
     }
   };
 
@@ -100,48 +61,36 @@ export const CardsSlider = ({ items, title, id = 1 }: CardsSliderProps) => {
 
   return (
     <>
-      <section className="slider-models"></section>
       <div className="cards-slider__section">
         <div className="section__title">
           <h2 className="title">{title}</h2>
           <ButtonSlide
             arrow={ButtonSlideEnum.left}
-            setDisable={current === 0}
-            onClickFunction={() => {
-              if (current === 0) return;
-              return slideLeft();
-            }}
+            setDisable={false}
+            onClickFunction={slideLeft}
           />
           <ButtonSlide
             arrow={ButtonSlideEnum.right}
-            setDisable={handleRightDisable()}
-            onClickFunction={() => {
-              if (handleRightDisable()) return;
-              return slideRight();
-            }}
+            setDisable={false}
+            onClickFunction={slideRight}
           />
         </div>
-        <div className="section__items">
-          <div
-            className="items__board"
-            ref={itemsBoardRef}
-            style={{ left: `var(--left-offset-${id}, 0)` }}
-          >
-            {slides.map((slide, index) => {
-              return (
-                <div
-                  className={index === current ? 'slide active' : 'slide'}
-                  key={index}
-                >
-                  <div className="items__item">
-                    <Card item={slide} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
+
+      <Swiper
+        spaceBetween={16}
+        slidesPerView={whichView}
+        modules={[Navigation, A11y]}
+        onSwiper={(swiper: SwiperClass) => setSwiper(swiper)}
+      >
+        {slides.map((slide, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <Card item={slide} />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </>
   );
 };
