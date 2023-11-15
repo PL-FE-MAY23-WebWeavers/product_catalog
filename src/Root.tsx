@@ -15,6 +15,7 @@ import { Cart } from './pages/Cart/Cart';
 import { Tablets } from './pages/Tablets';
 import { Accessories } from './pages/Accessories';
 import { ProductDetailsPage } from './pages/ProductDetailPage/ProductDetailsPage';
+import { UserProfile } from './pages/UserProfile/UserProfile';
 import {
   ClerkProvider,
   SignedIn,
@@ -24,7 +25,6 @@ import {
   SignUp,
   UserButton,
 } from '@clerk/clerk-react';
-import { UserPage } from './components/UserPage/UserPage';
 
 const ClerkProviderWithRoutes = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const ClerkProviderWithRoutes = () => {
             path="user-profile"
             element={
               <SignedIn>
-                <UserPage />
+                <UserProfile />
               </SignedIn>
             }
           />

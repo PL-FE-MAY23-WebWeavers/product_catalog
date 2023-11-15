@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useProductCatalog } from '../../context/ProductCatalogContext';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-import {
-  UserButton,
-  SignedIn,
-  SignedOut,
-  SignIn,
-  useUser,
-} from '@clerk/clerk-react';
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
 import { Logo } from '../Logo/Logo';
 import cn from 'classnames';
 import './header.scss';
@@ -18,20 +12,12 @@ export const Header: React.FC = () => {
   const { width } = useWindowDimensions();
   const { favourites, cartItems } = useProductCatalog();
   const cartCount = cartItems.reduce((prev, next) => prev + next.quantity, 0);
-  const { user } = useUser();
 
-  console.log(user);
   useEffect(() => {
     if (width && width >= 640) {
       setIsMenuOpen(false);
     }
   }, [width]);
-
-  const getInitials = (fullName: string): string => {
-    const names = fullName.split(' ');
-    const initials = names.map((name) => name.charAt(0).toUpperCase());
-    return initials.join('');
-  };
 
   return (
     <header
@@ -104,7 +90,6 @@ export const Header: React.FC = () => {
 
       <div className="header__sub-nav">
         <SignedIn>
-          {/* <UserButton afterSignOutUrl="/" /> */}
           <NavLink
             className="header__ico-link header__ico-link--user-online"
             to="/user-profile"
