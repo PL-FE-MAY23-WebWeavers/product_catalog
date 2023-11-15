@@ -16,15 +16,7 @@ import { Tablets } from './pages/Tablets';
 import { Accessories } from './pages/Accessories';
 import { ProductDetailsPage } from './pages/ProductDetailPage/ProductDetailsPage';
 import { UserProfile } from './pages/UserProfile/UserProfile';
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  RedirectToSignIn,
-  SignIn,
-  SignUp,
-  UserButton,
-} from '@clerk/clerk-react';
+import { ClerkProvider, SignIn } from '@clerk/clerk-react';
 
 const ClerkProviderWithRoutes = () => {
   const navigate = useNavigate();
@@ -58,14 +50,9 @@ const ClerkProviderWithRoutes = () => {
           <Route path="signin">
             <Route index element={<SignIn />} />
           </Route>
-          <Route
-            path="user-profile"
-            element={
-              <SignedIn>
-                <UserProfile />
-              </SignedIn>
-            }
-          />
+          <Route path="user-profile">
+            <Route index element={<UserProfile />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

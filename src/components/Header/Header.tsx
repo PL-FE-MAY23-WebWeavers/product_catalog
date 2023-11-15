@@ -91,14 +91,20 @@ export const Header: React.FC = () => {
       <div className="header__sub-nav">
         <SignedIn>
           <NavLink
-            className="header__ico-link header__ico-link--user-online"
+            className={({ isActive }) =>
+              cn('header__ico-link header__ico-link--user-online', {
+                'header__link--active': isActive,
+              })
+            }
             to="/user-profile"
+            onClick={() => setIsMenuOpen(false)}
           ></NavLink>
         </SignedIn>
         <SignedOut>
           <NavLink
             className="header__ico-link header__ico-link--user"
             to="/signin"
+            onClick={() => setIsMenuOpen(false)}
           ></NavLink>
         </SignedOut>
 
