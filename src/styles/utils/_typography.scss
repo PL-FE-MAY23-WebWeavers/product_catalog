@@ -2,7 +2,7 @@
 @import './mixins';
 
 body {
-  font-family: Mont;
+  font-family: Mont, sans-serif;
 }
 
 code {
@@ -11,7 +11,7 @@ code {
 
 h1 {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -33,7 +33,7 @@ h1 {
 
 h2 {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 800;
@@ -54,7 +54,7 @@ h2 {
 
 h3 {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -75,7 +75,7 @@ h3 {
 
 h4 {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -92,7 +92,7 @@ h4 {
 
 .uppercase {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -103,7 +103,7 @@ h4 {
 
 button {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -112,7 +112,7 @@ button {
 
 p {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -121,7 +121,7 @@ p {
 
 .small-text {
   color: $color-primary-lm;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
