@@ -22,6 +22,7 @@ export const Cart: React.FC = () => {
   });
 
   checkoutValue = checkoutValue.trim();
+
   return (
     <section className="cart">
       <Wrapper>
