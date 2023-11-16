@@ -58,7 +58,11 @@ export const Card: React.FC<CardProps> = ({ item }) => {
 
   return (
     <div className="card card__background">
-      <Link to={`/phones/:${item.itemId}`} className="card card__link">
+      <Link
+        to={`/phones/:${item.itemId}`}
+        className="card card__link"
+        aria-label={`go to ${item.name}`}
+      >
         <img src={BASE_URL + item.image} className="card card__img"></img>
       </Link>
 

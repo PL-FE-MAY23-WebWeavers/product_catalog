@@ -18,7 +18,7 @@ export const ButtonDefault: React.FC<ButtonDefaultProps> = ({
       })}
       onClick={handleAddToCart}
       disabled={itemQuantity > 0}
-      aria-label={itemQuantity > 0 ? 'Item added to cart' : 'Add item to cart'}
+      aria-label={itemQuantity > 0 ? 'Added to cart' : 'Add to cart'}
     >
       {itemQuantity > 0 ? 'Added to cart' : 'Add to cart'}
     </button>

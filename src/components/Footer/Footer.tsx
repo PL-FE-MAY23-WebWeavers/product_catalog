@@ -20,29 +20,40 @@ export const Footer: React.FC = () => {
           <Logo />
         </div>
 
-        <ul className="footer__nav">
-          <Link
-            to="https://PL-FE-MAY23-WebWeavers.github.io/react_phone-catalog/"
+        <nav className="footer__nav">
+          <a
+            href="https://PL-FE-MAY23-WebWeavers.github.io/react_phone-catalog/"
             target="_blank"
-            className={'footer__nav footer__nav-link'}
+            rel="noopener noreferrer"
+            className="footer__nav-link"
+            aria-label="Go to GitHub"
           >
             Github
-          </Link>
+          </a>
 
-          <Link to="/contacts" className={'footer__nav footer__nav-link'}>
+          <Link
+            to="/contacts"
+            className="footer__nav-link"
+            aria-label="Go to Contacts"
+          >
             Contacts
           </Link>
 
-          <Link to="/rights" className={'footer__nav footer__nav-link'}>
+          <Link
+            to="/rights"
+            className="footer__nav-link"
+            aria-label="Go to Rights"
+          >
             Rights
           </Link>
-        </ul>
+        </nav>
 
         <div className="footer__back-to-top">
           <Link
             to={{ pathname }}
             className="footer__back-label"
             onClick={handleScroll}
+            aria-label="back to top"
           >
             Back to top
           </Link>
@@ -51,6 +62,7 @@ export const Footer: React.FC = () => {
             to={{ pathname }}
             className="footer__back-button"
             onClick={handleScroll}
+            aria-label="back to top"
           ></Link>
         </div>
       </div>

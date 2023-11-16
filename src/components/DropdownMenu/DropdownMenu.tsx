@@ -38,8 +38,8 @@ const customStyles: StylesConfig<{ label: string; value: string }, false> = {
     color: state.isSelected
       ? '#313237'
       : state.isFocused
-      ? '#89939A'
-      : '#89939A',
+        ? '#89939A'
+        : '#89939A',
     // '&:hover': {
     //   color: state.isFocused ? '#313237' : '#89939A',
     // },
