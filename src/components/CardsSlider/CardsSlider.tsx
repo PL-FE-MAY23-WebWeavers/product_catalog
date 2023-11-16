@@ -5,7 +5,7 @@ import { ButtonSlide } from '../utils/ButtonSlide/ButtonSlide';
 import { ButtonSlideEnum } from '../../types/ButtonSlideEnum';
 import { Card } from '../Card/Card';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { A11y, Navigation, Mousewheel } from 'swiper/modules';
+import { A11y, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
 
 type CardsSliderProps = {
   items: Phone[];
@@ -80,9 +80,11 @@ export const CardsSlider = ({ items, title }: CardsSliderProps) => {
       <Swiper
         spaceBetween={16}
         slidesPerView={whichView}
-        modules={[Navigation, A11y, Mousewheel]}
+        modules={[Navigation, A11y, Mousewheel, Keyboard]}
         onSwiper={(swiper: SwiperClass) => setSwiper(swiper)}
-        mousewheel
+        mousewheel={true}
+        keyboard={true}
+        cssMode={true}
       >
         {slides.map((slide, index) => {
           return (
