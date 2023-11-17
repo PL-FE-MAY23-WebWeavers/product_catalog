@@ -12,9 +12,9 @@ import { useSliderHook } from '../../hooks/useSliderHook';
 
 export const Slider = () => {
   const images = [
-    'https://webweavers-app.onrender.com/img/banner-phones.png',
-    'https://webweavers-app.onrender.com/img/banner-tablets.png',
-    'https://webweavers-app.onrender.com/img/banner-accessories.png',
+    'https://webweavers-app.onrender.com/img/banner-phones.webp',
+    'https://webweavers-app.onrender.com/img/banner-tablets.webp',
+    'https://webweavers-app.onrender.com/img/banner-accessories.webp',
   ];
   const { isMobileView } = useSliderHook({ images });
 
