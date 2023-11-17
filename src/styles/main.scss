@@ -8,15 +8,15 @@
 
 // to be removed soon
 .main {
-  min-height: calc(100vh - 298px);
+  min-height: calc(100svh - 298px);
   overflow: auto;
 
   @include on-tablet {
-    min-height: calc(100vh - 146px);
+    min-height: calc(100svh - 146px);
   }
 
   @include on-desktop {
-    min-height: calc(100vh - 162px);
+    min-height: calc(100svh - 162px);
   }
 
   &--cart {
