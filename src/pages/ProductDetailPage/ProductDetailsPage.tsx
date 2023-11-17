@@ -140,7 +140,7 @@ export const ProductDetailsPage = () => {
               <div className="product__photo">
                 <img
                   src={BASE_URL + product?.images[selectedImageIndex]}
-                  alt="Product img"
+                  alt={product.name + ' image'}
                 />
               </div>
               <div className="product__photos">

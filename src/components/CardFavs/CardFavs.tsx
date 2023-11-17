@@ -44,7 +44,11 @@ export const CardFavs: React.FC<CardFavsProps> = ({ item }) => {
   return (
     <div className="card card__background">
       <Link to={`/phones/:${item.itemId}`} className="card card__link">
-        <img src={BASE_URL + item.image} className="card card__img"></img>
+        <img
+          src={BASE_URL + item.image}
+          className="card card__img"
+          alt={item.name + ' image'}
+        ></img>
       </Link>
 
       <p className="card card__title">{item.name}</p>
