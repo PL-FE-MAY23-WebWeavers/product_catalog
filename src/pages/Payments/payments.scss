@@ -1,0 +1,34 @@
+@import '../../styles/utils/mixins';
+
+.payments {
+  margin: 25px 0 55px;
+  overflow: hidden;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 80px;
+  }
+
+  &__h1 {
+    margin: 24px 0 30px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__redirect {
+    margin: 24px 0;
+  }
+
+  &__counter {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 700;
+    display: inline-block;
+    padding: 0 10px;
+  }
+}
