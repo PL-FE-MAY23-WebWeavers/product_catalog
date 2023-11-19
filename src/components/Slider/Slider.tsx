@@ -52,19 +52,19 @@ export const Slider = () => {
           <div className="swiper-wrapper">
             <div className="swiper-slide">
               <div className="swipeable-item">
-                <img className="item-img" src={images[0]} />
+                <img className="item-img" src={images[0]} alt="phones" />
               </div>
             </div>
 
             <div className="swiper-slide">
               <div className="swipeable-item">
-                <img className="item-img" src={images[1]} />
+                <img className="item-img" src={images[1]} alt="tablets" />
               </div>
             </div>
 
             <div className="swiper-slide">
               <div className="swipeable-item">
-                <img className="item-img" src={images[2]} />
+                <img className="item-img" src={images[2]} alt="accesories" />
               </div>
             </div>
           </div>
